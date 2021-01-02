@@ -54,7 +54,8 @@ const evaluateDamage = (deck, playerStats, keys) => {
   let totalCost = 0;
   let totalPhysicalAttack = playerStats.weaponlessPAtk;
   let totalMagicalAttack = playerStats.weaponlessMAtk;
-  let totalWeaponMult = 0;
+  let totalPhysicalWeaponMult = 0;
+  let totalMagicalWeaponMult = 0;
   let supportSkillMult = 1;
 
   keys.forEach((k) => {
