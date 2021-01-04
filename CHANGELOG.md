@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ## [0.1.0-beta.2] - Unreleased
-
+### Fixed
+- Add missing protocol in the about page links.
 
 ## [0.1.0-beta.1] - 2021-01-04
 ### Added
