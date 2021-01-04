@@ -266,7 +266,7 @@ const TogglableSection = ({ title, defaultOpen = false, children }) => {
   );
 };
 
-const OptionsForm = ({ options, onOptionsChange }) => (
+const OptionsForm = ({ weapons, options, onOptionsChange }) => (
   <Box>
     <TogglableSection title="Minimum number of elemental weapons">
       <Grid container spacing={1}>
@@ -400,6 +400,13 @@ const OptionsForm = ({ options, onOptionsChange }) => (
         </Grid>
       </Grid>
     </TogglableSection>
+    <TogglableSection title="Pin or filter weapons">
+      <PinAndFilter
+        weapons={weapons}
+        options={options}
+        onOptionsChange={onOptionsChange}
+      />
+    </TogglableSection>
     <TogglableSection title="Optimization type" defaultOpen>
       <Grid container spacing={1}>
         <Grid item xs={12}>
@@ -431,10 +438,119 @@ const OptionsForm = ({ options, onOptionsChange }) => (
   </Box>
 );
 
+
+const WeaponGridCell = ({ index, weapon, onWeaponClick }) => {
+  if (!weapon) {
+    return (
+      <Box className="empty-grid-slot">
+        <Typography align="center">{index + 1}</Typography>
+      </Box>
+    );
+  }
+
+  return (
+    <WeaponImage
+      weapon={weapon}
+      onClick={() => onWeaponClick(weapon)}
+    />
+  );
+}
+
+const PinnedGrid = ({ weapons, onWeaponClick }) => {
+  const grid = weapons.slice();
+  for (let i = weapons.length; i < 20; i++) {
+    grid.push(null);
+  }
+
+  return (
+    <Grid container spacing={2}>
+      {grid.map((weapon, index) => (
+        <Grid item xs="auto" key={index}>
+          <WeaponGridCell
+            index={index}
+            weapon={weapon}
+            onWeaponClick={onWeaponClick}
+          />
+        </Grid>
+      ))}
+    </Grid>
+  );
+}
+
+const PinAndFilter = ({ weapons, options, onOptionsChange }) => {
+  const { excludedWeapons, pinnedWeapons } = options;
+  const pinned = new Set(pinnedWeapons); // shallow-copy
+  const excluded = new Set(excludedWeapons); // shallow-copy
+
+  const aviableWeaps = weapons.filter((w) => !pinned.has(w.id) && !excluded.has(w.id));
+  const pinnedWeaps = weapons.filter((w) => pinned.has(w.id));
+  const excludedWeaps = weapons.filter((w) => excluded.has(w.id));
+
+  const handleAvaliableWeapClick = (e, weapon) => {
+    if (aviableWeaps.length <= 2) {
+      return;
+    }
+
+    if (e.shiftKey) {
+      excluded.add(weapon.id);
+      onOptionsChange({ ...options, excludedWeapons: excluded});
+    } else if (pinnedWeaps.length <= 19) {
+      pinned.add(weapon.id);
+      onOptionsChange({ ...options, pinnedWeapons: pinned});
+    }
+  };
+
+  const removeFromPinned = (weaponId) => {
+    pinned.delete(weaponId);
+    onOptionsChange({ ...options, pinnedWeapons: pinned});
+  };
+
+  const removeFromExcluded = (weaponId) => {
+    excluded.delete(weaponId);
+    onOptionsChange({ ...options, excludedWeapons: excluded});
+  };
+
+  return (
+    <Box>
+      <h5>Available weapons</h5>
+      <Grid container spacing={2}>
+        {aviableWeaps.map((weapon) => (
+          <Grid item xs="auto" key={weapon.id}>
+            <WeaponImage
+              weapon={weapon}
+              onClick={(e) => handleAvaliableWeapClick(e, weapon)}
+            />
+          </Grid>
+        ))}
+      </Grid>
+      <h5>Pinned weapons</h5>
+      <PinnedGrid
+        weapons={pinnedWeaps}
+        onWeaponClick={(weapon) => removeFromPinned(weapon.id)}
+      />
+      {excludedWeaps.length > 0 &&
+        <>
+          <h5>Excluded weapons</h5>
+          <Grid container spacing={2}>
+            {excludedWeaps.map((weapon) => (
+              <Grid item xs="auto" key={weapon.id}>
+                <WeaponImage
+                  weapon={weapon}
+                  onClick={() => removeFromExcluded(weapon.id)}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </>
+      }
+    </Box>
+  );
+};
+
 const OptimizationPage = ({ playerStats, weapons }) => {
   const [optimizer, setOptimizzer] = useState(null);
   const [progress, setProgress] = useState(null);
-  const [optimalGrid, setOptimalGrid] = useState(null);
+  const [optimizationResult, setOptimizationResult] = useState(null);
   const [options, setOptions] = useState({
     singleTarget: false,
     damagePerSP: false,
@@ -456,6 +572,14 @@ const OptimizationPage = ({ playerStats, weapons }) => {
     pinnedWeapons: new Set(),
   });
 
+  const pinnedCount = options.pinnedWeapons.size;
+  const availableWeapCount = weapons.length - options.excludedWeapons.size - pinnedCount;
+  const availableSlotsCount = 20 - pinnedCount;
+
+  const numberOfCombinations = useMemo(() => {
+    return combinations(availableWeapCount, availableSlotsCount).toLocaleString();
+  }, [availableWeapCount, availableSlotsCount]);
+
   useEffect(() => {
     const worker = new Worker('Worker.js');
     worker.onerror = function(e) {
@@ -469,7 +593,7 @@ const OptimizationPage = ({ playerStats, weapons }) => {
           break;
 
         case 'result':
-          setOptimalGrid(message.data);
+          setOptimizationResult(message);
           break;
 
         default:
@@ -480,22 +604,24 @@ const OptimizationPage = ({ playerStats, weapons }) => {
   }, []);
 
   const optimize = () => {
+    const aviableWeapons = weapons.filter((w) => !options.pinnedWeapons.has(w.id) && !options.excludedWeapons.has(w.id));
+    const pinnedWeapons = weapons.filter((w) => options.pinnedWeapons.has(w.id));
+    const deck = pinnedWeapons.concat(aviableWeapons);
+
     setProgress(0);
     optimizer.postMessage({
       command: 'start',
-      deck: buildDeckInfo(false, weapons, playerStats),
+      deck: buildDeckInfo(options.singleTarget, deck, playerStats),
+      pinLength: pinnedWeapons.length,
       playerStats,
-      options: {},
+      options,
     });
   };
-
-  const numberOfCombinations = useMemo(() => {
-    return combinations(weapons.length, 20).toLocaleString();
-  }, [weapons.length]);
 
   return (
     <Box>
       <OptionsForm
+        weapons={weapons}
         options={options}
         onOptionsChange={(opt) => setOptions(opt)}
       />
@@ -514,8 +640,12 @@ const OptimizationPage = ({ playerStats, weapons }) => {
           <LinearProgressWithLabel value={progress * 100} />
         </Box>
       )}
-      { optimalGrid && (
-        <OptimizedWeaponsTable weapons={optimalGrid} />
+      { optimizationResult && (
+        <Box>
+          <h5>Result</h5>
+          <p>Score: <b>{optimizationResult.score.toLocaleString()}</b></p>
+          <OptimizedWeaponsTable weapons={optimizationResult.combo} />
+        </Box>
       )}
     </Box>
   );

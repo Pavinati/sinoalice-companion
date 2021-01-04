@@ -17,12 +17,12 @@ const weaponImageUrl = (weapon) => {
 };
 
 
-const WeaponImage = ({ weapon }) => (
+const WeaponImage = ({ weapon, onClick }) => (
   <img
     className="weapon-icon"
     src={weaponImageUrl(weapon)}
     alt={weapon.name}
-    onClick={() => {console.log(weapon)}}
+    onClick={onClick}
   />
 );
 

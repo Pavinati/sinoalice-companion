@@ -2,3 +2,10 @@
   width: 4em;
   height: 4em;
 }
+
+.empty-grid-slot {
+  width: 4em;
+  height: 4em;
+  border: 1px dashed black;
+  border-radius: 0.4em;
+}

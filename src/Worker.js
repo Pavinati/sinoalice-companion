@@ -99,8 +99,10 @@ const dive = (buffer, i, k, n, callback) => {
   }
 }
 
-const generateCombinations = (deck, playerStats, options, comboLength, scoreFormula) => {
+const generateCombinations = (deck, pinLength, playerStats, options, scoreFormula) => {
   const sourceLength = deck.length;
+  const comboLength = 20 - pinLength;
+
   if (comboLength > sourceLength) {
     return null;
   }
@@ -116,7 +118,8 @@ const generateCombinations = (deck, playerStats, options, comboLength, scoreForm
     return scoreFormula(deck, playerStats, combo, options);
   }
 
-  dive([], 0, comboLength, deck.length, (combo) => {
+  const initialBuffer = [...Array(pinLength).keys()];
+  dive(initialBuffer, pinLength, 20, deck.length, (combo) => {
     const comboDamage = damageEvaluator(combo);
     if (comboDamage > bestDamage) {
       bestCombo = combo.slice(); // clone
@@ -140,21 +143,24 @@ const generateCombinations = (deck, playerStats, options, comboLength, scoreForm
     data: 1,
   });
 
-  return bestCombo;
+  return {
+    score: bestDamage,
+    combo: bestCombo,
+  }
 }
 
 onmessage = function(e) {
   const command = e.data.command;
   if (command === "start") {
-    const { deck, playerStats, options } = e.data;
-    const scoreFormula = true ? evaluateDamagePerSP : evaluateDamage;
-    const gridIndexes = generateCombinations(deck, playerStats, options, 20, scoreFormula);
-    console.log(gridIndexes);
-    const optimalGrid = gridIndexes.map((i) => deck[i]);
+    const { deck, pinLength, playerStats, options } = e.data;
+    const scoreFormula = options.damagePerSP ? evaluateDamagePerSP : evaluateDamage;
+    const { score, combo } = generateCombinations(deck, pinLength, playerStats, options, scoreFormula);
+    const optimalGrid = combo.map((i) => deck[i]);
 
     postMessage({
       type: 'result',
-      data: optimalGrid,
+      combo: optimalGrid,
+      score,
     });
   } else if (command === "examine") {
     const { deck, playerStats, options, gridIndexes } = e.data;
