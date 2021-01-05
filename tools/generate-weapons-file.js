@@ -18,7 +18,7 @@ const parseLine = (line) => {
     // 10: series_id
     name:                   arr[11],
     short_name:             arr[12],
-    // 13: resource_name
+    resource_name:          parseInt(arr[13]),
     // 14: asset_bundle_name
     // 15: card_id
     // 16: role_type
