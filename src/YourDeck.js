@@ -16,29 +16,343 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 
+import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
+import Drawer from '@material-ui/core/Drawer';
 import Grid from '@material-ui/core/Grid';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 
+import { Element, Rarity, WeaponType, StringConverter, isVGWeapon } from './DataConversion.js';
 import FileParser from './FileParser.js';
 import WeaponImage from './WeaponImage.js';
+import weaponsTable from './WeaponsTable.js';
 
-const WeaponsIcons = ({ weapons }) => (
-  <div>
-    <Grid container spacing={2}>
-      {weapons.map((weapon) => (
-        <Grid item xs="auto" key={weapon.id}>
-          <WeaponImage weapon={weapon} />
-        </Grid>
-      ))}
-    </Grid>
-  </div>
-);
+const useStyles = makeStyles((theme) => ({
+  selected: {
+    background: '#5feccba6',
+  },
+}));
+
+const rarities = [
+  Rarity.A,
+  Rarity.S,
+  Rarity.SR,
+  Rarity.L,
+];
+
+const vgWeapons = [
+  WeaponType.SWORD,
+  WeaponType.HAMMER,
+  WeaponType.BOW,
+  WeaponType.POLE,
+]
+
+const elements = [
+  Element.FIRE,
+  Element.WIND,
+  Element.WATER,
+]
+
+const bound = (min, val, max) => {
+  return Math.max(min, Math.min(val, max));
+}
+
+const debounce = (delay, func) => {
+  let timeout = null;
+  return (args) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      timeout = null;
+      func(args);
+    }, delay);
+  };
+};
+
+const FullWeaponsTable = ({fullWeaponList, ownedWeapons, selectedWeaponId, onSelectionChange}) => {
+  const classes = useStyles();
+  const [filters, setFilters] = useState({
+    rarity: 0,
+    name: '',
+    ownership: 0,
+    weaponType: 0,
+    element: 0,
+  });
+
+  const renderedWeapons = fullWeaponList
+    .filter((w) => {
+      const { name, ownership, weaponType, element, rarity } = filters;
+      if (ownership === 'Owned' && !w.owned) {
+        return false;
+      }
+
+      if (ownership === 'Not Owned' && w.owned) {
+        return false;
+      }
+
+      if (weaponType && weaponType !== w.card_detail_type) {
+        return false;
+      }
+
+      if (element && element !== w.attribute) {
+        return false;
+      }
+
+      if (rarity && rarity !== w.rarity) {
+        return false;
+      }
+
+      if (name.length > 2) {
+        const s1 = name.toLowerCase();
+        const s2 = w.name.toLowerCase();
+        if (!s2.includes(s1)) {
+          return false;
+        }
+      }
+
+      return true;
+    })
+    .slice(0, 50);
+
+  return (
+    <Table aria-label="weapons table">
+      <TableHead>
+        <TableRow>
+          <TableCell>Icon</TableCell>
+          <TableCell>Name</TableCell>
+          <TableCell>Type</TableCell>
+          <TableCell>Element</TableCell>
+          <TableCell>Owned</TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        <TableRow>
+            <TableCell>
+              <Select
+                id="weapon-rarity-select"
+                value={filters.rarity}
+                onChange={(e) => setFilters({...filters, rarity: e.target.value})}
+              >
+                <MenuItem value={0}>Any</MenuItem>
+                {rarities.map((rar) => (
+                  <MenuItem value={rar}>{StringConverter.rarity(rar)}</MenuItem>
+                ))}
+              </Select>
+            </TableCell>
+            <TableCell>
+              <TextField
+                value={filters.name}
+                onChange={(e) => setFilters({...filters, name: e.target.value})}
+              />
+            </TableCell>
+            <TableCell>
+              <Select
+                id="weapon-type-select"
+                value={filters.weaponType}
+                onChange={(e) => setFilters({...filters, weaponType: e.target.value})}
+              >
+                <MenuItem value={0}>Any</MenuItem>
+                {vgWeapons.map((wType) => (
+                  <MenuItem value={wType}>{StringConverter.weaponType(wType)}</MenuItem>
+                ))}
+              </Select>
+            </TableCell>
+            <TableCell>
+              <Select
+                id="weapon-element-select"
+                value={filters.element}
+                onChange={(e) => setFilters({...filters, element: e.target.value})}
+              >
+                <MenuItem value={0}>Any</MenuItem>
+                {elements.map((ele) => (
+                  <MenuItem value={ele}>{StringConverter.element(ele)}</MenuItem>
+                ))}
+              </Select>
+            </TableCell>
+            <TableCell>
+              <Select
+                id="weapon-ownership-select"
+                value={filters.ownership}
+                onChange={(e) => setFilters({...filters, ownership: e.target.value})}
+              >
+                <MenuItem value={0}>Any</MenuItem>
+                <MenuItem value={'Owned'}>Owned</MenuItem>
+                <MenuItem value={'Not owned'}>Not owned</MenuItem>
+              </Select>
+            </TableCell>
+        </TableRow>
+        {renderedWeapons.map((weapon) => (
+          <TableRow
+            className={weapon.id === selectedWeaponId ? classes.selected : ''}
+            key={weapon.id}
+            onClick={() => onSelectionChange(weapon)}
+          >
+            <TableCell>
+              <WeaponImage weapon={weapon} />
+            </TableCell>
+            <TableCell>{weapon.name}</TableCell>
+            <TableCell>{StringConverter.weaponType(weapon.card_detail_type)}</TableCell>
+            <TableCell>{StringConverter.element(weapon.attribute)}</TableCell>
+            <TableCell>{weapon.owned ? 'Yes' : 'No'}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  );
+};
+
+const SelectedWeaponDrawer = ({ ownedWeapons, selectedWeaponId, onWeaponsChange }) => {
+  const [weapData, setWeapData] = useState({});
+  const weaponInfo = selectedWeaponId ? weaponsTable[selectedWeaponId] : null;
+  const ownedWeapon = selectedWeaponId ? ownedWeapons.find(w => w.id === selectedWeaponId) : null;
+
+  const attemptSync = useCallback(debounce(1000,
+    (newData) => {
+      if (!ownedWeapon) {
+        console.log("critical error");
+        return;
+      }
+
+      if (newData.limit_breaks) {
+        const newLB = parseInt(newData.limit_breaks);
+        if (newLB) {
+          ownedWeapon.limit_breaks = bound(0, newLB, 4);
+        }
+      }
+
+      if (newData.level) {
+        const newLevel = parseInt(newData.level);
+        if (newLevel) {
+          ownedWeapon.level = bound(1, newLevel, 120);
+        }
+      }
+
+      if (newData.skill_level) {
+        const newSkillLevel = parseInt(newData.skill_level);
+        if (newSkillLevel) {
+          ownedWeapon.skill_level = bound(1, newSkillLevel, 20);
+        }
+      }
+
+      if (newData.support_skill_level) {
+        const newSupportSkillLevel = parseInt(newData.support_skill_level);
+        if (newSupportSkillLevel) {
+          ownedWeapon.support_skill_level = bound(1, newSupportSkillLevel, 20);
+        }
+      }
+
+      setWeapData({});
+    }
+  ), [ownedWeapon])
+
+  if (!selectedWeaponId) {
+    return null;
+  }
+
+  if (!ownedWeapon) {
+    return (
+      <Box m={2}>
+        <h4>{weaponInfo.name}</h4>
+        <p>Weapon not owned.</p>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => {
+            const newWeap = {
+              id: weaponInfo.id,
+              name: weaponInfo.name,
+              limit_breaks: 0,
+              level: 1,
+              skill_level: 1,
+              support_skill_level: 1,
+            };
+            onWeaponsChange([...ownedWeapons, newWeap])
+            setWeapData({});
+          }}
+        >
+          Add weapon to library
+        </Button>
+      </Box>
+    );
+  }
+
+  return (
+    <Box m={2}>
+      <h4>{ownedWeapon.name}</h4>
+      <Box>
+        <TextField
+          label="Limit breaks"
+          value={weapData.limit_breaks || ownedWeapon.limit_breaks}
+          onChange={(e) => {
+            const newData = {...weapData, limit_breaks: e.target.value};
+            setWeapData(newData);
+            attemptSync(newData);
+          }}
+        />
+      </Box>
+      <Box>
+        <TextField
+          label="Level"
+          value={weapData.level || ownedWeapon.level}
+          onChange={(e) => {
+            const newData = {...weapData, level: e.target.value};
+            setWeapData(newData);
+            attemptSync(newData);
+          }}
+        />
+      </Box>
+      <Box>
+        <TextField
+          label="Skill level"
+          value={weapData.skill_level || ownedWeapon.skill_level}
+          onChange={(e) => {
+            const newData = {...weapData, skill_level: e.target.value};
+            setWeapData(newData);
+            attemptSync(newData);
+          }}
+        />
+      </Box>
+      <Box>
+        <TextField
+          label="Support skill level"
+          value={weapData.support_skill_level || ownedWeapon.support_skill_level}
+          onChange={(e) => {
+            const newData = {...weapData, support_skill_level: e.target.value};
+            setWeapData(newData);
+            attemptSync(newData);
+          }}
+        />
+      </Box>
+      <Box mt={2}>
+        <Button
+          variant="contained"
+          color="secondary"
+          onClick={() => {
+            const updatedWeapons = ownedWeapons.filter(w => w.id !== selectedWeaponId);
+            onWeaponsChange(updatedWeapons);
+            setWeapData({});
+          }}
+        >
+          Remove from library
+        </Button>
+      </Box>
+    </Box>
+  );
+};
 
 const YourDeck = ({ weapons, onWeaponsChange }) => {
-  const [showDeck, setShowDeck] = useState(true);
+  const [selectedWeaponId, setSelectedWeaponId] = useState(null);
+  const [fullWeaponList, setFullWeaponList] = useState([]);
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
@@ -49,6 +363,24 @@ const YourDeck = ({ weapons, onWeaponsChange }) => {
       },
     });
   };
+
+  const ownedIDs = useMemo(() => {
+    return new Set(weapons.map(w => w.id));
+  }, [weapons]);
+
+  useEffect(() => {
+    const newList =  Object.values(weaponsTable)
+      .map((val) => ({
+        id: val.id,
+        name: val.name,
+        attribute: val.attribute,
+        rarity: val.rarity,
+        card_detail_type: val.card_detail_type,
+        owned: ownedIDs.has(val.id),
+      }))
+      .filter(isVGWeapon);
+    setFullWeaponList(newList);
+  }, [ownedIDs]);
 
   return (
     <Grid container spacing={3}>
@@ -70,24 +402,21 @@ const YourDeck = ({ weapons, onWeaponsChange }) => {
           />
         </Button>
       </Grid>
-      { weapons.length !== 0 && (
-        <Grid item xs="auto">
-          <Button
-            variant="contained"
-            onClick={() => setShowDeck(!showDeck)}
-          >
-            { showDeck ? 'Hide deck' : 'Show deck' }
-          </Button>
-        </Grid>
-      )}
-      { weapons.length !== 0 && showDeck && (
-        <Grid item xs={12}>
-          <WeaponsIcons weapons={weapons} />
-        </Grid>
-      )}
+      <FullWeaponsTable
+        fullWeaponList={fullWeaponList}
+        ownedWeapons={weapons}
+        selectedWeaponId={selectedWeaponId}
+        onSelectionChange={(weapon) => setSelectedWeaponId(weapon.id)}
+      />
+      <Drawer anchor="right" open={selectedWeaponId != null} onClose={() => setSelectedWeaponId(null)}>
+        <SelectedWeaponDrawer
+          ownedWeapons={weapons}
+          selectedWeaponId={selectedWeaponId}
+          onWeaponsChange={onWeaponsChange}
+        />
+      </Drawer>
     </Grid>
   );
 };
 
 export default YourDeck;
-
