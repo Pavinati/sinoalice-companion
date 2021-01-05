@@ -16,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+import { useCallback, useState } from 'react';
 import weaponsTable from './WeaponsTable.js';
 
 const weaponImageUrl = (weaponId) => {
@@ -24,14 +25,25 @@ const weaponImageUrl = (weaponId) => {
   return `https://sinoalice.picobin.com/cards/cards${stringId}.png`
 };
 
+const WeaponImage = ({ weapon, onClick }) => {
+  const [retryCount, setRetryCount] = useState(0);
+  const onError = useCallback(() => {
+    setTimeout(() => {
+      setRetryCount((prevCount) => prevCount + 1);
+    }, 3000)
+  }, []);
 
-const WeaponImage = ({ weapon, onClick }) => (
-  <img
-    className="weapon-icon"
-    src={weaponImageUrl(weapon.id)}
-    alt={weapon.name}
-    onClick={onClick}
-  />
-);
+  return (
+    <img
+      key={`t${retryCount}`}
+      className="weapon-icon"
+      loading="lazy"
+      src={weaponImageUrl(weapon.id)}
+      alt={weapon.name}
+      onClick={onClick}
+      onError={onError}
+    />
+  );
+}
 
 export default WeaponImage;

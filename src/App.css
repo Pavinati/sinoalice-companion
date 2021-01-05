@@ -26,4 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   height: 4em;
   border: 1px dashed black;
   border-radius: 0.4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
