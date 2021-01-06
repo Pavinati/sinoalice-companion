@@ -24,16 +24,6 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
 const YourStats = ({ playerStats, onPlayerStatsChange }) => {
-  const {
-    weaponlessPAtk = 0,
-    weaponlessMAtk = 0,
-    weaponlessPDef = 0,
-    weaponlessMDef = 0,
-    job = 'breaker',
-    jobLevel = 'std',
-    maxCost = 0,
-  } = playerStats;
-
   return (
     <form
       id="player_stats_form"
@@ -50,7 +40,7 @@ const YourStats = ({ playerStats, onPlayerStatsChange }) => {
           <Select
             labelId="job-select-label"
             id="job-select"
-            value={job}
+            value={playerStats.job}
             onChange={(e) => onPlayerStatsChange({...playerStats, job: e.target.value})}
           >
             <MenuItem value='breaker'>Breaker</MenuItem>
@@ -64,7 +54,7 @@ const YourStats = ({ playerStats, onPlayerStatsChange }) => {
           <Select
             labelId="job-level-select-label"
             id="job-level-select"
-            value={jobLevel}
+            value={playerStats.jobLevel}
             onChange={(e) => onPlayerStatsChange({...playerStats, jobLevel: e.target.value})}
           >
             <MenuItem value='std'>Standard (+10%)</MenuItem>
@@ -76,8 +66,8 @@ const YourStats = ({ playerStats, onPlayerStatsChange }) => {
           <TextField
             id="max_cost"
             label="Max cost"
-            value={maxCost}
-            onChange={(e) => onPlayerStatsChange({...playerStats, maxCost: parseInt(e.target.value)})}
+            value={playerStats.maxCost}
+            onChange={(e) => onPlayerStatsChange({...playerStats, maxCost: parseInt(e.target.value) || 0})}
           />
         </Grid>
       </Grid>
@@ -86,32 +76,32 @@ const YourStats = ({ playerStats, onPlayerStatsChange }) => {
           <TextField
             id="weaponless_p_atk"
             label="Weaponless P.Atk"
-            value={weaponlessPAtk}
-            onChange={(e) => onPlayerStatsChange({...playerStats, weaponlessPAtk: parseInt(e.target.value)})}
+            value={playerStats.weaponlessPAtk}
+            onChange={(e) => onPlayerStatsChange({...playerStats, weaponlessPAtk: parseInt(e.target.value) || 0})}
           />
         </Grid>
         <Grid item xs>
           <TextField
             id="weaponless_m_atk"
             label="Weaponless M.Atk"
-            value={weaponlessMAtk}
-            onChange={(e) => onPlayerStatsChange({...playerStats, weaponlessMAtk: parseInt(e.target.value)})}
+            value={playerStats.weaponlessMAtk}
+            onChange={(e) => onPlayerStatsChange({...playerStats, weaponlessMAtk: parseInt(e.target.value) || 0})}
           />
         </Grid>
         <Grid item xs>
           <TextField
             id="weaponless_p_def"
             label="Weaponless P.Def"
-            value={weaponlessPDef}
-            onChange={(e) => onPlayerStatsChange({...playerStats, weaponlessPDef: parseInt(e.target.value)})}
+            value={playerStats.weaponlessPDef}
+            onChange={(e) => onPlayerStatsChange({...playerStats, weaponlessPDef: parseInt(e.target.value) || 0})}
           />
         </Grid>
         <Grid item xs>
           <TextField
             id="weaponless_m_def"
             label="Weaponless M.Def"
-            value={weaponlessMDef}
-            onChange={(e) => onPlayerStatsChange({...playerStats, weaponlessMDef: parseInt(e.target.value)})}
+            value={playerStats.weaponlessMDef}
+            onChange={(e) => onPlayerStatsChange({...playerStats, weaponlessMDef: parseInt(e.target.value) || 0})}
           />
         </Grid>
       </Grid>

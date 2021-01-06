@@ -100,7 +100,15 @@ const App = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [showMenu, setShowMenu] = useState(true);
-  const [playerStats, setPlayerStats] = useState({});
+  const [playerStats, setPlayerStats] = useState({
+    weaponlessPAtk: 0,
+    weaponlessMAtk: 0,
+    weaponlessPDef: 0,
+    weaponlessMDef: 0,
+    job: 'breaker',
+    jobLevel: 'std',
+    maxCost: 0,
+  });
   const [weapons, setWeapons] = useState([]);
 
   useEffect(() => {
