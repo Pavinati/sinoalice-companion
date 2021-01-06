@@ -30,7 +30,7 @@ function combinations(n, r) {
   return factorial(n) / (factorial(r) * factorial(n-r));
 }
 
-const evaluateDamagePerSP = (deck, playerStats, keys) => {
+const evaluateDamagePerSP = (deck, playerStats, options, keys) => {
   let totalCost = 0;
   let totalSPCost = 0;
   let totalPhysicalAttack = playerStats.weaponlessPAtk;
@@ -58,9 +58,8 @@ const evaluateDamagePerSP = (deck, playerStats, keys) => {
     return 0;
   }
 
-  // TODO use parameters
-  const enemyPDef = 41000;
-  const enemyMDef = 41000;
+  const enemyPDef = options.targetPDef;
+  const enemyMDef = options.targetMDef;
   const effectivePAtk = totalPhysicalAttack - (2 * enemyPDef / 3);
   const effectiveMAtk = totalMagicalAttack - (2 * enemyMDef / 3);
 
@@ -68,7 +67,7 @@ const evaluateDamagePerSP = (deck, playerStats, keys) => {
   return damage / totalSPCost;
 };
 
-const evaluateDamage = (deck, playerStats, keys) => {
+const evaluateDamage = (deck, playerStats, options, keys) => {
   let totalCost = 0;
   let totalPhysicalAttack = playerStats.weaponlessPAtk;
   let totalMagicalAttack = playerStats.weaponlessMAtk;
@@ -94,9 +93,8 @@ const evaluateDamage = (deck, playerStats, keys) => {
     return 0;
   }
 
-  // TODO use parameters
-  const enemyPDef = 41000;
-  const enemyMDef = 41000;
+  const enemyPDef = options.targetPDef;
+  const enemyMDef = options.targetMDef;
   const effectivePAtk = totalPhysicalAttack - (2 * enemyPDef / 3);
   const effectiveMAtk = totalMagicalAttack - (2 * enemyMDef / 3);
 
@@ -133,7 +131,7 @@ const generateCombinations = (deck, pinLength, playerStats, options, scoreFormul
   let bestDamage = 0;
 
   const damageEvaluator = (combo) => {
-    return scoreFormula(deck, playerStats, combo, options);
+    return scoreFormula(deck, playerStats, options, combo);
   }
 
   const initialBuffer = [...Array(pinLength).keys()];
