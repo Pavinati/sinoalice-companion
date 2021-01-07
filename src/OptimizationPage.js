@@ -22,6 +22,11 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import Collapse from '@material-ui/core/Collapse';
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogActions from '@material-ui/core/DialogActions';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Grid from '@material-ui/core/Grid';
 import LinearProgress from '@material-ui/core/LinearProgress';
@@ -67,6 +72,8 @@ const POLE = 8;
 
 const PHYSICAL = 1;
 const MAGICAL = 2;
+
+const HIGH_COMBINATION_NUMBER = 200_000_000;
 
 const aoeMultiplier = (targets) => {
   return (1 + targets) / 2;
@@ -600,6 +607,7 @@ const OptimizationPage = ({ playerStats, weapons }) => {
   const [optimizer, setOptimizzer] = useState(null);
   const [progress, setProgress] = useState(null);
   const [optimizationResult, setOptimizationResult] = useState(null);
+  const [showHighComboAlert, setShowHighComboAlert] = useState(false);
   const [options, setOptions] = useState({
     singleTarget: false,
     damagePerSP: false,
@@ -628,8 +636,12 @@ const OptimizationPage = ({ playerStats, weapons }) => {
   const availableSlotsCount = maxWeaponsNumber - pinnedCount;
 
   const numberOfCombinations = useMemo(() => {
-    return combinations(availableWeapCount, availableSlotsCount).toLocaleString();
+    return combinations(availableWeapCount, availableSlotsCount);
   }, [availableWeapCount, availableSlotsCount]);
+
+  const formattedNumberOfCombinations = useMemo(() => {
+    return numberOfCombinations.toLocaleString();
+  }, [numberOfCombinations]);
 
   useEffect(() => {
     const worker = new Worker('Worker.js');
@@ -654,6 +666,10 @@ const OptimizationPage = ({ playerStats, weapons }) => {
     setOptimizzer(worker);
   }, []);
 
+  const closeHighComboAlert = () => {
+    setShowHighComboAlert(false);
+  };
+
   const optimize = () => {
     const aviableWeapons = weapons.filter((w) => !options.pinnedWeapons.has(w.id) && !options.excludedWeapons.has(w.id));
     const pinnedWeapons = weapons.filter((w) => options.pinnedWeapons.has(w.id));
@@ -676,12 +692,18 @@ const OptimizationPage = ({ playerStats, weapons }) => {
         options={options}
         onOptionsChange={(opt) => setOptions(opt)}
       />
-      <p>Number of possible combinations : {numberOfCombinations}</p>
+      <p>Number of possible combinations : {formattedNumberOfCombinations}</p>
       { progress == null ? (
         <Button
           variant="contained"
           color="primary"
-          onClick={optimize}
+          onClick={() => {
+            if (numberOfCombinations < HIGH_COMBINATION_NUMBER) {
+              optimize();
+            } else {
+              setShowHighComboAlert(true);
+            }
+          }}
         >
           Optimize
         </Button>
@@ -694,6 +716,39 @@ const OptimizationPage = ({ playerStats, weapons }) => {
       { optimizationResult && (
         <ResultBox combo={optimizationResult.combo} score={optimizationResult.score} />
       )}
+      <Dialog
+        open={showHighComboAlert}
+        onClose={closeHighComboAlert}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">Possible high execution times</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            The amount of possible grid combinations to analyze is pretty high.
+            Depending on your CPU power and browser available resources this may take some time.
+            If that&apos;s not intended, consider pinning or exluding some weapons from the pool of available candidates.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            color="primary"
+            onClick={closeHighComboAlert}
+            autoFocus
+          >
+            Cancel
+          </Button>
+          <Button
+            color="primary"
+            onClick={() => {
+              closeHighComboAlert();
+              optimize();
+            }}
+          >
+            Optimize
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };
