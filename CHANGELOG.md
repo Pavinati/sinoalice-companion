@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.1.0-beta.2] - Unreleased
 ### Added
 - Error feedback when no valid weapon combination found.
+- Option to optimize for 19 weapons grids.
 ### Fixed
 - Add missing protocol in the about page links.
 

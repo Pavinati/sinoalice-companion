@@ -451,6 +451,18 @@ const OptionsForm = ({ weapons, options, onOptionsChange }) => (
             label="Maximise for single target damage"
           />
         </Grid>
+        <Grid item xs={12}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={options.maximize19}
+                onChange={(e) => onOptionsChange({...options, maximize19: e.target.checked})}
+                name="maximize19"
+              />
+            }
+            label="Maximize for 19 weapons grid"
+          />
+        </Grid>
       </Grid>
     </TogglableSection>
   </Box>
@@ -591,6 +603,7 @@ const OptimizationPage = ({ playerStats, weapons }) => {
   const [options, setOptions] = useState({
     singleTarget: false,
     damagePerSP: false,
+    maximize19: false,
     defWeight: 0,
     targetPDef: 40000,
     targetMDef: 40000,
@@ -611,7 +624,8 @@ const OptimizationPage = ({ playerStats, weapons }) => {
 
   const pinnedCount = options.pinnedWeapons.size;
   const availableWeapCount = weapons.length - options.excludedWeapons.size - pinnedCount;
-  const availableSlotsCount = 20 - pinnedCount;
+  const maxWeaponsNumber = options.maximize19 ? 19 : 20;
+  const availableSlotsCount = maxWeaponsNumber - pinnedCount;
 
   const numberOfCombinations = useMemo(() => {
     return combinations(availableWeapCount, availableSlotsCount).toLocaleString();

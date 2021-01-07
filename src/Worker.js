@@ -116,8 +116,9 @@ const dive = (buffer, i, k, n, callback) => {
 }
 
 const generateCombinations = (deck, pinLength, playerStats, options, scoreFormula) => {
+  const maxWeaponsNumber = options.maximize19 ? 19 : 20;
   const sourceLength = deck.length;
-  const comboLength = 20 - pinLength;
+  const comboLength = maxWeaponsNumber - pinLength;
 
   if (comboLength > sourceLength) {
     return null;
@@ -135,7 +136,7 @@ const generateCombinations = (deck, pinLength, playerStats, options, scoreFormul
   }
 
   const initialBuffer = [...Array(pinLength).keys()];
-  dive(initialBuffer, pinLength, 20, deck.length, (combo) => {
+  dive(initialBuffer, pinLength, maxWeaponsNumber, deck.length, (combo) => {
     const comboDamage = damageEvaluator(combo);
     if (comboDamage > bestDamage) {
       bestCombo = combo.slice(); // clone
