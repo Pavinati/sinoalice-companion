@@ -171,13 +171,21 @@ onmessage = function(e) {
     const { deck, pinLength, playerStats, options } = e.data;
     const scoreFormula = options.damagePerSP ? evaluateDamagePerSP : evaluateDamage;
     const { score, combo } = generateCombinations(deck, pinLength, playerStats, options, scoreFormula);
-    const optimalGrid = combo.map((i) => deck[i]);
 
-    postMessage({
-      type: 'result',
-      combo: optimalGrid,
-      score,
-    });
+    if (combo) {
+      const optimalGrid = combo.map((i) => deck[i]);
+
+      postMessage({
+        type: 'result',
+        combo: optimalGrid,
+        score,
+      });
+    } else {
+      postMessage({
+        type: 'result',
+        msg: 'no combination met the criteria',
+      });
+    }
   } else if (command === "examine") {
     const { deck, playerStats, options, gridIndexes } = e.data;
     gridIndexes.forEach((i) => console.log(`${i}: ${deck[i].name}`));

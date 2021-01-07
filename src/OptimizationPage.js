@@ -565,6 +565,25 @@ const PinAndFilter = ({ weapons, options, onOptionsChange }) => {
   );
 };
 
+const ResultBox = ({combo, score}) => {
+  if (!combo) {
+    return (
+      <Box>
+        <h5>No valid combination possible.</h5>
+        <p>Cost too low for selected weapons or not enough weapons matching current filters</p>
+      </Box>
+    );
+  }
+
+  return (
+    <Box>
+      <h5>Result</h5>
+      <p>Score: <b>{score.toLocaleString()}</b></p>
+      <OptimizedWeaponsTable weapons={combo} />
+    </Box>
+  );
+};
+
 const OptimizationPage = ({ playerStats, weapons }) => {
   const [optimizer, setOptimizzer] = useState(null);
   const [progress, setProgress] = useState(null);
@@ -659,11 +678,7 @@ const OptimizationPage = ({ playerStats, weapons }) => {
         </Box>
       )}
       { optimizationResult && (
-        <Box>
-          <h5>Result</h5>
-          <p>Score: <b>{optimizationResult.score.toLocaleString()}</b></p>
-          <OptimizedWeaponsTable weapons={optimizationResult.combo} />
-        </Box>
+        <ResultBox combo={optimizationResult.combo} score={optimizationResult.score} />
       )}
     </Box>
   );
