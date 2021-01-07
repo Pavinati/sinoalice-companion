@@ -18,6 +18,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { useState, useEffect, useMemo } from 'react';
 
+import { makeStyles } from '@material-ui/core/styles';
+
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -30,6 +32,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Grid from '@material-ui/core/Grid';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import Popover from '@material-ui/core/Popover';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -48,6 +51,12 @@ import skillMultiplierTable from './SkillMultiplierTable.js';
 import skillMultiplierTable2 from './SkillMultiplierTable2.js';
 import weaponsTable from './WeaponsTable.js';
 import { combinations } from './MathUtils.js';
+
+const useStyles = makeStyles((theme) => ({
+  popover: {
+    pointerEvents: 'none',
+  },
+}));
 
 // Data mappings
 /*
@@ -214,6 +223,73 @@ const LinearProgressWithLabel = (props) => {
         )}%`}</Typography>
       </Box>
     </Box>
+  );
+};
+
+const WeaponImageWithPopover = (attrs) => {
+  const { weapon, ...otherAttrs } = attrs;
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [delayTimer, setDelayTimer] = useState(null);
+
+  const handlePopoverOpen = (e) => {
+    if (!delayTimer) {
+      const timer = setTimeout(() => {
+        setAnchorEl(e.target);
+      }, 1000);
+      setDelayTimer(timer);
+    }
+  };
+
+  const handlePopoverClose = () => {
+    if (delayTimer) {
+      clearInterval(delayTimer);
+      setDelayTimer(null);
+    }
+    setAnchorEl(null);
+  };
+
+  const showPopover = Boolean(anchorEl);
+  const htmlId = `weapon-${weapon.id}-mouse-over-popover`;
+
+  const wInfo = weaponsTable[weapon.id];
+  const mainSkill = skillMultiplierTable[wInfo.back_skill_id];
+  const supportSkill = skillMultiplierTable2[wInfo.auto_skill_id];
+
+  return (
+    <div>
+      <WeaponImage
+        {...otherAttrs}
+        weapon={weapon}
+        aria-owns={showPopover ? htmlId : undefined}
+        aria-haspopup="true"
+        onMouseEnter={handlePopoverOpen}
+        onMouseLeave={handlePopoverClose}
+      />
+      <Popover
+        className={classes.popover}
+        id={htmlId}
+        open={showPopover}
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        onClose={handlePopoverClose}
+        disableRestoreFocus
+      >
+        <Box p={1}>
+          <Typography variant="h5">{weapon.name}</Typography>
+          <Typography>Level {weapon.level}</Typography>
+          <Typography>{mainSkill.name}: {weapon.skill_level}</Typography>
+          <Typography>{supportSkill.name}: {weapon.support_skill_level}</Typography>
+        </Box>
+      </Popover>
+    </div>
   );
 };
 
@@ -553,7 +629,7 @@ const PinAndFilter = ({ weapons, options, onOptionsChange }) => {
       <Grid container spacing={2}>
         {aviableWeaps.map((weapon) => (
           <Grid item xs="auto" key={weapon.id}>
-            <WeaponImage
+            <WeaponImageWithPopover
               weapon={weapon}
               onClick={(e) => handleAvaliableWeapClick(e, weapon)}
             />

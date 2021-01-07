@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Error feedback when no valid weapon combination found.
 - Option to optimize for 19 weapons grids.
 - Alert when trying to optimize with more than 200,000,000 possible combinations.
+- Tooltips showing weapon details on mouse over.
 ### Fixed
 - Add missing protocol in the about page links.
 

@@ -25,7 +25,8 @@ const weaponImageUrl = (weaponId) => {
   return `https://sinoalice.picobin.com/cards/cards${stringId}.png`
 };
 
-const WeaponImage = ({ weapon, onClick }) => {
+const WeaponImage = (attrs) => {
+  const { weapon, ...otherAttrs } = attrs;
   const [retryCount, setRetryCount] = useState(0);
   const onError = useCallback(() => {
     setTimeout(() => {
@@ -35,12 +36,12 @@ const WeaponImage = ({ weapon, onClick }) => {
 
   return (
     <img
+      {...otherAttrs}
       key={`t${retryCount}`}
       className="weapon-icon"
       loading="lazy"
       src={weaponImageUrl(weapon.id)}
       alt={weapon.name}
-      onClick={onClick}
       onError={onError}
     />
   );
