@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Box from '@material-ui/core/Box';
@@ -67,17 +67,6 @@ const elements = [
 const bound = (min, val, max) => {
   return Math.max(min, Math.min(val, max));
 }
-
-const debounce = (delay, func) => {
-  let timeout = null;
-  return (args) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      timeout = null;
-      func(args);
-    }, delay);
-  };
-};
 
 const FullWeaponsTable = ({fullWeaponList, ownedWeapons, selectedWeaponId, onSelectionChange}) => {
   const classes = useStyles();
@@ -212,48 +201,9 @@ const FullWeaponsTable = ({fullWeaponList, ownedWeapons, selectedWeaponId, onSel
 };
 
 const SelectedWeaponDrawer = ({ ownedWeapons, selectedWeaponId, onWeaponsChange }) => {
-  const [weapData, setWeapData] = useState({});
   const weaponInfo = selectedWeaponId ? weaponsTable[selectedWeaponId] : null;
   const ownedWeapon = selectedWeaponId ? ownedWeapons.find(w => w.id === selectedWeaponId) : null;
-
-  const attemptSync = useCallback(debounce(1000,
-    (newData) => {
-      if (!ownedWeapon) {
-        console.log("critical error");
-        return;
-      }
-
-      if (newData.limit_breaks) {
-        const newLB = parseInt(newData.limit_breaks);
-        if (newLB) {
-          ownedWeapon.limit_breaks = bound(0, newLB, 4);
-        }
-      }
-
-      if (newData.level) {
-        const newLevel = parseInt(newData.level);
-        if (newLevel) {
-          ownedWeapon.level = bound(1, newLevel, 120);
-        }
-      }
-
-      if (newData.skill_level) {
-        const newSkillLevel = parseInt(newData.skill_level);
-        if (newSkillLevel) {
-          ownedWeapon.skill_level = bound(1, newSkillLevel, 20);
-        }
-      }
-
-      if (newData.support_skill_level) {
-        const newSupportSkillLevel = parseInt(newData.support_skill_level);
-        if (newSupportSkillLevel) {
-          ownedWeapon.support_skill_level = bound(1, newSupportSkillLevel, 20);
-        }
-      }
-
-      setWeapData({});
-    }
-  ), [ownedWeapon])
+  const [renderCount, forceRender] = useState(true); // used to rerender after editing objects // TODO remove this hack
 
   if (!selectedWeaponId) {
     return null;
@@ -277,7 +227,6 @@ const SelectedWeaponDrawer = ({ ownedWeapons, selectedWeaponId, onWeaponsChange 
               support_skill_level: 1,
             };
             onWeaponsChange([...ownedWeapons, newWeap])
-            setWeapData({});
           }}
         >
           Add weapon to library
@@ -292,44 +241,44 @@ const SelectedWeaponDrawer = ({ ownedWeapons, selectedWeaponId, onWeaponsChange 
       <Box>
         <TextField
           label="Limit breaks"
-          value={weapData.limit_breaks || ownedWeapon.limit_breaks}
+          value={ownedWeapon.limit_breaks}
           onChange={(e) => {
-            const newData = {...weapData, limit_breaks: e.target.value};
-            setWeapData(newData);
-            attemptSync(newData);
+            const newLB = parseInt(e.target.value);
+            ownedWeapon.limit_breaks = bound(0, newLB, 4) || 0;
+            forceRender(renderCount+1);
           }}
         />
       </Box>
       <Box>
         <TextField
           label="Level"
-          value={weapData.level || ownedWeapon.level}
+          value={ownedWeapon.level}
           onChange={(e) => {
-            const newData = {...weapData, level: e.target.value};
-            setWeapData(newData);
-            attemptSync(newData);
+            const newLevel = parseInt(e.target.value);
+            ownedWeapon.level = bound(1, newLevel, 120) || 1;
+            forceRender(renderCount+1);
           }}
         />
       </Box>
       <Box>
         <TextField
           label="Skill level"
-          value={weapData.skill_level || ownedWeapon.skill_level}
+          value={ownedWeapon.skill_level}
           onChange={(e) => {
-            const newData = {...weapData, skill_level: e.target.value};
-            setWeapData(newData);
-            attemptSync(newData);
+            const newSkillLevel = parseInt(e.target.value);
+            ownedWeapon.skill_level = bound(1, newSkillLevel, 20) || 1;
+            forceRender(renderCount+1);
           }}
         />
       </Box>
       <Box>
         <TextField
           label="Support skill level"
-          value={weapData.support_skill_level || ownedWeapon.support_skill_level}
+          value={ownedWeapon.support_skill_level}
           onChange={(e) => {
-            const newData = {...weapData, support_skill_level: e.target.value};
-            setWeapData(newData);
-            attemptSync(newData);
+            const newSupportSkillLevel = parseInt(e.target.value);
+            ownedWeapon.support_skill_level = bound(1, newSupportSkillLevel, 20) || 1;
+            forceRender(renderCount+1);
           }}
         />
       </Box>
@@ -340,7 +289,6 @@ const SelectedWeaponDrawer = ({ ownedWeapons, selectedWeaponId, onWeaponsChange 
           onClick={() => {
             const updatedWeapons = ownedWeapons.filter(w => w.id !== selectedWeaponId);
             onWeaponsChange(updatedWeapons);
-            setWeapData({});
           }}
         >
           Remove from library
