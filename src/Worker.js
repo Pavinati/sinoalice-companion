@@ -1,3 +1,4 @@
+/* global BigInt */
 /*
 SINoALICE companion
 Copyright (C) 2021 Pavij
@@ -16,19 +17,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+import { combinations } from './MathUtils.js';
+
 const PHYSICAL = 1;
-
-function factorial(n) {
-  let result = BigInt(1);
-  for (let i = BigInt(2); i <= n; i++) {
-    result *= i;
-  }
-  return result;
-}
-
-function combinations(n, r) {
-  return factorial(n) / (factorial(r) * factorial(n-r));
-}
 
 const evaluateDamagePerSP = (deck, playerStats, options, keys) => {
   let totalCost = 0;
@@ -103,7 +94,7 @@ const evaluateDamage = (deck, playerStats, options, keys) => {
 };
 
 const dive = (buffer, i, k, n, callback) => {
-  if (buffer.length == k) {
+  if (buffer.length === k) {
     callback(buffer);
     return;
   }
@@ -145,7 +136,7 @@ const generateCombinations = (deck, pinLength, playerStats, options, scoreFormul
 
     i++;
     const newProgress = Number(i * 100n / max) / 100;
-    if (newProgress != progress) {
+    if (newProgress !== progress) {
       // cache progress to avoid flooding messaged
       progress = newProgress;
       postMessage({

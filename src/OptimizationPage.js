@@ -44,6 +44,7 @@ import Typography from '@material-ui/core/Typography';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 
+import OptimizationWorker from "worker-loader!./Worker.js"; // eslint-disable-line import/no-webpack-loader-syntax
 import WeaponImage from './WeaponImage.js';
 
 // data
@@ -720,7 +721,7 @@ const OptimizationPage = ({ playerStats, weapons }) => {
   }, [numberOfCombinations]);
 
   useEffect(() => {
-    const worker = new Worker('Worker.js');
+    const worker = new OptimizationWorker();
     worker.onerror = function(e) {
       console.log(e.message);
     }
