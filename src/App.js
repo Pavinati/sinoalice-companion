@@ -100,7 +100,15 @@ const App = () => {
   const classes = useStyles();
   const theme = useTheme();
   const [showMenu, setShowMenu] = useState(true);
-  const [playerStats, setPlayerStats] = useState({});
+  const [playerStats, setPlayerStats] = useState({
+    weaponlessPAtk: 0,
+    weaponlessMAtk: 0,
+    weaponlessPDef: 0,
+    weaponlessMDef: 0,
+    job: 'breaker',
+    jobLevel: 'std',
+    maxCost: 0,
+  });
   const [weapons, setWeapons] = useState([]);
 
   useEffect(() => {
@@ -154,7 +162,7 @@ const App = () => {
             </IconButton>
             <Typography variant="h5">Pavij&apos;s SINoALICE companion</Typography>
             <Box ml={1}>
-              <Typography variant="small">v0.1 (BETA)</Typography>
+              <Typography variant="caption">v0.1 (BETA)</Typography>
             </Box>
           </Toolbar>
         </AppBar>

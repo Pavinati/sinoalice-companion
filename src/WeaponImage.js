@@ -16,32 +16,35 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-const weaponImageId = (id) => {
-  switch (id) {
-    case 989:
-      return 575;
+import { useCallback, useState } from 'react';
+import weaponsTable from './WeaponsTable.js';
 
-    case 990:
-      return 576;
-
-    default:
-      return id;
-  }
+const weaponImageUrl = (weaponId) => {
+  const resourceId = weaponsTable[weaponId].resource_name;
+  const stringId = resourceId.toString().padStart(4, '0');
+  return `https://sinoalice.picobin.com/cards/cards${stringId}.png`
 };
 
-const weaponImageUrl = (weapon) => {
-  const stringId = weaponImageId(weapon.id).toString().padStart(4, '0');
-  return `https://sinoalice.game-db.tw/images/card/CardS${stringId}.png`
-};
+const WeaponImage = (attrs) => {
+  const { weapon, ...otherAttrs } = attrs;
+  const [retryCount, setRetryCount] = useState(0);
+  const onError = useCallback(() => {
+    setTimeout(() => {
+      setRetryCount((prevCount) => prevCount + 1);
+    }, 3000)
+  }, []);
 
-
-const WeaponImage = ({ weapon, onClick }) => (
-  <img
-    className="weapon-icon"
-    src={weaponImageUrl(weapon)}
-    alt={weapon.name}
-    onClick={onClick}
-  />
-);
+  return (
+    <img
+      {...otherAttrs}
+      key={`t${retryCount}`}
+      className="weapon-icon"
+      loading="lazy"
+      src={weaponImageUrl(weapon.id)}
+      alt={weapon.name}
+      onError={onError}
+    />
+  );
+}
 
 export default WeaponImage;

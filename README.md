@@ -8,6 +8,10 @@ This project is a tool to help SINo players to build their grid and optimize it
 - Save data locally
 - Build-optimizer
 
+## Changelog
+
+see the [changelog](./CHANGELOG.md)
+
 ## Latest version
 
 This project is still in beta, but you can try it out here [https://sinoalicecompanion.pavij.tk/](http://sinoalicecompanion.pavij.tk/)

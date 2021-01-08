@@ -1,3 +1,4 @@
+/* global BigInt */
 /*
 SINoALICE companion
 Copyright (C) 2021 Pavij
@@ -16,21 +17,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+import { combinations } from './MathUtils.js';
+
 const PHYSICAL = 1;
 
-function factorial(n) {
-  let result = BigInt(1);
-  for (let i = BigInt(2); i <= n; i++) {
-    result *= i;
-  }
-  return result;
-}
-
-function combinations(n, r) {
-  return factorial(n) / (factorial(r) * factorial(n-r));
-}
-
-const evaluateDamagePerSP = (deck, playerStats, keys) => {
+const evaluateDamagePerSP = (deck, playerStats, options, keys) => {
   let totalCost = 0;
   let totalSPCost = 0;
   let totalPhysicalAttack = playerStats.weaponlessPAtk;
@@ -58,9 +49,8 @@ const evaluateDamagePerSP = (deck, playerStats, keys) => {
     return 0;
   }
 
-  // TODO use parameters
-  const enemyPDef = 41000;
-  const enemyMDef = 41000;
+  const enemyPDef = options.targetPDef;
+  const enemyMDef = options.targetMDef;
   const effectivePAtk = totalPhysicalAttack - (2 * enemyPDef / 3);
   const effectiveMAtk = totalMagicalAttack - (2 * enemyMDef / 3);
 
@@ -68,7 +58,7 @@ const evaluateDamagePerSP = (deck, playerStats, keys) => {
   return damage / totalSPCost;
 };
 
-const evaluateDamage = (deck, playerStats, keys) => {
+const evaluateDamage = (deck, playerStats, options, keys) => {
   let totalCost = 0;
   let totalPhysicalAttack = playerStats.weaponlessPAtk;
   let totalMagicalAttack = playerStats.weaponlessMAtk;
@@ -94,9 +84,8 @@ const evaluateDamage = (deck, playerStats, keys) => {
     return 0;
   }
 
-  // TODO use parameters
-  const enemyPDef = 41000;
-  const enemyMDef = 41000;
+  const enemyPDef = options.targetPDef;
+  const enemyMDef = options.targetMDef;
   const effectivePAtk = totalPhysicalAttack - (2 * enemyPDef / 3);
   const effectiveMAtk = totalMagicalAttack - (2 * enemyMDef / 3);
 
@@ -105,7 +94,7 @@ const evaluateDamage = (deck, playerStats, keys) => {
 };
 
 const dive = (buffer, i, k, n, callback) => {
-  if (buffer.length == k) {
+  if (buffer.length === k) {
     callback(buffer);
     return;
   }
@@ -118,8 +107,9 @@ const dive = (buffer, i, k, n, callback) => {
 }
 
 const generateCombinations = (deck, pinLength, playerStats, options, scoreFormula) => {
+  const maxWeaponsNumber = options.maximize19 ? 19 : 20;
   const sourceLength = deck.length;
-  const comboLength = 20 - pinLength;
+  const comboLength = maxWeaponsNumber - pinLength;
 
   if (comboLength > sourceLength) {
     return null;
@@ -133,11 +123,11 @@ const generateCombinations = (deck, pinLength, playerStats, options, scoreFormul
   let bestDamage = 0;
 
   const damageEvaluator = (combo) => {
-    return scoreFormula(deck, playerStats, combo, options);
+    return scoreFormula(deck, playerStats, options, combo);
   }
 
   const initialBuffer = [...Array(pinLength).keys()];
-  dive(initialBuffer, pinLength, 20, deck.length, (combo) => {
+  dive(initialBuffer, pinLength, maxWeaponsNumber, deck.length, (combo) => {
     const comboDamage = damageEvaluator(combo);
     if (comboDamage > bestDamage) {
       bestCombo = combo.slice(); // clone
@@ -146,7 +136,7 @@ const generateCombinations = (deck, pinLength, playerStats, options, scoreFormul
 
     i++;
     const newProgress = Number(i * 100n / max) / 100;
-    if (newProgress != progress) {
+    if (newProgress !== progress) {
       // cache progress to avoid flooding messaged
       progress = newProgress;
       postMessage({
@@ -173,13 +163,21 @@ onmessage = function(e) {
     const { deck, pinLength, playerStats, options } = e.data;
     const scoreFormula = options.damagePerSP ? evaluateDamagePerSP : evaluateDamage;
     const { score, combo } = generateCombinations(deck, pinLength, playerStats, options, scoreFormula);
-    const optimalGrid = combo.map((i) => deck[i]);
 
-    postMessage({
-      type: 'result',
-      combo: optimalGrid,
-      score,
-    });
+    if (combo) {
+      const optimalGrid = combo.map((i) => deck[i]);
+
+      postMessage({
+        type: 'result',
+        combo: optimalGrid,
+        score,
+      });
+    } else {
+      postMessage({
+        type: 'result',
+        msg: 'no combination met the criteria',
+      });
+    }
   } else if (command === "examine") {
     const { deck, playerStats, options, gridIndexes } = e.data;
     gridIndexes.forEach((i) => console.log(`${i}: ${deck[i].name}`));

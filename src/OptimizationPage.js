@@ -18,13 +18,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { useState, useEffect, useMemo } from 'react';
 
+import { makeStyles } from '@material-ui/core/styles';
+
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import Collapse from '@material-ui/core/Collapse';
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogActions from '@material-ui/core/DialogActions';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Grid from '@material-ui/core/Grid';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import Popover from '@material-ui/core/Popover';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -36,6 +44,7 @@ import Typography from '@material-ui/core/Typography';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 
+import OptimizationWorker from "worker-loader!./Worker.js"; // eslint-disable-line import/no-webpack-loader-syntax
 import WeaponImage from './WeaponImage.js';
 
 // data
@@ -43,6 +52,12 @@ import skillMultiplierTable from './SkillMultiplierTable.js';
 import skillMultiplierTable2 from './SkillMultiplierTable2.js';
 import weaponsTable from './WeaponsTable.js';
 import { combinations } from './MathUtils.js';
+
+const useStyles = makeStyles((theme) => ({
+  popover: {
+    pointerEvents: 'none',
+  },
+}));
 
 // Data mappings
 /*
@@ -67,6 +82,8 @@ const POLE = 8;
 
 const PHYSICAL = 1;
 const MAGICAL = 2;
+
+const HIGH_COMBINATION_NUMBER = 200_000_000;
 
 const aoeMultiplier = (targets) => {
   return (1 + targets) / 2;
@@ -207,6 +224,73 @@ const LinearProgressWithLabel = (props) => {
         )}%`}</Typography>
       </Box>
     </Box>
+  );
+};
+
+const WeaponImageWithPopover = (attrs) => {
+  const { weapon, ...otherAttrs } = attrs;
+  const classes = useStyles();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [delayTimer, setDelayTimer] = useState(null);
+
+  const handlePopoverOpen = (e) => {
+    if (!delayTimer) {
+      const timer = setTimeout(() => {
+        setAnchorEl(e.target);
+      }, 1000);
+      setDelayTimer(timer);
+    }
+  };
+
+  const handlePopoverClose = () => {
+    if (delayTimer) {
+      clearInterval(delayTimer);
+      setDelayTimer(null);
+    }
+    setAnchorEl(null);
+  };
+
+  const showPopover = Boolean(anchorEl);
+  const htmlId = `weapon-${weapon.id}-mouse-over-popover`;
+
+  const wInfo = weaponsTable[weapon.id];
+  const mainSkill = skillMultiplierTable[wInfo.back_skill_id];
+  const supportSkill = skillMultiplierTable2[wInfo.auto_skill_id];
+
+  return (
+    <div>
+      <WeaponImage
+        {...otherAttrs}
+        weapon={weapon}
+        aria-owns={showPopover ? htmlId : undefined}
+        aria-haspopup="true"
+        onMouseEnter={handlePopoverOpen}
+        onMouseLeave={handlePopoverClose}
+      />
+      <Popover
+        className={classes.popover}
+        id={htmlId}
+        open={showPopover}
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        onClose={handlePopoverClose}
+        disableRestoreFocus
+      >
+        <Box p={1}>
+          <Typography variant="h5">{weapon.name}</Typography>
+          <Typography>Level {weapon.level}</Typography>
+          <Typography>{mainSkill.name}: {weapon.skill_level}</Typography>
+          <Typography>{supportSkill.name}: {weapon.support_skill_level}</Typography>
+        </Box>
+      </Popover>
+    </div>
   );
 };
 
@@ -451,6 +535,18 @@ const OptionsForm = ({ weapons, options, onOptionsChange }) => (
             label="Maximise for single target damage"
           />
         </Grid>
+        <Grid item xs={12}>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={options.maximize19}
+                onChange={(e) => onOptionsChange({...options, maximize19: e.target.checked})}
+                name="maximize19"
+              />
+            }
+            label="Maximize for 19 weapons grid"
+          />
+        </Grid>
       </Grid>
     </TogglableSection>
   </Box>
@@ -534,7 +630,7 @@ const PinAndFilter = ({ weapons, options, onOptionsChange }) => {
       <Grid container spacing={2}>
         {aviableWeaps.map((weapon) => (
           <Grid item xs="auto" key={weapon.id}>
-            <WeaponImage
+            <WeaponImageWithPopover
               weapon={weapon}
               onClick={(e) => handleAvaliableWeapClick(e, weapon)}
             />
@@ -565,13 +661,34 @@ const PinAndFilter = ({ weapons, options, onOptionsChange }) => {
   );
 };
 
+const ResultBox = ({combo, score}) => {
+  if (!combo) {
+    return (
+      <Box>
+        <h5>No valid combination possible.</h5>
+        <p>Cost too low for selected weapons or not enough weapons matching current filters</p>
+      </Box>
+    );
+  }
+
+  return (
+    <Box>
+      <h5>Result</h5>
+      <p>Score: <b>{score.toLocaleString()}</b></p>
+      <OptimizedWeaponsTable weapons={combo} />
+    </Box>
+  );
+};
+
 const OptimizationPage = ({ playerStats, weapons }) => {
   const [optimizer, setOptimizzer] = useState(null);
   const [progress, setProgress] = useState(null);
   const [optimizationResult, setOptimizationResult] = useState(null);
+  const [showHighComboAlert, setShowHighComboAlert] = useState(false);
   const [options, setOptions] = useState({
     singleTarget: false,
     damagePerSP: false,
+    maximize19: false,
     defWeight: 0,
     targetPDef: 40000,
     targetMDef: 40000,
@@ -592,14 +709,19 @@ const OptimizationPage = ({ playerStats, weapons }) => {
 
   const pinnedCount = options.pinnedWeapons.size;
   const availableWeapCount = weapons.length - options.excludedWeapons.size - pinnedCount;
-  const availableSlotsCount = 20 - pinnedCount;
+  const maxWeaponsNumber = options.maximize19 ? 19 : 20;
+  const availableSlotsCount = maxWeaponsNumber - pinnedCount;
 
   const numberOfCombinations = useMemo(() => {
-    return combinations(availableWeapCount, availableSlotsCount).toLocaleString();
+    return combinations(availableWeapCount, availableSlotsCount);
   }, [availableWeapCount, availableSlotsCount]);
 
+  const formattedNumberOfCombinations = useMemo(() => {
+    return numberOfCombinations.toLocaleString();
+  }, [numberOfCombinations]);
+
   useEffect(() => {
-    const worker = new Worker('Worker.js');
+    const worker = new OptimizationWorker();
     worker.onerror = function(e) {
       console.log(e.message);
     }
@@ -620,6 +742,10 @@ const OptimizationPage = ({ playerStats, weapons }) => {
     }
     setOptimizzer(worker);
   }, []);
+
+  const closeHighComboAlert = () => {
+    setShowHighComboAlert(false);
+  };
 
   const optimize = () => {
     const aviableWeapons = weapons.filter((w) => !options.pinnedWeapons.has(w.id) && !options.excludedWeapons.has(w.id));
@@ -643,12 +769,18 @@ const OptimizationPage = ({ playerStats, weapons }) => {
         options={options}
         onOptionsChange={(opt) => setOptions(opt)}
       />
-      <p>Number of possible combinations : {numberOfCombinations}</p>
+      <p>Number of possible combinations : {formattedNumberOfCombinations}</p>
       { progress == null ? (
         <Button
           variant="contained"
           color="primary"
-          onClick={optimize}
+          onClick={() => {
+            if (numberOfCombinations < HIGH_COMBINATION_NUMBER) {
+              optimize();
+            } else {
+              setShowHighComboAlert(true);
+            }
+          }}
         >
           Optimize
         </Button>
@@ -659,12 +791,41 @@ const OptimizationPage = ({ playerStats, weapons }) => {
         </Box>
       )}
       { optimizationResult && (
-        <Box>
-          <h5>Result</h5>
-          <p>Score: <b>{optimizationResult.score.toLocaleString()}</b></p>
-          <OptimizedWeaponsTable weapons={optimizationResult.combo} />
-        </Box>
+        <ResultBox combo={optimizationResult.combo} score={optimizationResult.score} />
       )}
+      <Dialog
+        open={showHighComboAlert}
+        onClose={closeHighComboAlert}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">Possible high execution times</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            The amount of possible grid combinations to analyze is pretty high.
+            Depending on your CPU power and browser available resources this may take some time.
+            If that&apos;s not intended, consider pinning or exluding some weapons from the pool of available candidates.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            color="primary"
+            onClick={closeHighComboAlert}
+            autoFocus
+          >
+            Cancel
+          </Button>
+          <Button
+            color="primary"
+            onClick={() => {
+              closeHighComboAlert();
+              optimize();
+            }}
+          >
+            Optimize
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 };
