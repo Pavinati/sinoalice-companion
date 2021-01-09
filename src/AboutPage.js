@@ -21,8 +21,9 @@ import Box from '@material-ui/core/Box';
 const AboutPage = () => (
   <Box>
     <p>Made by Pavij (Pavij#9569)</p>
-    <p>If you like what i do and you want to contribute or support my work, feel free to join me on <a href="https://www.patreon.com/pavij" target="_blank" rel="noreferrer">Patreon</a></p>
+    <p>Version 0.1-beta2 (2021/01/08)</p>
     <p>For any bug, question or feedback, please open an issue on <a href="https://github.com/Pavinati/sinoalice-companion" target="_blank" rel="noreferrer">GitHub</a></p>
+    <p>If you like what i do and you want to contribute or support my work, feel free to join me on <a href="https://www.patreon.com/pavij" target="_blank" rel="noreferrer">Patreon</a></p>
 
     <h4>Credits</h4>
     <p>Thanks to <a href="https://sinoalice.game-db.tw" target="_blank" rel="noreferrer">sinoalice db</a> for the weapon images and stats.</p>

@@ -51,8 +51,8 @@ const evaluateDamagePerSP = (deck, playerStats, options, keys) => {
 
   const enemyPDef = options.targetPDef;
   const enemyMDef = options.targetMDef;
-  const effectivePAtk = totalPhysicalAttack - (2 * enemyPDef / 3);
-  const effectiveMAtk = totalMagicalAttack - (2 * enemyMDef / 3);
+  const effectivePAtk = Math.max(0, totalPhysicalAttack - (2 * enemyPDef / 3));
+  const effectiveMAtk = Math.max(0, totalMagicalAttack - (2 * enemyMDef / 3));
 
   const damage = (effectivePAtk * totalPhysicalWeaponMult + effectiveMAtk * totalMagicalWeaponMult)* supportSkillMult;
   return damage / totalSPCost;

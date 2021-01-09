@@ -238,7 +238,7 @@ const SelectedWeaponDrawer = ({ ownedWeapons, selectedWeaponId, onWeaponsChange 
   return (
     <Box m={2}>
       <h4>{ownedWeapon.name}</h4>
-      <Box>
+      <Box mb={1}>
         <TextField
           label="Limit breaks"
           value={ownedWeapon.limit_breaks}
@@ -249,9 +249,9 @@ const SelectedWeaponDrawer = ({ ownedWeapons, selectedWeaponId, onWeaponsChange 
           }}
         />
       </Box>
-      <Box>
+      <Box mb={1}>
         <TextField
-          label="Level"
+          label="Weapon level"
           value={ownedWeapon.level}
           onChange={(e) => {
             const newLevel = parseInt(e.target.value);
@@ -260,7 +260,7 @@ const SelectedWeaponDrawer = ({ ownedWeapons, selectedWeaponId, onWeaponsChange 
           }}
         />
       </Box>
-      <Box>
+      <Box mb={1}>
         <TextField
           label="Skill level"
           value={ownedWeapon.skill_level}
@@ -271,7 +271,7 @@ const SelectedWeaponDrawer = ({ ownedWeapons, selectedWeaponId, onWeaponsChange 
           }}
         />
       </Box>
-      <Box>
+      <Box mb={2}>
         <TextField
           label="Support skill level"
           value={ownedWeapon.support_skill_level}
@@ -282,7 +282,7 @@ const SelectedWeaponDrawer = ({ ownedWeapons, selectedWeaponId, onWeaponsChange 
           }}
         />
       </Box>
-      <Box mt={2}>
+      <Box>
         <Button
           variant="contained"
           color="secondary"
