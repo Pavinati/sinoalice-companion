@@ -16,23 +16,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-const SWORD = 5;
-const HAMMER = 6;
-const BOW = 7;
-const POLE = 8;
-
-const isVGWeapon = (weapon) => {
-  switch (weapon.weapon_type) {
-    case SWORD:
-    case HAMMER:
-    case BOW:
-    case POLE:
-      return true;
-
-    default:
-      return false;
-  }
-};
+import { isVGWeaponType } from './DataConversion.js';
+import weaponsTable from './WeaponsTable.js';
 
 function toBool(str) {
   return str === 'TRUE';
@@ -54,8 +39,7 @@ const parseLine = (line) => {
     support_skill_level: toInt(arr[6]),
     unused:              toBool(arr[7]),
     id:                  toInt(arr[34]),
-    weapon_type:         toInt(arr[41]),
-  }
+  };
 };
 
 const parseBlueLibraryCSV = ({ file, onParseFinish }) => {
@@ -66,7 +50,18 @@ const parseBlueLibraryCSV = ({ file, onParseFinish }) => {
           .split('\n')
           .slice(2)
           .map(parseLine)
-          .filter(weap => weap.name !== '' && isVGWeapon(weap));
+          .filter(weap => {
+            if (!weap || weap.name === '') {
+              return false;
+            }
+
+            const weaponInfo = weaponsTable[weap.id];
+            if (!weaponInfo) {
+              return false;
+            }
+
+            return isVGWeaponType(weaponInfo.card_detail_type);
+          });
 
     onParseFinish(weaps);
   };

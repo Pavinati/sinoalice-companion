@@ -52,183 +52,22 @@ import skillMultiplierTable from './SkillMultiplierTable.js';
 import skillMultiplierTable2 from './SkillMultiplierTable2.js';
 import weaponsTable from './WeaponsTable.js';
 import { combinations } from './MathUtils.js';
+import {
+  aoeMultiplier,
+  skillLevelMultiplier,
+  supportSkillDamageMultiplier,
+  classBonuses,
+  maxPossibleSkillLevel,
+  weaponDamageType,
+} from './DataConversion.js';
+
+const HIGH_COMBINATION_NUMBER = 200_000_000;
 
 const useStyles = makeStyles((theme) => ({
   popover: {
     pointerEvents: 'none',
   },
 }));
-
-// Data mappings
-/*
-const FIRE = 1;
-const WATER = 2;
-const WIND = 3;
-
-const A = 3;
-const S = 4;
-const SR = 5;
-const L = 6;
-*/
-
-//const HARP = 1;
-//const BOOK = 2;
-const ORB = 3;
-//const STAFF = 4;
-const SWORD = 5;
-const HAMMER = 6;
-const BOW = 7;
-const POLE = 8;
-
-const PHYSICAL = 1;
-const MAGICAL = 2;
-
-const HIGH_COMBINATION_NUMBER = 200_000_000;
-
-const aoeMultiplier = (targets) => {
-  return (1 + targets) / 2;
-}
-
-const skillLevelMultiplier = (level) => {
-  if (level >= 20) {
-    return 1.5;
-  } else {
-    return 1 + (level - 1) * 0.025
-  }
-}
-
-const dcActivationChance = (level) => {
-  let bonus;
-  if (level >= 20) {
-    bonus = 2;
-  } else if (level >= 15) {
-    bonus = 1;
-  } else {
-    bonus = 0;
-  }
-
-  return 0.04 + (level - 1 + bonus) * 0.005;
-}
-
-const dcDamageMultiplier = (dcLevel, level) => {
-  const baseMultiplier = dcLevel === 1 ? 0.10 : 0.15;
-
-  let bonus;
-  if (level >= 20) {
-    bonus = 1;
-  } else {
-    bonus = 0;
-  }
-
-  return baseMultiplier * (1 + (level - 1 + bonus) * 0.025);
-}
-
-const supportSkillDamageChance = (skill, level) => {
-  switch (skill.id) {
-    case 972:
-    case 1032:
-      return dcActivationChance(level);
-
-    default:
-      return 0;
-  }
-}
-
-const supportSkillDamageMult = (skill, level) => {
-  switch (skill.id) {
-    case 972:
-      return dcDamageMultiplier(2, level);
-
-    case 1032:
-      return dcDamageMultiplier(1, level);
-
-    default:
-      return 0;
-  }
-}
-
-const weaponDamageType = (weaponType) => {
-  switch (weaponType) {
-    case SWORD:
-    case HAMMER:
-      return PHYSICAL;
-
-    case ORB:
-    case BOW:
-    case POLE:
-      return MAGICAL;
-
-    default:
-      throw new Error('Invalid damaging weapon type');
-  }
-}
-
-const weaponSpeciality = (job) => {
-  // returns [special, neutral, bad1, bad2]
-  switch (job) {
-    case "breaker":
-      return [SWORD, POLE, HAMMER, BOW];
-
-    case "crusher":
-      return [HAMMER, BOW, POLE, SWORD];
-
-    case "gunner":
-      return [BOW, HAMMER, SWORD, POLE];
-
-    case "paladin":
-      return [POLE, SWORD, HAMMER, BOW];
-
-    default:
-      throw new Error("Input error, unexpected job found");
-  }
-}
-
-const classMultiplier = (jobLevel) => {
-  // returns [bonus, malus]
-  switch (jobLevel) {
-    case "std":
-      return [1.1, 1];
-
-    case "hnm1":
-      return [1.30, 0.25];
-
-    case "hnm2":
-      return [1.35, 0.25];
-
-    default:
-      throw new Error("Input error, unexpected job level found");
-  }
-}
-
-const classBonuses = (job, jobLevel) => {
-  const [special, neutral, bad1, bad2] = weaponSpeciality(job);
-  const [bonus, malus] = classMultiplier(jobLevel);
-  return {
-    [special]: bonus,
-    [neutral]: 1,
-    [bad1]: malus,
-    [bad2]: malus,
-  }
-}
-
-const maxPossibleSkillLevel = (limitBreakCount) => {
-  switch (limitBreakCount) {
-    case 1:
-      return 16;
-
-    case 2:
-      return 17;
-
-    case 3:
-      return 18;
-
-    case 4:
-      return 20;
-
-    default:
-      return 15;
-  }
-};
 
 const LinearProgressWithLabel = (props) => {
   return (
@@ -343,7 +182,7 @@ const OptimizedWeaponsTable = ({ weapons }) => {
 
 const buildDeckInfo = (options, deck, playerStats) => {
   const { maximizeForSingleTarget, maxSkillLevels } = options;
-  const jobBonus = classBonuses(playerStats.job, playerStats.jobLevel);
+  const classBonus = classBonuses(playerStats.classType, playerStats.classLevel);
 
   return deck.map((w) => {
     const wInfo = weaponsTable[w.id];
@@ -360,8 +199,8 @@ const buildDeckInfo = (options, deck, playerStats) => {
       m_atk: wInfo.max_m_atk - wInfo.add_m_atk * (wInfo.max_level - w.level),
       p_def: wInfo.max_p_def - wInfo.add_p_def * (wInfo.max_level - w.level),
       m_def: wInfo.max_m_def - wInfo.add_m_def * (wInfo.max_level - w.level),
-      skill_mult: mainSkill.damage_mult * skillLevelMultiplier(skillLevel) * targetMultiplier * jobBonus[wInfo.card_detail_type],
-      supp_skill_mult: 1 + supportSkillDamageChance(supportSkill, supportSkillLevel) * supportSkillDamageMult(supportSkill, supportSkillLevel),
+      skill_mult: mainSkill.damage_mult * skillLevelMultiplier(skillLevel) * targetMultiplier * classBonus[wInfo.card_detail_type],
+      supp_skill_mult: supportSkillDamageMultiplier(supportSkill, supportSkillLevel),
       cost: wInfo.deck_cost,
       sp_cost: mainSkill.sp_cost,
       element: wInfo.attribute,
