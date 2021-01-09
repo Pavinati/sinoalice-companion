@@ -211,6 +211,24 @@ const classBonuses = (job, jobLevel) => {
   }
 }
 
+const maxPossibleSkillLevel = (limitBreakCount) => {
+  switch (limitBreakCount) {
+    case 1:
+      return 16;
+
+    case 2:
+      return 17;
+
+    case 3:
+      return 18;
+
+    case 4:
+      return 20;
+
+    default:
+      return 15;
+  }
+};
 
 const LinearProgressWithLabel = (props) => {
   return (
@@ -323,7 +341,8 @@ const OptimizedWeaponsTable = ({ weapons }) => {
   );
 };
 
-const buildDeckInfo = (maximizeForSingleTarget, deck, playerStats) => {
+const buildDeckInfo = (options, deck, playerStats) => {
+  const { maximizeForSingleTarget, maxSkillLevels } = options;
   const jobBonus = classBonuses(playerStats.job, playerStats.jobLevel);
 
   return deck.map((w) => {
@@ -331,6 +350,9 @@ const buildDeckInfo = (maximizeForSingleTarget, deck, playerStats) => {
     const mainSkill = skillMultiplierTable[wInfo.back_skill_id];
     const supportSkill = skillMultiplierTable2[wInfo.auto_skill_id];
     const targetMultiplier = maximizeForSingleTarget ? 1 : aoeMultiplier(mainSkill.range_icon);
+    const maxSkillLevel = maxPossibleSkillLevel(w.limit_breaks);
+    const skillLevel = maxSkillLevels ? maxSkillLevel : w.skill_level;
+    const supportSkillLevel = maxSkillLevels ? maxSkillLevel : w.support_skill_level;
 
     return {
       ...w,
@@ -338,8 +360,8 @@ const buildDeckInfo = (maximizeForSingleTarget, deck, playerStats) => {
       m_atk: wInfo.max_m_atk - wInfo.add_m_atk * (wInfo.max_level - w.level),
       p_def: wInfo.max_p_def - wInfo.add_p_def * (wInfo.max_level - w.level),
       m_def: wInfo.max_m_def - wInfo.add_m_def * (wInfo.max_level - w.level),
-      skill_mult: mainSkill.damage_mult * skillLevelMultiplier(w.skill_level) * targetMultiplier * jobBonus[wInfo.card_detail_type],
-      supp_skill_mult: 1 + supportSkillDamageChance(supportSkill, w.support_skill_level) * supportSkillDamageMult(supportSkill, w.support_skill_level),
+      skill_mult: mainSkill.damage_mult * skillLevelMultiplier(skillLevel) * targetMultiplier * jobBonus[wInfo.card_detail_type],
+      supp_skill_mult: 1 + supportSkillDamageChance(supportSkill, supportSkillLevel) * supportSkillDamageMult(supportSkill, supportSkillLevel),
       cost: wInfo.deck_cost,
       sp_cost: mainSkill.sp_cost,
       element: wInfo.attribute,
@@ -539,6 +561,18 @@ const OptionsForm = ({ weapons, options, onOptionsChange }) => (
           <FormControlLabel
             control={
               <Checkbox
+                checked={options.maxSkillLevels}
+                onChange={(e) => onOptionsChange({...options, maxSkillLevels: e.target.checked})}
+                name="maxSkillLevelsCheck"
+              />
+            }
+            label="Assume max skill levels"
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <FormControlLabel
+            control={
+              <Checkbox
                 checked={options.maximize19}
                 onChange={(e) => onOptionsChange({...options, maximize19: e.target.checked})}
                 name="maximize19"
@@ -688,6 +722,7 @@ const OptimizationPage = ({ playerStats, weapons }) => {
   const [options, setOptions] = useState({
     singleTarget: false,
     damagePerSP: false,
+    maxSkillLevels: false,
     maximize19: false,
     defWeight: 0,
     targetPDef: 40000,
@@ -755,7 +790,7 @@ const OptimizationPage = ({ playerStats, weapons }) => {
     setProgress(0);
     optimizer.postMessage({
       command: 'start',
-      deck: buildDeckInfo(options.singleTarget, deck, playerStats),
+      deck: buildDeckInfo(options, deck, playerStats),
       pinLength: pinnedWeapons.length,
       playerStats,
       options,
