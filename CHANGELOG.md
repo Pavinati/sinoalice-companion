@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [0.1.0-rc.0] - Unreleased
+### Changed
+- Moved the class type and level selection in the optimization page.
 ### Fixed
 - csv import when the file contains strings with commas.
 

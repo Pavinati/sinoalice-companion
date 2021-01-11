@@ -31,8 +31,11 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Grid from '@material-ui/core/Grid';
+import InputLabel from '@material-ui/core/InputLabel';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import MenuItem from '@material-ui/core/MenuItem';
 import Popover from '@material-ui/core/Popover';
+import Select from '@material-ui/core/Select';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -53,6 +56,9 @@ import skillMultiplierTable2 from './SkillMultiplierTable2.js';
 import weaponsTable from './WeaponsTable.js';
 import { combinations } from './MathUtils.js';
 import {
+  ClassType,
+  ClassLevel,
+  StringConverter,
   aoeMultiplier,
   skillLevelMultiplier,
   supportSkillDamageMultiplier,
@@ -62,6 +68,19 @@ import {
 } from './DataConversion.js';
 
 const HIGH_COMBINATION_NUMBER = 200_000_000;
+
+const supportedClasses = [
+  ClassType.BREAKER,
+  ClassType.CRUSHER,
+  ClassType.GUNNER,
+  ClassType.PALADIN,
+];
+
+const classLevels = [
+  ClassLevel.STANDARD,
+  ClassLevel.HALF_NIGHTMARE_10,
+  ClassLevel.HALF_NIGHTMARE_12,
+];
 
 const useStyles = makeStyles((theme) => ({
   popover: {
@@ -182,7 +201,7 @@ const OptimizedWeaponsTable = ({ weapons }) => {
 
 const buildDeckInfo = (options, deck, playerStats) => {
   const { maximizeForSingleTarget, maxSkillLevels } = options;
-  const classBonus = classBonuses(playerStats.classType, playerStats.classLevel);
+  const classBonus = classBonuses(options.classType, options.classLevel);
 
   return deck.map((w) => {
     const wInfo = weaponsTable[w.id];
@@ -231,6 +250,36 @@ const TogglableSection = ({ title, defaultOpen = false, children }) => {
 
 const OptionsForm = ({ weapons, options, onOptionsChange }) => (
   <Box>
+    <TogglableSection title="Your class" defaultOpen>
+      <Grid container spacing={1}>
+        <Grid item xs={'auto'}>
+          <InputLabel id="class-select-label">Class</InputLabel>
+          <Select
+            labelId="class-select-label"
+            id="class-select"
+            value={options.classType}
+            onChange={(e) => onOptionsChange({...options, classType: e.target.value})}
+          >
+            {supportedClasses.map((c) => (
+              <MenuItem value={c} key={c}>{StringConverter.classType(c)}</MenuItem>
+            ))}
+          </Select>
+        </Grid>
+        <Grid item xs={'auto'}>
+          <InputLabel id="class-level-select-label">Class level</InputLabel>
+          <Select
+            labelId="class-level-select-label"
+            id="class-level-select"
+            value={options.classLevel}
+            onChange={(e) => onOptionsChange({...options, classLevel: e.target.value})}
+          >
+            {classLevels.map((cl) => (
+              <MenuItem value={cl} key={cl}>{StringConverter.classLevel(cl)}</MenuItem>
+            ))}
+          </Select>
+        </Grid>
+      </Grid>
+    </TogglableSection>
     <TogglableSection title="Minimum number of elemental weapons">
       <Grid container spacing={1}>
         <Grid item xs={12}>
@@ -559,6 +608,8 @@ const OptimizationPage = ({ playerStats, weapons }) => {
   const [optimizationResult, setOptimizationResult] = useState(null);
   const [showHighComboAlert, setShowHighComboAlert] = useState(false);
   const [options, setOptions] = useState({
+    classType: ClassType.BREAKER,
+    classLevel: ClassLevel.STANDARD,
     singleTarget: false,
     damagePerSP: false,
     maxSkillLevels: false,

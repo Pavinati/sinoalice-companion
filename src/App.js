@@ -42,7 +42,6 @@ import Menu from './Menu.js';
 import OptimizationPage from './OptimizationPage.js';
 import YourDeck from './YourDeck.js';
 import YourStats from './YourStats.js';
-import { ClassType, ClassLevel } from './DataConversion.js';
 
 // Style
 const drawerWidth = 240;
@@ -106,8 +105,6 @@ const App = () => {
     weaponlessMAtk: 0,
     weaponlessPDef: 0,
     weaponlessMDef: 0,
-    classType: ClassType.BREAKER,
-    classLevel: ClassLevel.STANDARD,
     maxCost: 0,
   });
   const [weapons, setWeapons] = useState([]);
