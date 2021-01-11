@@ -28,17 +28,36 @@ function toInt(str) {
 }
 
 const parseLine = (line) => {
-  const arr = line.split(',');
+  const columns = [];
+
+  let isString = false;
+  let partialCol = '';
+  let nextChar;
+  for (let i = 0; i < line.length; i++) {
+    nextChar = line[i];
+    if (nextChar === '"' && isString) {
+      isString = false;
+    } else if (nextChar === '"' && !isString) {
+      isString = true;
+      partialCol = '';
+    } else if (nextChar === ',' && !isString) {
+      columns.push(partialCol);
+      partialCol = '';
+    } else {
+      partialCol += nextChar;
+    }
+  }
+
   return {
-    name:                arr[0],
+    name:                columns[0],
     // 1) rarity
-    evo_level:           toInt(arr[2]),
-    limit_breaks:        toInt(arr[3]),
-    level:               toInt(arr[4]),
-    skill_level:         toInt(arr[5]),
-    support_skill_level: toInt(arr[6]),
-    unused:              toBool(arr[7]),
-    id:                  toInt(arr[34]),
+    evo_level:           toInt(columns[2]),
+    limit_breaks:        toInt(columns[3]),
+    level:               toInt(columns[4]),
+    skill_level:         toInt(columns[5]),
+    support_skill_level: toInt(columns[6]),
+    unused:              toBool(columns[7]),
+    id:                  toInt(columns[34]),
   };
 };
 
