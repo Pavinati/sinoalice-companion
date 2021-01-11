@@ -28,7 +28,7 @@ const evaluateDamagePerSP = (deck, playerStats, options, keys) => {
   let totalMagicalAttack = playerStats.weaponlessMAtk;
   let totalPhysicalWeaponMult = 0;
   let totalMagicalWeaponMult = 0;
-  let supportSkillMult = 1;
+  let supportSkillMult = 0;
 
   keys.forEach((k) => {
     const weapon = deck[k];
@@ -42,7 +42,7 @@ const evaluateDamagePerSP = (deck, playerStats, options, keys) => {
     } else {
       totalMagicalWeaponMult += weapon.skill_mult;
     }
-    supportSkillMult *= weapon.supp_skill_mult;
+    supportSkillMult += weapon.supp_skill_mult;
   });
 
   if (totalCost > playerStats.maxCost) {
@@ -54,7 +54,7 @@ const evaluateDamagePerSP = (deck, playerStats, options, keys) => {
   const effectivePAtk = Math.max(0, totalPhysicalAttack - (2 * enemyPDef / 3));
   const effectiveMAtk = Math.max(0, totalMagicalAttack - (2 * enemyMDef / 3));
 
-  const damage = (effectivePAtk * totalPhysicalWeaponMult + effectiveMAtk * totalMagicalWeaponMult)* supportSkillMult;
+  const damage = (effectivePAtk * totalPhysicalWeaponMult + effectiveMAtk * totalMagicalWeaponMult) * (1 + supportSkillMult);
   return damage / totalSPCost;
 };
 
@@ -77,7 +77,7 @@ const evaluateDamage = (deck, playerStats, options, keys) => {
     } else {
       totalMagicalWeaponMult += weapon.skill_mult;
     }
-    supportSkillMult *= weapon.supp_skill_mult;
+    supportSkillMult += weapon.supp_skill_mult;
   });
 
   if (totalCost > playerStats.maxCost) {
@@ -89,7 +89,7 @@ const evaluateDamage = (deck, playerStats, options, keys) => {
   const effectivePAtk = totalPhysicalAttack - (2 * enemyPDef / 3);
   const effectiveMAtk = totalMagicalAttack - (2 * enemyMDef / 3);
 
-  const damage = (effectivePAtk * totalPhysicalWeaponMult + effectiveMAtk * totalMagicalWeaponMult)* supportSkillMult;
+  const damage = (effectivePAtk * totalPhysicalWeaponMult + effectiveMAtk * totalMagicalWeaponMult) * (1 + supportSkillMult);
   return damage;
 };
 

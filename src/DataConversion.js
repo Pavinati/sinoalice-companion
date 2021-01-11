@@ -163,7 +163,7 @@ const supportSkillDamageMult = (skill, level) => {
 };
 
 const supportSkillDamageMultiplier = (skillId, level) => {
-  return 1 + supportSkillDamageChance(skillId, level) * supportSkillDamageMult(skillId, level);
+  return supportSkillDamageChance(skillId, level) * supportSkillDamageMult(skillId, level);
 };
 
 const maxPossibleSkillLevel = (limitBreakCount) => {
