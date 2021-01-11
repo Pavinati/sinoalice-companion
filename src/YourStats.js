@@ -23,6 +23,21 @@ import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 
+import { ClassType, ClassLevel, StringConverter } from './DataConversion.js';
+
+const supportedClasses = [
+  ClassType.BREAKER,
+  ClassType.CRUSHER,
+  ClassType.GUNNER,
+  ClassType.PALADIN,
+];
+
+const classLevels = [
+  ClassLevel.STANDARD,
+  ClassLevel.HALF_NIGHTMARE_10,
+  ClassLevel.HALF_NIGHTMARE_12,
+];
+
 const YourStats = ({ playerStats, onPlayerStatsChange }) => {
   return (
     <form
@@ -36,30 +51,29 @@ const YourStats = ({ playerStats, onPlayerStatsChange }) => {
           <Typography variant="h4" component="legend">Your stats</Typography>
         </Grid>
         <Grid item xs={'auto'}>
-          <InputLabel id="job-select-label">Class</InputLabel>
+          <InputLabel id="class-select-label">Class</InputLabel>
           <Select
-            labelId="job-select-label"
-            id="job-select"
-            value={playerStats.job}
-            onChange={(e) => onPlayerStatsChange({...playerStats, job: e.target.value})}
+            labelId="class-select-label"
+            id="class-select"
+            value={playerStats.classType}
+            onChange={(e) => onPlayerStatsChange({...playerStats, classType: e.target.value})}
           >
-            <MenuItem value='breaker'>Breaker</MenuItem>
-            <MenuItem value='crusher'>Crusher</MenuItem>
-            <MenuItem value='gunner'>Gunner</MenuItem>
-            <MenuItem value='paladin'>Paladin</MenuItem>
+            {supportedClasses.map((c) => (
+              <MenuItem value={c} key={c}>{StringConverter.classType(c)}</MenuItem>
+            ))}
           </Select>
         </Grid>
         <Grid item xs={'auto'}>
-          <InputLabel id="job-level-select-label">Class level</InputLabel>
+          <InputLabel id="class-level-select-label">Class level</InputLabel>
           <Select
-            labelId="job-level-select-label"
-            id="job-level-select"
-            value={playerStats.jobLevel}
-            onChange={(e) => onPlayerStatsChange({...playerStats, jobLevel: e.target.value})}
+            labelId="class-level-select-label"
+            id="class-level-select"
+            value={playerStats.classLevel}
+            onChange={(e) => onPlayerStatsChange({...playerStats, classLevel: e.target.value})}
           >
-            <MenuItem value='std'>Standard (+10%)</MenuItem>
-            <MenuItem value='hnm1'>Half nightmare lvl.10 (+30%)</MenuItem>
-            <MenuItem value='hnm2'>Half nightmare lvl.12 (+35%)</MenuItem>
+            {classLevels.map((cl) => (
+              <MenuItem value={cl} key={cl}>{StringConverter.classLevel(cl)}</MenuItem>
+            ))}
           </Select>
         </Grid>
         <Grid item xs>

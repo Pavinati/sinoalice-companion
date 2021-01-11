@@ -16,23 +16,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-const SWORD = 5;
-const HAMMER = 6;
-const BOW = 7;
-const POLE = 8;
-
-const isVGWeapon = (weapon) => {
-  switch (weapon.weapon_type) {
-    case SWORD:
-    case HAMMER:
-    case BOW:
-    case POLE:
-      return true;
-
-    default:
-      return false;
-  }
-};
+import { isVGWeaponType } from './DataConversion.js';
+import weaponsTable from './WeaponsTable.js';
 
 function toBool(str) {
   return str === 'TRUE';
@@ -43,19 +28,37 @@ function toInt(str) {
 }
 
 const parseLine = (line) => {
-  const arr = line.split(',');
-  return {
-    name:                arr[0],
-    // 1) rarity
-    evo_level:           toInt(arr[2]),
-    limit_breaks:        toInt(arr[3]),
-    level:               toInt(arr[4]),
-    skill_level:         toInt(arr[5]),
-    support_skill_level: toInt(arr[6]),
-    unused:              toBool(arr[7]),
-    id:                  toInt(arr[34]),
-    weapon_type:         toInt(arr[41]),
+  const columns = [];
+
+  let isString = false;
+  let partialCol = '';
+  let nextChar;
+  for (let i = 0; i < line.length; i++) {
+    nextChar = line[i];
+    if (nextChar === '"' && isString) {
+      isString = false;
+    } else if (nextChar === '"' && !isString) {
+      isString = true;
+      partialCol = '';
+    } else if (nextChar === ',' && !isString) {
+      columns.push(partialCol);
+      partialCol = '';
+    } else {
+      partialCol += nextChar;
+    }
   }
+
+  return {
+    name:                columns[0],
+    // 1) rarity
+    evo_level:           toInt(columns[2]),
+    limit_breaks:        toInt(columns[3]),
+    level:               toInt(columns[4]),
+    skill_level:         toInt(columns[5]),
+    support_skill_level: toInt(columns[6]),
+    unused:              toBool(columns[7]),
+    id:                  toInt(columns[34]),
+  };
 };
 
 const parseBlueLibraryCSV = ({ file, onParseFinish }) => {
@@ -66,7 +69,18 @@ const parseBlueLibraryCSV = ({ file, onParseFinish }) => {
           .split('\n')
           .slice(2)
           .map(parseLine)
-          .filter(weap => weap.name !== '' && isVGWeapon(weap));
+          .filter(weap => {
+            if (!weap || weap.name === '') {
+              return false;
+            }
+
+            const weaponInfo = weaponsTable[weap.id];
+            if (!weaponInfo) {
+              return false;
+            }
+
+            return isVGWeaponType(weaponInfo.card_detail_type);
+          });
 
     onParseFinish(weaps);
   };

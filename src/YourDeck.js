@@ -33,7 +33,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 
-import { Element, Rarity, WeaponType, StringConverter, isVGWeapon } from './DataConversion.js';
+import { Element, Rarity, WeaponType, StringConverter, isVGWeaponType } from './DataConversion.js';
 import FileParser from './FileParser.js';
 import WeaponImage from './WeaponImage.js';
 import weaponsTable from './WeaponsTable.js';
@@ -326,7 +326,7 @@ const YourDeck = ({ weapons, onWeaponsChange }) => {
         card_detail_type: val.card_detail_type,
         owned: ownedIDs.has(val.id),
       }))
-      .filter(isVGWeapon);
+      .filter((w) => isVGWeaponType(w.card_detail_type));
     setFullWeaponList(newList);
   }, [ownedIDs]);
 
