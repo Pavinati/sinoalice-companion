@@ -33,36 +33,25 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Typography from '@material-ui/core/Typography';
 
-import { Element, Rarity, WeaponType, StringConverter, isVGWeaponType } from './DataConversion.js';
 import FileParser from './FileParser.js';
 import WeaponImage from './WeaponImage.js';
 import weaponsTable from './WeaponsTable.js';
+import {
+  Element,
+  Rarity,
+  WeaponType,
+  StringConverter,
+  rarities,
+  vgWeapons,
+  elements,
+  isVGWeaponType,
+} from './DataConversion.js';
 
 const useStyles = makeStyles((theme) => ({
   selected: {
     background: '#5feccba6',
   },
 }));
-
-const rarities = [
-  Rarity.A,
-  Rarity.S,
-  Rarity.SR,
-  Rarity.L,
-];
-
-const vgWeapons = [
-  WeaponType.SWORD,
-  WeaponType.HAMMER,
-  WeaponType.BOW,
-  WeaponType.POLE,
-]
-
-const elements = [
-  Element.FIRE,
-  Element.WIND,
-  Element.WATER,
-]
 
 const bound = (min, val, max) => {
   return Math.max(min, Math.min(val, max));

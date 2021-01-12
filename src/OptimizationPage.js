@@ -29,6 +29,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
+import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Grid from '@material-ui/core/Grid';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -59,6 +60,9 @@ import {
   ClassType,
   ClassLevel,
   StringConverter,
+  rarities,
+  vgWeapons,
+  elements,
   aoeMultiplier,
   skillLevelMultiplier,
   supportSkillDamageMultiplier,
@@ -86,6 +90,9 @@ const useStyles = makeStyles((theme) => ({
   popover: {
     pointerEvents: 'none',
   },
+  formControl: {
+    minWidth: '100px',
+  }
 }));
 
 const LinearProgressWithLabel = (props) => {
@@ -511,9 +518,98 @@ const PinnedGrid = ({ weapons, onWeaponClick }) => {
       ))}
     </Grid>
   );
-}
+};
+
+const emptyFilters = {
+  name: '',
+  rarity: 0,
+  weaponType: 0,
+  element: 0,
+};
+
+const PinSearchBar = ({ filters, onFiltersChange }) => {
+  const classes = useStyles();
+  return (
+    <Box display="flex">
+      <Box pb={2}>
+        <TextField
+          label="Name"
+          placeholder="Search by name"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          value={filters.name}
+          onChange={(e) => onFiltersChange({...filters, name: e.target.value})}
+        />
+      </Box>
+      <Box pb={2}>
+        <FormControl className={classes.formControl}>
+          <InputLabel shrink id="weapon-rarity-select-label">
+            Rarity
+          </InputLabel>
+          <Select
+            labelId="weapon-rarity-select-label"
+            id="weapon-rarity-select"
+            value={filters.rarity}
+            onChange={(e) => onFiltersChange({...filters, rarity: e.target.value})}
+          >
+            <MenuItem value={0}>Any</MenuItem>
+            {rarities.map((rar) => (
+              <MenuItem value={rar} key={rar}>{StringConverter.rarity(rar)}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+      <Box pb={2}>
+        <FormControl className={classes.formControl}>
+          <InputLabel shrink id="weapon-type-select-label">
+            Weapon type
+          </InputLabel>
+          <Select
+            labelId="weapon-type-select-label"
+            id="weapon-type-select"
+            value={filters.weaponType}
+            onChange={(e) => onFiltersChange({...filters, weaponType: e.target.value})}
+          >
+            <MenuItem value={0}>Any</MenuItem>
+            {vgWeapons.map((wType) => (
+              <MenuItem value={wType} key={wType}>{StringConverter.weaponType(wType)}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+      <Box pb={2}>
+        <FormControl className={classes.formControl}>
+          <InputLabel shrink id="element-select-label">
+            Element
+          </InputLabel>
+          <Select
+            labelId="element-select-label"
+            id="element-select"
+            value={filters.element}
+            onChange={(e) => onFiltersChange({...filters, element: e.target.value})}
+          >
+            <MenuItem value={0}>Any</MenuItem>
+            {elements.map((ele) => (
+              <MenuItem value={ele} key={ele}>{StringConverter.element(ele)}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+      <Box p={1}>
+        <Button
+          variant="contained"
+          onClick={() => onFiltersChange(emptyFilters)}
+        >
+          Clear search filters
+        </Button>
+      </Box>
+    </Box>
+  );
+};
 
 const PinAndFilter = ({ weapons, options, onOptionsChange }) => {
+  const [filters, setFilters] = useState(emptyFilters);
   const { excludedWeapons, pinnedWeapons } = options;
   const pinned = new Set(pinnedWeapons); // shallow-copy
   const excluded = new Set(excludedWeapons); // shallow-copy
@@ -521,6 +617,33 @@ const PinAndFilter = ({ weapons, options, onOptionsChange }) => {
   const aviableWeaps = weapons.filter((w) => !pinned.has(w.id) && !excluded.has(w.id));
   const pinnedWeaps = weapons.filter((w) => pinned.has(w.id));
   const excludedWeaps = weapons.filter((w) => excluded.has(w.id));
+
+  const showWeapon = (weapon) => {
+    const { name, weaponType, element, rarity } = filters;
+    const w = weaponsTable[weapon.id];
+
+    if (weaponType && weaponType !== w.card_detail_type) {
+      return false;
+    }
+
+    if (element && element !== w.attribute) {
+      return false;
+    }
+
+    if (rarity && rarity !== w.rarity) {
+      return false;
+    }
+
+    if (name.length > 2) {
+      const s1 = name.toLowerCase();
+      const s2 = w.name.toLowerCase();
+      if (!s2.includes(s1)) {
+        return false;
+      }
+    }
+
+    return true;
+  };
 
   const handleAvaliableWeapClick = (e, weapon) => {
     if (aviableWeaps.length <= 2) {
@@ -549,8 +672,11 @@ const PinAndFilter = ({ weapons, options, onOptionsChange }) => {
   return (
     <Box>
       <h5>Available weapons</h5>
+        <PinSearchBar filters={filters} onFiltersChange={setFilters} />
       <Grid container spacing={2}>
-        {aviableWeaps.map((weapon) => (
+        {aviableWeaps
+            .filter(showWeapon)
+            .map((weapon) => (
           <Grid item xs="auto" key={weapon.id}>
             <WeaponImageWithPopover
               weapon={weapon}

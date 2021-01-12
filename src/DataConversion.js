@@ -63,6 +63,26 @@ const SkillID = {
   DC2: 972,
 };
 
+const rarities = [
+  Rarity.A,
+  Rarity.S,
+  Rarity.SR,
+  Rarity.L,
+];
+
+const vgWeapons = [
+  WeaponType.SWORD,
+  WeaponType.HAMMER,
+  WeaponType.BOW,
+  WeaponType.POLE,
+];
+
+const elements = [
+  Element.FIRE,
+  Element.WIND,
+  Element.WATER,
+];
+
 const isVGWeaponType = (weaponType) => {
   switch (weaponType) {
     case WeaponType.HARP:
@@ -343,6 +363,9 @@ export {
   Rarity,
   WeaponType,
   StringConverter,
+  rarities,
+  vgWeapons,
+  elements,
   isVGWeaponType,
   weaponDamageType,
   aoeMultiplier,
