@@ -1101,7 +1101,11 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2400,4,0,Incantation of Debilitation (II),Reduces M.ATK of 2 enemies.,0,25,15,,43,multiple enemies,16,0,3,0
 2417,1,0,Evil Ice of Defense (III),Deals great M.DMG to 1 enemy.\nSlightly reduces enemy's M.DEF.,0,19,15,,7,Single Enemy,2,17,1,0
 2422,4,0,Evil Ice of Defense (III),Deals great M.DMG to 1 enemy.\nSlightly reduces enemy's M.DEF.,0,19,15,,7,Single Enemy,2,17,1,0
+2433,1,0,Glacial Defense (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,0,19,15,,7,Single Enemy,1,15,1,0
+2438,1,0,Evil Thunder of Leeching (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,0,22,15,,4,Multiple Enemies/Self,2,3,2,0
 2440,3,0,Recover M.ATK (II),Chance to increase M.ATK of 1 ally in the vanguard when restoring HP.,0,0,15,,502,own,0,0,0,1
+2441,4,0,Glacial Defense (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,0,19,15,,7,Single Enemy,1,15,1,0
+2446,4,0,Evil Thunder of Leeching (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,0,22,15,,4,Multiple Enemies/Self,2,3,2,0
 2519,3,0,Destroy Weapon (II),Chance to reduce P.ATK and M.ATK of 1 enemy in the vanguard when giving support.,0,0,15,,518,own,0,0,0,1
 2530,1,0,Water God's Authority (III),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,0,19,15,,7,Single Enemy,1,18,1,0
 2535,4,0,Water God's Authority (III),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,0,19,15,,7,Single Enemy,1,18,1,0
@@ -1152,6 +1156,10 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3008,4,0,,Halves 5 enemies' M.DEF.,0,0,15,,43,All Enemies,0,0,0,0
 3028,1,0,Evil Thunder of Assault (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,0,22,15,,6,Multiple Enemies/Self,2,6,2,0
 3033,4,0,Evil Thunder of Assault (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,0,22,15,,6,Multiple Enemies/Self,2,6,2,0
+3045,1,0,Fifth Form (Wicked Ice),"Deals massive P.DMG to 1 enemy\nand slightly increases own P.ATK and P.DEF, adding 5 hits to your combo during a combo chance.",0,20,15,,532,Single Enemy/Self,1,24,1,0
+3046,1,0,Gospel of War (Verse 5),Massively restores HP to 1 to 3 allies.\nSlightly increases ally's P.ATK and P.DEF. ,0,21,15,,38,Multiple Allies/Self,3,9,2,0
+3047,4,0,Fifth Form (Wicked Ice),"Deals massive P.DMG to 1 enemy\nand slightly increases own P.ATK and P.DEF, adding 5 hits to your combo during a combo chance.",0,20,15,,532,Single Enemy/Self,1,24,1,0
+3048,4,0,Gospel of War (Verse 5),Massively restores HP to 1 to 3 allies.\nSlightly increases ally's P.ATK and P.DEF. ,0,21,15,,38,Multiple Allies/Self,3,9,2,0
 3081,0,0,Invader Hunter's Soul,This skill is more effective on invader type enemies.,0,0,0,,0,own,0,0,0,0
 3090,1,0,Evil Hail of Assault (I),Deals slight M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,0,20,15,,6,Multiple Enemies/Self,2,6,2,0
 3091,1,0,Evil Gust of Leeching (III),Deals great M.DMG to 1 enemy.\nSlightly restores own HP.,0,19,15,,3,Single Enemy/Self,2,3,1,0
@@ -1218,6 +1226,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3264,1,0,Hailstorm of Protection (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF.,0,22,15,,6,Multiple Enemies/Self,1,5,2,0
 3265,1,0,Hailstorm of Assault (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.ATK.,0,22,15,,6,Multiple Enemies/Self,1,4,2,0
 3266,1,0,Hailstorm of Defense (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.DEF.,0,22,15,,8,multiple enemies,1,15,2,0
+3267,1,0,Hailstorm of Onslaught (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK.,0,22,15,,8,multiple enemies,1,14,2,0
 3268,1,0,Rampart of Black Ice (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF and M.DEF.,0,22,15,,6,Multiple Enemies/Self,1,13,2,0
 3271,1,0,Water God's Prestige (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK and M.ATK.,0,22,15,,8,multiple enemies,1,18,2,0
 3274,1,0,Gale of Exorcism (IV),Deals massive M.DMG to 1 enemy.,0,18,15,,1,Single Enemy,2,0,1,0
@@ -1264,6 +1273,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3368,4,0,Hailstorm of Protection (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF.,0,22,15,,6,Multiple Enemies/Self,1,5,2,0
 3369,4,0,Hailstorm of Assault (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.ATK.,0,22,15,,6,Multiple Enemies/Self,1,4,2,0
 3370,4,0,Hailstorm of Defense (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.DEF.,0,22,15,,8,multiple enemies,1,15,2,0
+3371,4,0,Hailstorm of Onslaught (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK.,0,22,15,,8,multiple enemies,1,14,2,0
 3372,4,0,Rampart of Black Ice (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF and M.DEF.,0,22,15,,6,Multiple Enemies/Self,1,13,2,0
 3375,4,0,Water God's Prestige (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK and M.ATK.,0,22,15,,8,multiple enemies,1,18,2,0
 3377,4,0,Wind Technique of the Twin Songs (III),"Deals great M.DMG to 1 enemy,\nadding 5 hits to your combo during a combo chance.",0,20,15,,509,Single Enemy,2,24,1,0

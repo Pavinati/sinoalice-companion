@@ -3372,7 +3372,7 @@ const skillMultiplierTable = {
     "p_atk": null,
     "m_atk": null,
     "p_def": null,
-    "m_def": null
+    "m_def": 0
   },
   "2205": {
     "id": 2205,
@@ -3724,6 +3724,34 @@ const skillMultiplierTable = {
     "p_def": null,
     "m_def": 0.5
   },
+  "2433": {
+    "id": 2433,
+    "name": "Glacial Defense (III)",
+    "jp_name": "防下の氷撃(Ⅲ)",
+    "description": "Deals great P.DMG to 1 enemy.\\nSlightly reduces enemy's P.DEF.",
+    "sp_cost": 19,
+    "range_icon": 1,
+    "damage_mult": 2.5,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": 0.5,
+    "m_def": null
+  },
+  "2438": {
+    "id": 2438,
+    "name": "Evil Thunder of Leeching (III)",
+    "jp_name": "吸命の魔轟(Ⅲ)",
+    "description": "Deals great M.DMG to 1 to 2 enemies.\\nSlightly restores own HP.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": 2.1,
+    "recovery": 1.2,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": null
+  },
   "2530": {
     "id": 2530,
     "name": "Water God's Authority (III)",
@@ -3918,6 +3946,34 @@ const skillMultiplierTable = {
     "p_atk": null,
     "m_atk": 0.3,
     "p_def": null,
+    "m_def": null
+  },
+  "3045": {
+    "id": 3045,
+    "name": "Fifth Form (Wicked Ice)",
+    "jp_name": "伍ノ型(禍氷)",
+    "description": "\"Deals massive P.DMG to 1 enemy\\nand slightly increases own P.ATK and P.DEF",
+    "sp_cost": null,
+    "range_icon": 20,
+    "damage_mult": 1,
+    "recovery": 2.7,
+    "p_atk": null,
+    "m_atk": 0.3,
+    "p_def": null,
+    "m_def": 0.5
+  },
+  "3046": {
+    "id": 3046,
+    "name": "Gospel of War (Verse 5)",
+    "jp_name": "武ノ福音(伍節)",
+    "description": "Massively restores HP to 1 to 3 allies.\\nSlightly increases ally's P.ATK and P.DEF. ",
+    "sp_cost": 21,
+    "range_icon": 2,
+    "damage_mult": null,
+    "recovery": 3,
+    "p_atk": 0.3,
+    "m_atk": null,
+    "p_def": 0.5,
     "m_def": null
   },
   "3090": {
@@ -4142,6 +4198,20 @@ const skillMultiplierTable = {
     "p_atk": null,
     "m_atk": null,
     "p_def": 0.5,
+    "m_def": null
+  },
+  "3267": {
+    "id": 3267,
+    "name": "Hailstorm of Onslaught (III)",
+    "jp_name": "攻下の雹撃(Ⅲ)",
+    "description": "Deals great P.DMG to 1 to 2 enemies.\\nSlightly reduces enemy's P.ATK.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": 2.1,
+    "recovery": null,
+    "p_atk": 0.3,
+    "m_atk": null,
+    "p_def": null,
     "m_def": null
   },
   "3268": {

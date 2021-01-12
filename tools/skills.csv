@@ -239,7 +239,7 @@
 2176,Torrent of Destruction (II),破壊の滝波(Ⅱ),Deals P.DMG to 1 to 2 enemies.,19,2,1.70,,,,,
 2177,Gale of Destruction (II),破壊の突風(Ⅱ),Deals P.DMG to 1 enemy.,14,1,1.60,,,,,
 2178,Wave of Exorcism (II),魔滅の流水(Ⅱ),Deals M.DMG to 1 enemy.,14,1,1.60,,,,,
-2201,Barrier Master's Nocturne (II),結界師の夜想曲(Ⅱ),Increases M.DEF of 1 to 2 allies.,19,2,,,,,,
+2201,Barrier Master's Nocturne (II),結界師の夜想曲(Ⅱ),Increases M.DEF of 1 to 2 allies.,19,2,,,,,,0.00
 2205,Blaze of Hatred (III),憎悪の劫火(参),Deals great P.DMG to 1 enemy.\nThe effect increases by 150% when at a disadvantage.,19,1,2.50,,,,,
 2206,Angel's Sigh (III),天使ノ吐息(参),Greatly restores HP\nand 20 SP to 1 ally.,20,1,,2.78,,,,
 2207,Evil Hail of Vengeance (III),復讐ノ魔雹(Ⅲ),Deals great M.DMG on 1 to 2 enemies.\nAlways strikes 2 enemies when at a disadvantage.,23,2,2.10,,,,,
@@ -265,6 +265,8 @@
 2393,Warrior's Rondo (II),戦士の輪舞曲(Ⅱ),Increases P.ATK of 2 allies.,25,3,,,0.66,,,
 2394,Incantation of Debilitation (II),衰弱ノ呪術(Ⅱ),Reduces M.ATK of 2 enemies.,25,3,,,,0.66,,
 2417,Evil Ice of Defense (III),防下の魔氷(Ⅲ),Deals great M.DMG to 1 enemy.\nSlightly reduces enemy's M.DEF.,19,1,2.50,,,,,0.50
+2433,Glacial Defense (III),防下の氷撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,19,1,2.50,,,,0.50,
+2438,Evil Thunder of Leeching (III),吸命の魔轟(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,22,2,2.10,1.20,,,,
 2530,Water God's Authority (III),水神の威令(参),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,19,1,2.50,,0.30,0.30,,
 2583,Flames of Leeching (III),吸命の炎撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly restores own HP.,19,1,2.50,1.20,,,,
 2584,Rampart of Black Ice (III),薄氷の轟壁(Ⅲ),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF and M.DEF.,22,2,2.10,,,,0.50,0.50
@@ -279,6 +281,8 @@
 2915,Gale of Assault (III),攻上の風撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK.,19,1,2.50,,0.30,,,
 2991,Incantation of Submission (III),落城ノ呪術(Ⅲ),Greatly reduces P.DEF and M.DEF of 1 to 2 enemies.,22,2,,,,,1.36,1.36
 3028,Evil Thunder of Assault (III),攻上の魔轟(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,22,2,2.10,,,0.30,,
+3045,Fifth Form (Wicked Ice),伍ノ型(禍氷),"Deals massive P.DMG to 1 enemy\nand slightly increases own P.ATK and P.DEF, adding 5 hits to your combo during a combo chance.",20,1,2.70,,0.30,,0.50,
+3046,Gospel of War (Verse 5),武ノ福音(伍節),Massively restores HP to 1 to 3 allies.\nSlightly increases ally's P.ATK and P.DEF. ,21,2,,3.00,0.30,,0.50,
 3090,Evil Hail of Assault (I),攻上の魔雹(Ⅰ),Deals slight M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,20,2,1.50,,,0.30,,
 3091,Evil Gust of Leeching (III),吸命の魔風(Ⅲ),Deals great M.DMG to 1 enemy.\nSlightly restores own HP.,19,1,2.50,1.20,,,,
 3106,Evil Hail of Defense (III),防下の魔雹(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.DEF.,22,2,2.10,,,,,0.50
@@ -295,6 +299,7 @@
 3264,Hailstorm of Protection (III),防上の雹撃(Ⅲ),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF.,22,2,2.10,,,,0.50,
 3265,Hailstorm of Assault (III),攻上の雹撃(Ⅲ),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.ATK.,22,2,2.10,,0.30,,,
 3266,Hailstorm of Defense (III),防下の雹撃(Ⅲ),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.DEF.,22,2,2.10,,,,0.50,
+3267,Hailstorm of Onslaught (III),攻下の雹撃(Ⅲ),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK.,22,2,2.10,,0.30,,,
 3268,Rampart of Black Ice (III),薄氷の轟壁(Ⅲ),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF and M.DEF.,22,2,2.10,,,,0.50,0.50
 3271,Water God's Prestige (III),水神の威光(参),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK and M.ATK.,22,2,2.10,,0.30,0.30,,
 3274,Gale of Exorcism (IV),魔滅の突風(Ⅳ),Deals massive M.DMG to 1 enemy.,18,1,2.70,,,,,
