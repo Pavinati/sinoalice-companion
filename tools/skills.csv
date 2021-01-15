@@ -293,6 +293,7 @@
 3251,Flames of Leeching (III),吸命の炎撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly restores own HP.,19,1,2.50,1.20,,,,
 3253,Flames of Assault (III),攻上の炎撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK.,19,1,2.50,,0.30,,,
 3254,Flames of Defense (III),防下の炎撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,19,1,2.50,,,,0.50,
+3255,Blazing Onslaught (III),攻下の炎撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.ATK.,19,1,2.50,,0.30,,,
 3256,Barricade of Heat (III),陽炎の防壁(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly increases own P.DEF and M.DEF.,19,1,2.50,,,,0.50,0.50
 3257,Type 3 (Catastrophic Flame),参ノ型(禍炎),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK and P.DEF.,19,1,2.50,,0.30,,0.50,
 3261,Torrent of Destruction (III),破壊の滝波(Ⅲ),Deals great P.DMG to 1 to 2 enemies.,21,2,2.30,,,,,
@@ -336,6 +337,7 @@
 3339,Staff of Assault (III),攻上の祈祷(Ⅲ),Greatly restores HP to 1 to 2 allies.\nSlightly increases ally's M.ATK.,22,2,,2.34,,0.30,,
 3340,Staff of Protection (III),防上の祈祷(Ⅲ),Greatly restores HP to 1 to 2 allies.\nSlightly increases ally's M.DEF.,22,2,,2.34,,,,0.50
 3342,Inferno of Exorcism (III),魔滅の烈火(Ⅲ),Deals great M.DMG to 1 to 2 enemies.,21,2,2.30,,,,,
+3344,Evil Blaze of Leeching (III),吸命の魔灼(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,22,2,2.10,1.20,,,,
 3347,Evil Blaze of Defense (III),防下の魔灼(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.DEF.,22,2,2.10,,,,,0.50
 3348,Evil Blaze Onslaught (III),攻下の魔灼(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,22,2,2.10,,,0.30,,
 3531,Crimson Lotus of Vengeance (III),復讐の紅蓮(参),Deals great M.DMG to 1 to 2 enemies.\nThe effect goes up by 150% when at a disadvantage.,22,2,2.10,,,,,

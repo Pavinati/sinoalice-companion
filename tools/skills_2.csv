@@ -981,8 +981,15 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2073,4,0,Don't Eat Me!,"Halves 5 enemies' P.ATK, M.ATK, P.DEF, and M.DEF.",0,0,15,,43,All Enemies,0,0,0,0
 2074,4,0,I'm Still Alive!,"Increases P.ATK, M.ATK, P.DEF, and M.DEF of 5 allies by 10%.",0,0,15,,41,All Allies/Self,0,0,0,0
 2075,0,0,Human Hunter's Soul,Increases skill effectiveness for humans.,0,0,0,,0,own,0,0,0,0
+2076,4,0,,Increases P.ATK and M.ATK of 5 allies by 20%.,0,0,15,,41,All Allies/Self,0,0,0,0
+2077,4,0,,Increases P.DEF and M.DEF of 5 allies by 20%.,0,0,15,,41,All Allies/Self,0,0,0,0
+2078,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+2079,4,0,,Deals 50% P.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
+2080,4,0,I'm Dead...Again,"Halves 5 enemies' P.ATK, M.ATK, P.DEF, and M.DEF.",0,0,15,,43,All Enemies,0,0,0,0
+2081,4,0,,"Increases HP recovery of 1 ally by 10,000%.",0,0,15,,35,Single Ally/Self,0,0,0,0
 2085,1,0,Warrior's Waltz (I),Slightly increases P.ATK of 1 ally.,0,12,15,,41,Single Ally/Self,4,0,1,0
 2089,4,0,Warrior's Waltz (I),Slightly increases P.ATK of 1 ally.,0,12,15,,41,Single Ally/Self,4,0,1,0
+2090,4,0,You Can Still Take More!?,Deals 200% P.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 2091,1,0,Icicle of Assault (IV),Deals massive P.DMG to 1 enemy.\nSlightly increases own P.ATK.,0,20,15,,5,Single Enemy/Self,1,4,1,0
 2092,1,0,Breath of Protection (IV),Massively restores HP to 1 ally.\nSlightly increases ally's P.DEF.,0,20,15,,37,Single Ally/Self,3,5,1,0
 2093,4,0,Icicle of Assault (IV),Deals massive P.DMG to 1 enemy.\nSlightly increases own P.ATK.,0,20,15,,5,Single Enemy/Self,1,4,1,0
@@ -1071,6 +1078,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2299,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 2300,4,0,,Deals 150% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 2310,3,0,Barrier Deployment (II),Chance to increase M.DEF of 1 ally in the vanguard when using commands.,0,0,15,,122,own,0,0,0,1
+2328,3,0,Recovery Support (III),Chance to greatly increase the amount of HP recovered when restoring HP.,0,0,15,,82,own,0,0,0,1
 2355,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 2356,4,0,,Halves P.ATK and M.ATK of 1 enemy.,0,0,15,,43,Single Enemy,0,0,0,0
 2357,4,0,,Halves P.DEF and M.DEF of 1 enemy.,0,0,15,,43,Single Enemy,0,0,0,0
@@ -1220,6 +1228,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3251,1,0,Flames of Leeching (III),Deals great P.DMG to 1 enemy.\nSlightly restores own HP.,0,19,15,,3,Single Enemy/Self,1,3,1,0
 3253,1,0,Flames of Assault (III),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK.,0,19,15,,5,Single Enemy/Self,1,4,1,0
 3254,1,0,Flames of Defense (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,0,19,15,,7,Single Enemy,1,15,1,0
+3255,1,0,Blazing Onslaught (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.ATK.,0,19,15,,7,Single Enemy,1,14,1,0
 3256,1,0,Barricade of Heat (III),Deals great P.DMG to 1 enemy.\nSlightly increases own P.DEF and M.DEF.,0,19,15,,5,Single Enemy/Self,1,13,1,0
 3257,1,0,Type 3 (Catastrophic Flame),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK and P.DEF.,0,19,15,,5,Single Enemy/Self,1,9,1,0
 3261,1,0,Torrent of Destruction (III),Deals great P.DMG to 1 to 2 enemies.,0,21,15,,2,multiple enemies,1,0,2,0
@@ -1263,11 +1272,13 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3339,1,0,Staff of Assault (III),Greatly restores HP to 1 to 2 allies.\nSlightly increases ally's M.ATK.,0,22,15,,38,Multiple Allies/Self,3,6,2,0
 3340,1,0,Staff of Protection (III),Greatly restores HP to 1 to 2 allies.\nSlightly increases ally's M.DEF.,0,22,15,,38,Multiple Allies/Self,3,7,2,0
 3342,1,0,Inferno of Exorcism (III),Deals great M.DMG to 1 to 2 enemies.,0,21,15,,2,multiple enemies,2,0,2,0
+3344,1,0,Evil Blaze of Leeching (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,0,22,15,,4,Multiple Enemies/Self,2,3,2,0
 3347,1,0,Evil Blaze of Defense (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.DEF.,0,22,15,,8,multiple enemies,2,17,2,0
 3348,1,0,Evil Blaze Onslaught (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,0,22,15,,8,multiple enemies,2,16,2,0
 3356,4,0,Flames of Leeching (III),Deals great P.DMG to 1 enemy.\nSlightly restores own HP.,0,19,15,,3,Single Enemy/Self,1,3,1,0
 3358,4,0,Flames of Assault (III),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK.,0,19,15,,5,Single Enemy/Self,1,4,1,0
 3359,4,0,Flames of Defense (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,0,19,15,,7,Single Enemy,1,15,1,0
+3360,4,0,Blazing Onslaught (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.ATK.,0,19,15,,7,Single Enemy,1,14,1,0
 3361,4,0,Barricade of Heat (III),Deals great P.DMG to 1 enemy.\nSlightly increases own P.DEF and M.DEF.,0,19,15,,5,Single Enemy/Self,1,13,1,0
 3362,4,0,Type 3 (Catastrophic Flame),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK and P.DEF.,0,19,15,,5,Single Enemy/Self,1,9,1,0
 3368,4,0,Hailstorm of Protection (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF.,0,22,15,,6,Multiple Enemies/Self,1,5,2,0
@@ -1307,6 +1318,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3428,4,0,Breath of Protection (II),Restores HP to 2 allies.\nSlightly increases ally's P.DEF. ,0,26,15,,37,Multiple Allies/Self,3,5,3,0
 3430,4,0,Staff of Assault (III),Greatly restores HP to 1 to 2 allies.\nSlightly increases ally's M.ATK.,0,22,15,,38,Multiple Allies/Self,3,6,2,0
 3431,4,0,Staff of Protection (III),Greatly restores HP to 1 to 2 allies.\nSlightly increases ally's M.DEF.,0,22,15,,38,Multiple Allies/Self,3,7,2,0
+3435,4,0,Evil Blaze of Leeching (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,0,22,15,,4,Multiple Enemies/Self,2,3,2,0
 3438,4,0,Evil Blaze of Defense (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.DEF.,0,22,15,,8,multiple enemies,2,17,2,0
 3439,4,0,Evil Blaze Onslaught (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,0,22,15,,8,multiple enemies,2,16,2,0
 3452,4,0,,Increases 1 ally's P.ATK by 50%.,0,0,15,,41,Single Ally/Self,0,0,0,0

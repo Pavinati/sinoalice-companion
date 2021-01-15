@@ -4116,6 +4116,20 @@ const skillMultiplierTable = {
     "p_def": 0.5,
     "m_def": null
   },
+  "3255": {
+    "id": 3255,
+    "name": "Blazing Onslaught (III)",
+    "jp_name": "攻下の炎撃(Ⅲ)",
+    "description": "Deals great P.DMG to 1 enemy.\\nSlightly reduces enemy's P.ATK.",
+    "sp_cost": 19,
+    "range_icon": 1,
+    "damage_mult": 2.5,
+    "recovery": null,
+    "p_atk": 0.3,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": null
+  },
   "3256": {
     "id": 3256,
     "name": "Barricade of Heat (III)",
@@ -4713,6 +4727,20 @@ const skillMultiplierTable = {
     "range_icon": 2,
     "damage_mult": 2.3,
     "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": null
+  },
+  "3344": {
+    "id": 3344,
+    "name": "Evil Blaze of Leeching (III)",
+    "jp_name": "吸命の魔灼(Ⅲ)",
+    "description": "Deals great M.DMG to 1 to 2 enemies.\\nSlightly restores own HP.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": 2.1,
+    "recovery": 1.2,
     "p_atk": null,
     "m_atk": null,
     "p_def": null,
