@@ -110,7 +110,9 @@ const FullWeaponsTable = ({fullWeaponList, ownedWeapons, selectedWeaponId, onSel
           <TableCell>Name</TableCell>
           <TableCell>Type</TableCell>
           <TableCell>Element</TableCell>
-          <TableCell>Owned</TableCell>
+          <TableCell>Level</TableCell>
+          <TableCell>Skill lvl</TableCell>
+          <TableCell>Support Skill lvl</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
@@ -157,7 +159,7 @@ const FullWeaponsTable = ({fullWeaponList, ownedWeapons, selectedWeaponId, onSel
                 ))}
               </Select>
             </TableCell>
-            <TableCell>
+            <TableCell colSpan={3}>
               <Select
                 id="weapon-ownership-select"
                 value={filters.ownership}
@@ -181,7 +183,15 @@ const FullWeaponsTable = ({fullWeaponList, ownedWeapons, selectedWeaponId, onSel
             <TableCell>{weapon.name}</TableCell>
             <TableCell>{StringConverter.weaponType(weapon.card_detail_type)}</TableCell>
             <TableCell>{StringConverter.element(weapon.attribute)}</TableCell>
-            <TableCell>{weapon.owned ? 'Yes' : 'No'}</TableCell>
+            {weapon.owned ? (
+              <>
+                <TableCell>{weapon.level}</TableCell>
+                <TableCell>{weapon.skill_level}</TableCell>
+                <TableCell>{weapon.support_skill_level}</TableCell>
+              </>
+            ) : (
+              <TableCell colSpan={3}>Not owned</TableCell>
+            )}
           </TableRow>
         ))}
       </TableBody>
@@ -301,23 +311,32 @@ const YourDeck = ({ weapons, onWeaponsChange }) => {
     });
   };
 
-  const ownedIDs = useMemo(() => {
-    return new Set(weapons.map(w => w.id));
-  }, [weapons]);
-
   useEffect(() => {
     const newList =  Object.values(weaponsTable)
-      .map((val) => ({
-        id: val.id,
-        name: val.name,
-        attribute: val.attribute,
-        rarity: val.rarity,
-        card_detail_type: val.card_detail_type,
-        owned: ownedIDs.has(val.id),
-      }))
+      .map((val) => {
+        const ownedWeap = weapons.find(w => w.id === val.id);
+        const weapDetails = {
+          id: val.id,
+          name: val.name,
+          attribute: val.attribute,
+          rarity: val.rarity,
+          card_detail_type: val.card_detail_type,
+        };
+
+        if (ownedWeap) {
+          weapDetails.owned = true;
+          weapDetails.level = ownedWeap.level;
+          weapDetails.skill_level = ownedWeap.skill_level;
+          weapDetails.support_skill_level = ownedWeap.support_skill_level;
+        } else {
+          weapDetails.owned = false;
+        }
+
+        return weapDetails;
+      })
       .filter((w) => isVGWeaponType(w.card_detail_type));
     setFullWeaponList(newList);
-  }, [ownedIDs]);
+  }, [weapons]);
 
   return (
     <Grid container spacing={3}>

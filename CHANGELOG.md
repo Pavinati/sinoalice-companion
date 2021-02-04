@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.1.0-rc.0] - Unreleased
 ### Added
 - Search filters in the pin weapons section of the optimization page.
+- Weapon levels in YourDeck page.
 ### Changed
 - Moved the class type and level selection in the optimization page.
 ### Fixed
