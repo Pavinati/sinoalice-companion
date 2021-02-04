@@ -467,7 +467,7 @@ const OptionsForm = ({ weapons, options, onOptionsChange }) => (
         </Grid>
       </Grid>
     </TogglableSection>
-    <TogglableSection title="Pin or filter weapons">
+    <TogglableSection title="Pin or filter weapons" defaultOpen>
       <PinAndFilter
         weapons={weapons}
         options={options}
