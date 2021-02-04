@@ -206,6 +206,39 @@ const OptimizedWeaponsTable = ({ weapons }) => {
   );
 };
 
+const comboCorrection = (combo) => {
+  if (combo < 0) {
+    return 0;
+
+  } else if (combo <= 200) {
+    return 1 + combo * 0.0007;
+
+  } else if (combo <= 500) {
+    return 1 + combo * 0.0005;
+
+  } else if (combo <= 1000) {
+    return 1 + combo * 0.00035;
+
+  } else {
+    return 1.465;
+  }
+}
+
+const buffCorrection = (buff) => {
+  if (buff < -20) {
+    return 0.3;
+
+  } else if (buff < -10) {
+    return 0.7 + buff * 0.02;
+
+  } else if (buff < 20) {
+    return 1 + buff * 0.05;
+
+  } else {
+    return 2
+  }
+}
+
 const buildDeckInfo = (options, deck, playerStats) => {
   const { maximizeForSingleTarget, maxSkillLevels } = options;
   const classBonus = classBonuses(options.classType, options.classLevel);
@@ -230,6 +263,7 @@ const buildDeckInfo = (options, deck, playerStats) => {
       cost: wInfo.deck_cost,
       sp_cost: mainSkill.sp_cost,
       element: wInfo.attribute,
+      type: wInfo.card_detail_type,
       damage_type: weaponDamageType(wInfo.card_detail_type),
     };
   });
@@ -287,8 +321,11 @@ const OptionsForm = ({ weapons, options, onOptionsChange }) => (
         </Grid>
       </Grid>
     </TogglableSection>
-    <TogglableSection title="Minimum number of elemental weapons">
+    <TogglableSection title="Minimum weapon number">
       <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <h5>Elements</h5>
+        </Grid>
         <Grid item xs={12}>
           <TextField
             label="Fire"
@@ -313,10 +350,9 @@ const OptionsForm = ({ weapons, options, onOptionsChange }) => (
             onChange={(e) => onOptionsChange({...options, minWind: e.target.value})}
           />
         </Grid>
-      </Grid>
-    </TogglableSection>
-    <TogglableSection title="Minimum number of weapons per type">
-      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <h5>Weapon type</h5>
+        </Grid>
         <Grid item xs={12}>
           <TextField
             label="Swords"
@@ -363,28 +399,11 @@ const OptionsForm = ({ weapons, options, onOptionsChange }) => (
         </Grid>
       </Grid>
     </TogglableSection>
-    <TogglableSection title="Dummy target">
+    <TogglableSection title="Buffs and combos and enemy def">
       <Grid container spacing={1}>
         <Grid item xs={12}>
-          <TextField
-            label="Enemy P.Def"
-            type="number"
-            value={options.targetPDef}
-            onChange={(e) => onOptionsChange({...options, targetPDef: e.target.value})}
-          />
+          <h5>Your expected buffs</h5>
         </Grid>
-        <Grid item xs={12}>
-          <TextField
-            label="Enemy M.Def"
-            type="number"
-            value={options.targetMDef}
-            onChange={(e) => onOptionsChange({...options, targetMDef: e.target.value})}
-          />
-        </Grid>
-      </Grid>
-    </TogglableSection>
-    <TogglableSection title="Battle buffs">
-      <Grid container spacing={1}>
         <Grid item xs={12}>
           <TextField
             label="Your P.Atk stack"
@@ -402,6 +421,25 @@ const OptionsForm = ({ weapons, options, onOptionsChange }) => (
           />
         </Grid>
         <Grid item xs={12}>
+          <h5>Enemy stats and buffs</h5>
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Enemy P.Def"
+            type="number"
+            value={options.targetPDef}
+            onChange={(e) => onOptionsChange({...options, targetPDef: e.target.value})}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Enemy M.Def"
+            type="number"
+            value={options.targetMDef}
+            onChange={(e) => onOptionsChange({...options, targetMDef: e.target.value})}
+          />
+        </Grid>
+        <Grid item xs={12}>
           <TextField
             label="Enemy P.Def stack"
             type="number"
@@ -416,6 +454,16 @@ const OptionsForm = ({ weapons, options, onOptionsChange }) => (
             value={options.targetMDefStack}
             onChange={(e) => onOptionsChange({...options, targetMDefStack: e.target.value})}
           />
+        </Grid>
+        <Grid item xs={12}>
+          <h5>Combos</h5>
+          <TextField
+            label="Combo count"
+            type="number"
+            value={options.targetCombo}
+            onChange={(e) => onOptionsChange({...options, targetCombo: e.target.value})}
+          />
+          <h6>Change this only if you want to optimize for early game, super lategame of if you know what you are doing</h6>
         </Grid>
       </Grid>
     </TogglableSection>
@@ -744,10 +792,11 @@ const OptimizationPage = ({ playerStats, weapons }) => {
     defWeight: 0,
     targetPDef: 40000,
     targetMDef: 40000,
-    expectedPStack: 0,
-    expectedMStack: 0,
-    targetPDefStack: 0,
-    targetMDefStack: 0,
+    expectedPStack: 10,
+    expectedMStack: 10,
+    targetPDefStack: 10,
+    targetMDefStack: 10,
+    targetCombo: 200,
     minFire: 0,
     minWater: 0,
     minWind: 0,
@@ -804,13 +853,21 @@ const OptimizationPage = ({ playerStats, weapons }) => {
     const pinnedWeapons = weapons.filter((w) => options.pinnedWeapons.has(w.id));
     const deck = pinnedWeapons.concat(aviableWeapons);
 
+    const buildOptions = {
+      ...options,
+      pAtkCorrection: comboCorrection(options.targetCombo) * buffCorrection(options.expectedPStack),
+      mAtkCorrection: comboCorrection(options.targetCombo) * buffCorrection(options.expectedMStack),
+      effectiveEnemyPDef: options.targetPDef * buffCorrection(options.targetPDefStack) * 2 / 3,
+      effectiveEnemyMDef: options.targetMDef * buffCorrection(options.targetMDefStack) * 2 / 3,
+    };
+
     setProgress(0);
     optimizer.postMessage({
       command: 'start',
       deck: buildDeckInfo(options, deck, playerStats),
       pinLength: pinnedWeapons.length,
       playerStats,
-      options,
+      options: buildOptions,
     });
   };
 

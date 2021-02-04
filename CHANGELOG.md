@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Search filters in the pin weapons section of the optimization page.
 - Weapon levels in YourDeck page.
+- Weapon type and element minimum requirements.
+- Combo count and buff corrections.
 ### Changed
 - Moved the class type and level selection in the optimization page.
 ### Fixed
