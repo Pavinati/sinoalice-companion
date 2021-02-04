@@ -672,7 +672,8 @@ const PinAndFilter = ({ weapons, options, onOptionsChange }) => {
   return (
     <Box>
       <h5>Available weapons</h5>
-        <PinSearchBar filters={filters} onFiltersChange={setFilters} />
+      <h6>Click to pin, shift+click to exclude</h6>
+      <PinSearchBar filters={filters} onFiltersChange={setFilters} />
       <Grid container spacing={2}>
         {aviableWeaps
             .filter(showWeapon)
