@@ -3038,6 +3038,20 @@ const skillMultiplierTable = {
     "p_def": null,
     "m_def": null
   },
+  "2022": {
+    "id": 2022,
+    "name": "Evil Blaze of Protection (III)",
+    "jp_name": "防上の魔灼(Ⅲ)",
+    "description": "Deals great M.DMG to 1 to 2 enemies.\\nSlightly increases own M.DEF.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": 2.1,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": 0.5
+  },
   "2023": {
     "id": 2023,
     "name": "Incantation of Demolition (II)",
@@ -3710,6 +3724,20 @@ const skillMultiplierTable = {
     "p_def": null,
     "m_def": null
   },
+  "2412": {
+    "id": 2412,
+    "name": "Breath of Assault (III)",
+    "jp_name": "攻上の息吹(Ⅲ)",
+    "description": "Greatly restores HP to 1 to 2 allies and\\nslightly increases ally's P.ATK. ",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": null,
+    "recovery": 2.34,
+    "p_atk": 0.3,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": null
+  },
   "2417": {
     "id": 2417,
     "name": "Evil Ice of Defense (III)",
@@ -3892,6 +3920,34 @@ const skillMultiplierTable = {
     "p_def": 1.36,
     "m_def": null
   },
+  "2676": {
+    "id": 2676,
+    "name": "Crimson Lotus of Hatred (III)",
+    "jp_name": "憎悪の紅蓮(参)",
+    "description": "Deals great M.DMG to 1 enemy.\\nThe effect increases by 150% when at a disadvantage.",
+    "sp_cost": 19,
+    "range_icon": 1,
+    "damage_mult": 2.5,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": null
+  },
+  "2684": {
+    "id": 2684,
+    "name": "Incantation of Rust (III)",
+    "jp_name": "刀錆ノ呪術(Ⅲ)",
+    "description": "Greatly reduces P.ATK of 1 to 2 enemies.",
+    "sp_cost": 21,
+    "range_icon": 2,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": 0.9,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": null
+  },
   "2823": {
     "id": 2823,
     "name": "Wind God's Authority (III)",
@@ -3919,6 +3975,20 @@ const skillMultiplierTable = {
     "m_atk": null,
     "p_def": null,
     "m_def": null
+  },
+  "2918": {
+    "id": 2918,
+    "name": "Evil Roar of Protection (III)",
+    "jp_name": "防上の魔轟(Ⅲ)",
+    "description": "Deals great M.DMG to 1 to 2 enemies.\\nSlightly increases own M.DEF.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": 2.1,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": 0.5
   },
   "2991": {
     "id": 2991,
@@ -3974,6 +4044,20 @@ const skillMultiplierTable = {
     "p_atk": 0.3,
     "m_atk": null,
     "p_def": 0.5,
+    "m_def": null
+  },
+  "3057": {
+    "id": 3057,
+    "name": "Torrent of Destruction (II)",
+    "jp_name": "破壊の滝波(Ⅱ)",
+    "description": "Deals P.DMG to 1 to 2 enemies.",
+    "sp_cost": 19,
+    "range_icon": 2,
+    "damage_mult": 1.7,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
     "m_def": null
   },
   "3090": {

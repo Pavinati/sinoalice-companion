@@ -216,6 +216,7 @@
 2017,Torch of Destruction (I),破壊の燈火(Ⅰ),Deals slight P.DMG to 1 enemy.,14,1,1.00,,,,,
 2018,Healing Light (I),癒しの光(Ⅰ),Slightly restores HP to 1 ally.,14,1,,1.20,,,,
 2021,Sorcerer's Rondo (III),魔術師の輪舞曲(Ⅲ),Greatly increases M.ATK of 1 to 2 allies.,21,2,,,,0.90,,
+2022,Evil Blaze of Protection (III),防上の魔灼(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.DEF.,22,2,2.10,,,,,0.50
 2023,Incantation of Demolition (II),壊壁ノ呪術(Ⅱ),Reduces P.DEF of 2 enemies.,25,3,,,,,1.20,
 2031,Warrior's Rondo (III),戦士の輪舞曲(Ⅲ),Greatly increases P.ATK of 1 to 2 allies.,21,2,,,0.90,,,
 2033,Incantation of Disenchantment (II),解魔ノ呪術(Ⅱ),Reduces M.DEF of 2 enemies.,25,3,,,,,,1.20
@@ -264,6 +265,7 @@
 2390,Inferno Onslaught (III),攻下の灼撃(Ⅲ),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK.,22,2,2.10,,0.30,,,
 2393,Warrior's Rondo (II),戦士の輪舞曲(Ⅱ),Increases P.ATK of 2 allies.,25,3,,,0.66,,,
 2394,Incantation of Debilitation (II),衰弱ノ呪術(Ⅱ),Reduces M.ATK of 2 enemies.,25,3,,,,0.66,,
+2412,Breath of Assault (III),攻上の息吹(Ⅲ),Greatly restores HP to 1 to 2 allies and\nslightly increases ally's P.ATK. ,22,2,,2.34,0.30,,,
 2417,Evil Ice of Defense (III),防下の魔氷(Ⅲ),Deals great M.DMG to 1 enemy.\nSlightly reduces enemy's M.DEF.,19,1,2.50,,,,,0.50
 2433,Glacial Defense (III),防下の氷撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,19,1,2.50,,,,0.50,
 2438,Evil Thunder of Leeching (III),吸命の魔轟(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,22,2,2.10,1.20,,,,
@@ -277,12 +279,16 @@
 2616,Evil Thunder of Onslaught (III),攻下の魔轟(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,22,2,2.10,,,0.30,,
 2617,Barrier Master's Nocturne (III),結界師の夜想曲(Ⅲ),Greatly increases M.DEF of 1 to 2 allies.,21,2,,,,,,1.50
 2618,Incantation of Shackles (III),枷鎖ノ呪術(Ⅲ),Greatly reduces P.ATK and P.DEF of 1 to 2 enemies.,22,2,,,0.84,,1.36,
+2676,Crimson Lotus of Hatred (III),憎悪の紅蓮(参),Deals great M.DMG to 1 enemy.\nThe effect increases by 150% when at a disadvantage.,19,1,2.50,,,,,
+2684,Incantation of Rust (III),刀錆ノ呪術(Ⅲ),Greatly reduces P.ATK of 1 to 2 enemies.,21,2,,,0.90,,,
 2823,Wind God's Authority (III),風神の威令(参),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,19,1,2.50,,0.30,0.30,,
 2915,Gale of Assault (III),攻上の風撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK.,19,1,2.50,,0.30,,,
+2918,Evil Roar of Protection (III),防上の魔轟(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.DEF.,22,2,2.10,,,,,0.50
 2991,Incantation of Submission (III),落城ノ呪術(Ⅲ),Greatly reduces P.DEF and M.DEF of 1 to 2 enemies.,22,2,,,,,1.36,1.36
 3028,Evil Thunder of Assault (III),攻上の魔轟(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,22,2,2.10,,,0.30,,
 3045,Fifth Form (Wicked Ice),伍ノ型(禍氷),"Deals massive P.DMG to 1 enemy\nand slightly increases own P.ATK and P.DEF, adding 5 hits to your combo during a combo chance.",20,1,2.70,,0.30,,0.50,
 3046,Gospel of War (Verse 5),武ノ福音(伍節),Massively restores HP to 1 to 3 allies.\nSlightly increases ally's P.ATK and P.DEF. ,21,2,,3.00,0.30,,0.50,
+3057,Torrent of Destruction (II),破壊の滝波(Ⅱ),Deals P.DMG to 1 to 2 enemies.,19,2,1.70,,,,,
 3090,Evil Hail of Assault (I),攻上の魔雹(Ⅰ),Deals slight M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,20,2,1.50,,,0.30,,
 3091,Evil Gust of Leeching (III),吸命の魔風(Ⅲ),Deals great M.DMG to 1 enemy.\nSlightly restores own HP.,19,1,2.50,1.20,,,,
 3106,Evil Hail of Defense (III),防下の魔雹(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.DEF.,22,2,2.10,,,,,0.50
