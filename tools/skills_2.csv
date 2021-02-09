@@ -1010,8 +1010,10 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2145,4,0,Massacrist's Banishment (Fire),Deals great P.DMG to 1 to 2 enemies.\nDeals 150% DMG when the enemy is of the Human type.,0,22,15,,125,multiple enemies,1,33,2,0
 2147,4,0,Icicle of Assault (III),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK.,0,19,15,,5,Single Enemy/Self,1,4,1,0
 2149,1,0,Evil Gust of Assault (III),Deals great M.DMG to 1 enemy.\nSlightly increases own M.ATK.,0,19,15,,5,Single Enemy,2,6,1,0
-2151,1,0,Warrior's Elegy (IV),Massively increases P.ATK of 1 ally.\n150% effect when at a disadvantage.,0,22,15,,45,Single Ally/Self,4,28,1,0
+2151,1,0,Warrior's Elegy (IV),Massively increases 1 ally's P.ATK.\n150% effect when at a disadvantage.,0,22,15,,45,Single Ally/Self,4,28,1,0
 2155,4,0,Evil Gust of Assault (III),Deals great M.DMG to 1 enemy.\nSlightly increases own M.ATK.,0,19,15,,5,Single Enemy,2,6,1,0
+2163,4,0,Lightning of Defense (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.DEF.,0,22,15,,8,multiple enemies,1,15,2,0
+2167,1,0,Lightning of Defense (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.DEF.,0,22,15,,8,multiple enemies,1,15,2,0
 2172,1,0,Gale of Destruction (III),Deals great P.DMG to 1 enemy.,0,16,15,,1,Single Enemy,1,0,1,0
 2173,1,0,Inferno of Leeching (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly restores own HP.,0,22,15,,4,Multiple Enemies/Self,1,3,2,0
 2174,1,0,Evil Ember of Assault (II),Deals M.DMG to 1 enemy.\nSlightly increases own M.ATK.,0,19,15,,5,Single Enemy/Self,2,6,1,0
@@ -1148,6 +1150,10 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2559,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 2560,4,0,,Deals 100% P.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 2561,4,0,,Deals 150% P.DMG to 1 enemy.\nIncreases own P.DEF and M.DEF by 10%.,0,0,15,,5,Single Enemy/Self,0,0,0,0
+2564,1,0,Third Form (Fiery Crimson),Deals great M.DMG to 1 enemy.\nSlightly increases own M.ATK and M.DEF.,0,19,15,,5,Single Enemy/Self,2,12,1,0
+2565,1,0,Holy Knight's Gospel (II),Increases 2 allies' P.DEF and M.DEF.,0,26,15,,41,Multiple Allies/Self,13,0,3,0
+2570,4,0,Third Form (Fiery Crimson),Deals great M.DMG to 1 enemy.\nSlightly increases own M.ATK and M.DEF.,0,19,15,,5,Single Enemy/Self,2,12,1,0
+2571,4,0,Holy Knight's Gospel (II),Increases 2 allies' P.DEF and M.DEF.,0,26,15,,41,Multiple Allies/Self,13,0,3,0
 2575,4,0,シジミ,Deals 100% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 2576,4,0,シジミ,Deals 150% M.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 2577,4,0,シオフキ,Deals 100% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
@@ -1169,6 +1175,10 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2676,1,0,Crimson Lotus of Hatred (III),Deals great M.DMG to 1 enemy.\nThe effect increases by 150% when at a disadvantage.,0,19,15,,19,Single Enemy,2,28,1,0
 2684,1,0,Incantation of Rust (III),Greatly reduces P.ATK of 1 to 2 enemies.,0,21,15,,44,multiple enemies,14,0,2,0
 2685,4,0,Incantation of Rust (III),Greatly reduces P.ATK of 1 to 2 enemies.,0,21,15,,44,multiple enemies,14,0,2,0
+2753,1,0,Magical Gust of Protection (IV),Deals massive M.DMG to 1 enemy.\nSlightly increases own M.DEF.,0,20,15,,5,Single Enemy/Self,2,7,1,0
+2755,1,0,Curse of Submission (IV),Massively reduces P.DEF and M.DEF of 1 enemy.,0,20,15,,43,Single Enemy,23,0,1,0
+2757,4,0,Magical Gust of Protection (IV),Deals massive M.DMG to 1 enemy.\nSlightly increases own M.DEF.,0,20,15,,5,Single Enemy/Self,2,7,1,0
+2759,4,0,Curse of Submission (IV),Massively reduces P.DEF and M.DEF of 1 enemy.,0,20,15,,43,Single Enemy,23,0,1,0
 2818,4,0,Torrent of Destruction (III),Deals great P.DMG to 1 to 2 enemies.,0,21,15,,2,multiple enemies,1,0,2,0
 2820,4,0,Inferno of Exorcism (III),Deals great M.DMG to 1 to 2 enemies.,0,21,15,,2,multiple enemies,2,0,2,0
 2823,1,0,Wind God's Authority (III),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,0,19,15,,7,Single Enemy,1,18,1,0
@@ -1363,7 +1373,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3456,4,0,,Increases 1 ally's M.ATK by 50%.,0,0,15,,41,Single Ally,0,0,0,0
 3457,4,0,,Increases 1 ally's M.ATK by 50%.,0,0,15,,41,Single Ally,0,0,0,0
 3458,4,0,,Increases 1 ally's P.ATK by 50%.,0,0,15,,41,Single Ally/Self,0,0,0,0
-3459,4,0,,Increases P.ATK of 1 ally by 120%.,0,0,15,,41,Single Ally/Self,0,0,0,0
+3459,4,0,,Increases 1 ally's P.ATK by 120%.,0,0,15,,41,Single Ally/Self,0,0,0,0
 3476,4,0,,Deals 130% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 3531,1,0,Crimson Lotus of Vengeance (III),Deals great M.DMG to 1 to 2 enemies.\nThe effect goes up by 150% when at a disadvantage.,0,22,15,,20,multiple enemies,2,28,2,0
 3598,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
@@ -1378,7 +1388,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3607,4,0,Snacks Snacks Snacks...,"Increases P.ATK, M.ATK, P.DEF, and M.DEF of 5 allies by 10%.",0,0,15,,41,All Allies/Self,0,0,0,0
 3669,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 3670,4,0,,Deals 150% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
-3671,4,0,,Increases P.ATK of 1 ally by 30%.,0,0,15,,41,Single Ally/Self,0,0,0,0
+3671,4,0,,Increases 1 ally's P.ATK by 30%.,0,0,15,,41,Single Ally/Self,0,0,0,0
 3672,4,0,,Deals 100% M.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 3673,4,0,,Deals 100% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 3674,4,0,,"Halves 5 enemies' P.ATK, M.ATK, P.DEF, and M.DEF.",0,0,15,,43,All Enemies,0,0,0,0

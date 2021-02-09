@@ -3266,7 +3266,7 @@ const skillMultiplierTable = {
     "id": 2151,
     "name": "Warrior's Elegy (IV)",
     "jp_name": "戦士の哀歌(Ⅳ)",
-    "description": "Massively increases P.ATK of 1 ally.\\n150% effect when at a disadvantage.",
+    "description": "Massively increases 1 ally's P.ATK.\\n150% effect when at a disadvantage.",
     "sp_cost": 22,
     "range_icon": 1,
     "damage_mult": null,
@@ -3274,6 +3274,20 @@ const skillMultiplierTable = {
     "p_atk": 1,
     "m_atk": null,
     "p_def": null,
+    "m_def": null
+  },
+  "2167": {
+    "id": 2167,
+    "name": "Lightning of Defense (III)",
+    "jp_name": "防下の雷撃(Ⅲ)",
+    "description": "Deals great P.DMG to 1 to 2 enemies.\\nSlightly reduces enemy's P.DEF.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": 2.1,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": 0.5,
     "m_def": null
   },
   "2172": {
@@ -3794,6 +3808,34 @@ const skillMultiplierTable = {
     "p_def": null,
     "m_def": null
   },
+  "2564": {
+    "id": 2564,
+    "name": "Third Form (Fiery Crimson)",
+    "jp_name": "参ノ型(紅焔)",
+    "description": "Deals great M.DMG to 1 enemy.\\nSlightly increases own M.ATK and M.DEF.",
+    "sp_cost": 19,
+    "range_icon": 1,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": null
+  },
+  "2565": {
+    "id": 2565,
+    "name": "Holy Knight's Gospel (II)",
+    "jp_name": "聖騎士の福音歌(Ⅱ)",
+    "description": "Increases 2 allies' P.DEF and M.DEF.",
+    "sp_cost": 26,
+    "range_icon": 3,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": 1.28,
+    "m_def": 1.28
+  },
   "2583": {
     "id": 2583,
     "name": "Flames of Leeching (III)",
@@ -3947,6 +3989,34 @@ const skillMultiplierTable = {
     "m_atk": null,
     "p_def": null,
     "m_def": null
+  },
+  "2753": {
+    "id": 2753,
+    "name": "Magical Gust of Protection (IV)",
+    "jp_name": "防上の魔風(Ⅳ)",
+    "description": "Deals massive M.DMG to 1 enemy.\\nSlightly increases own M.DEF.",
+    "sp_cost": 20,
+    "range_icon": 1,
+    "damage_mult": 2.7,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": 0.5
+  },
+  "2755": {
+    "id": 2755,
+    "name": "Curse of Submission (IV)",
+    "jp_name": "落城ノ呪詛(Ⅳ)",
+    "description": "Massively reduces P.DEF and M.DEF of 1 enemy.",
+    "sp_cost": 20,
+    "range_icon": 1,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": 1.8,
+    "m_def": 1.8
   },
   "2823": {
     "id": 2823,

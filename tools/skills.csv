@@ -232,7 +232,8 @@
 2141,Conflagration of Revenge (III),復讐の劫火(参),Deals great P.DMG to 1 to 2 enemies.\n150% effect when at a disadvantage.,22,2,2.10,,,,,
 2143,Icicle of Assault (III),攻上の氷撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK.,19,1,2.50,,0.30,,,
 2149,Evil Gust of Assault (III),攻上の魔風(Ⅲ),Deals great M.DMG to 1 enemy.\nSlightly increases own M.ATK.,19,1,2.50,,,0.30,,
-2151,Warrior's Elegy (IV),戦士の哀歌(Ⅳ),Massively increases P.ATK of 1 ally.\n150% effect when at a disadvantage.,22,1,,,1.00,,,
+2151,Warrior's Elegy (IV),戦士の哀歌(Ⅳ),Massively increases 1 ally's P.ATK.\n150% effect when at a disadvantage.,22,1,,,1.00,,,
+2167,Lightning of Defense (III),防下の雷撃(Ⅲ),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.DEF.,22,2,2.10,,,,0.50,
 2172,Gale of Destruction (III),破壊の突風(Ⅲ),Deals great P.DMG to 1 enemy.,16,1,2.00,,,,,
 2173,Inferno of Leeching (III),吸命の灼撃(Ⅲ),Deals great P.DMG to 1 to 2 enemies.\nSlightly restores own HP.,22,2,2.10,1.20,,,,
 2174,Evil Ember of Assault (II),攻上の魔炎(Ⅱ),Deals M.DMG to 1 enemy.\nSlightly increases own M.ATK.,19,1,1.80,,,0.30,,
@@ -270,6 +271,8 @@
 2433,Glacial Defense (III),防下の氷撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,19,1,2.50,,,,0.50,
 2438,Evil Thunder of Leeching (III),吸命の魔轟(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,22,2,2.10,1.20,,,,
 2530,Water God's Authority (III),水神の威令(参),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,19,1,2.50,,0.30,0.30,,
+2564,Third Form (Fiery Crimson),参ノ型(紅焔),Deals great M.DMG to 1 enemy.\nSlightly increases own M.ATK and M.DEF.,19,1,,,,,,
+2565,Holy Knight's Gospel (II),聖騎士の福音歌(Ⅱ),Increases 2 allies' P.DEF and M.DEF.,26,3,,,,,1.28,1.28
 2583,Flames of Leeching (III),吸命の炎撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly restores own HP.,19,1,2.50,1.20,,,,
 2584,Rampart of Black Ice (III),薄氷の轟壁(Ⅲ),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF and M.DEF.,22,2,2.10,,,,0.50,0.50
 2585,Sorcerer's Rondo (III),魔術師の輪舞曲(Ⅲ),Greatly increases M.ATK of 1 to 2 allies.,21,2,,,,0.90,,
@@ -281,6 +284,8 @@
 2618,Incantation of Shackles (III),枷鎖ノ呪術(Ⅲ),Greatly reduces P.ATK and P.DEF of 1 to 2 enemies.,22,2,,,0.84,,1.36,
 2676,Crimson Lotus of Hatred (III),憎悪の紅蓮(参),Deals great M.DMG to 1 enemy.\nThe effect increases by 150% when at a disadvantage.,19,1,2.50,,,,,
 2684,Incantation of Rust (III),刀錆ノ呪術(Ⅲ),Greatly reduces P.ATK of 1 to 2 enemies.,21,2,,,0.90,,,
+2753,Magical Gust of Protection (IV),防上の魔風(Ⅳ),Deals massive M.DMG to 1 enemy.\nSlightly increases own M.DEF.,20,1,2.70,,,,,0.50
+2755,Curse of Submission (IV),落城ノ呪詛(Ⅳ),Massively reduces P.DEF and M.DEF of 1 enemy.,20,1,,,,,1.80,1.80
 2823,Wind God's Authority (III),風神の威令(参),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,19,1,2.50,,0.30,0.30,,
 2915,Gale of Assault (III),攻上の風撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK.,19,1,2.50,,0.30,,,
 2918,Evil Roar of Protection (III),防上の魔轟(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.DEF.,22,2,2.10,,,,,0.50
