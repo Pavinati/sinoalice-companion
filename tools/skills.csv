@@ -212,7 +212,7 @@
 1807,Gale of Onslaught (III),攻下の風撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.ATK.,19,1,2.50,,0.30,,,
 1808,Evil Hail of Protection (III),防上の魔雹(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.DEF.,22,2,2.10,,,,,0.50
 2002,Inferno of Defense (III),防下の灼撃(Ⅲ),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.DEF.,22,2,2.10,,,,0.50,
-2006,Holy Knight's Hymn (III),聖騎士の賛美歌(Ⅲ),Greatly increases 1 ally's P.DEF and M.DEF.,17,1,,,,,0.00,0.00
+2006,Holy Knight's Hymn (III),聖騎士の賛美歌(Ⅲ),Greatly increases 1 ally's P.DEF and M.DEF.,17,1,,,,,1.30,1.30
 2017,Torch of Destruction (I),破壊の燈火(Ⅰ),Deals slight P.DMG to 1 enemy.,14,1,1.00,,,,,
 2018,Healing Light (I),癒しの光(Ⅰ),Slightly restores HP to 1 ally.,14,1,,1.20,,,,
 2021,Sorcerer's Rondo (III),魔術師の輪舞曲(Ⅲ),Greatly increases M.ATK of 1 to 2 allies.,21,2,,,,0.90,,
@@ -270,6 +270,7 @@
 2417,Evil Ice of Defense (III),防下の魔氷(Ⅲ),Deals great M.DMG to 1 enemy.\nSlightly reduces enemy's M.DEF.,19,1,2.50,,,,,0.50
 2433,Glacial Defense (III),防下の氷撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,19,1,2.50,,,,0.50,
 2438,Evil Thunder of Leeching (III),吸命の魔轟(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,22,2,2.10,1.20,,,,
+2485,Incantation of Corrosion (II),腐蝕ノ呪術(Ⅱ),Reduces P.ATK and M.ATK of 2 enemies.,26,3,,,0.60,0.60,,
 2530,Water God's Authority (III),水神の威令(参),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,19,1,2.50,,0.30,0.30,,
 2564,Third Form (Fiery Crimson),参ノ型(紅焔),Deals great M.DMG to 1 enemy.\nSlightly increases own M.ATK and M.DEF.,19,1,,,,,,
 2565,Holy Knight's Gospel (II),聖騎士の福音歌(Ⅱ),Increases 2 allies' P.DEF and M.DEF.,26,3,,,,,1.28,1.28
@@ -299,6 +300,7 @@
 3106,Evil Hail of Defense (III),防下の魔雹(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.DEF.,22,2,2.10,,,,,0.50
 3107,Staff of Assault (III),攻上の祈祷(Ⅲ),Greatly restores HP to 1 to 2 allies.\nSlightly increases ally's M.ATK.,22,2,,2.34,,0.30,,
 3108,Water God's Authority (III),水神の威令(参),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,19,1,2.50,,0.30,0.30,,
+3159,Gale of Defense (III),防下の風撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,19,1,2.50,,,,0.50,
 3218,Gale of Exorcism (II),魔滅の竜巻(Ⅱ),Deals M.DMG to 1 to 2 enemies.,19,2,1.70,,,,,
 3249,Torch of Destruction (IV),破壊の燈火(Ⅳ),Deals massive P.DMG to 1 enemy.,18,1,2.70,,,,,
 3251,Flames of Leeching (III),吸命の炎撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly restores own HP.,19,1,2.50,1.20,,,,
@@ -339,6 +341,7 @@
 3317,Sorcerer's Waltz (IV),魔術師の円舞曲(Ⅳ),Massively increases 1 ally's M.ATK.,18,1,,,,1.06,,
 3318,Barrier Master's Serenade (IV),結界師の小夜曲(Ⅳ),Massively increases M.DEF of 1 ally.,18,1,,,,,,1.80
 3322,Hero's Rhapsody (III),勇者の狂詩曲(Ⅲ),Greatly increases 1 ally's P.ATK and M.ATK.,18,1,,,0.96,0.96,,
+3328,Sage's Gospel (III),賢者の福音歌(Ⅲ),Greatly increases M.ATK and M.DEF of 1 to 2 allies.,22,2,,,,0.84,,1.36
 3329,Holy Knight's Gospel (III),聖騎士の福音歌(Ⅲ),Greatly increases P.DEF and M.DEF of 1 to 2 allies.,22,2,,,,,1.36,1.36
 3330,Hero's Harmony (III),勇者の夢想曲(Ⅲ),Greatly increases P.ATK and M.ATK of 1 to 2 allies.,23,2,,,0.98,0.98,,
 3332,Angel's Breath (III),天使ノ息吹(参),Greatly restores HP\nand 20 SP to 1 to 2 allies.,23,2,,2.34,,,,

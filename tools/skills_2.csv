@@ -1097,6 +1097,18 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2305,4,0,To a World Without Light,Deals 80% P.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 2310,3,0,Barrier Deployment (II),Chance to increase M.DEF of 1 ally in the vanguard when using commands.,0,0,15,,122,own,0,0,0,1
 2328,3,0,Recovery Support (III),Chance to greatly increase the amount of HP recovered when restoring HP.,0,0,15,,82,own,0,0,0,1
+2343,4,0,,Deals 100% M.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+2344,4,0,,Halves P.ATK and M.ATK of 1 enemy.,0,0,15,,43,Single Enemy,0,0,0,0
+2345,4,0,,"Halves 1 enemy's P.ATK, M.ATK, P.DEF, and M.DEF.",0,0,15,,43,Single Enemy,0,0,0,0
+2346,4,0,,Increases HP recovery of 1 ally by 30%.,0,0,15,,35,Single Ally/Self,0,0,0,0
+2347,4,0,,Increases HP recovery of 5 allies by 10%.,0,0,15,,35,All Allies/Self,0,0,0,0
+2348,4,0,,Removes ▽ enemies' buffs.,0,0,15,,126,All Enemies,0,0,0,0
+2349,4,0,,Deals 100% M.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+2350,4,0,,Deals 100% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
+2351,4,0,Geist,Deals 150% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
+2352,4,0,Adamas,"Increases HP recovery of 1 ally by 70%.\nIncreases ally's P.ATK, M.ATK, P.DEF, and M.DEF by 5%. ",0,0,15,,37,Single Ally/Self,0,0,0,0
+2353,4,0,Moss Ball,Removes ▽ enemies' buffs.,0,0,15,,126,All Enemies,0,0,0,0
+2354,4,0,,Halves P.DEF and M.DEF of 5 enemies.,0,0,15,,43,All Enemies,0,0,0,0
 2355,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 2356,4,0,,Halves P.ATK and M.ATK of 1 enemy.,0,0,15,,43,Single Enemy,0,0,0,0
 2357,4,0,,Halves P.DEF and M.DEF of 1 enemy.,0,0,15,,43,Single Enemy,0,0,0,0
@@ -1144,6 +1156,8 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2469,4,0,,Deals 160% P.DMG to 1 enemy\nand halves its P.DEF.,0,0,15,,7,Single Enemy,0,0,0,0
 2470,4,0,,Deals 160% P.DMG to 2 enemies\nand halves its P.DEF.,0,0,15,,7,multiple enemies,0,0,0,0
 2471,4,0,,Halves 5 enemies' P.DEF.,0,0,15,,43,All Enemies,0,0,0,0
+2485,1,0,Incantation of Corrosion (II),Reduces P.ATK and M.ATK of 2 enemies.,0,26,15,,43,multiple enemies,18,0,3,0
+2490,4,0,Incantation of Corrosion (II),Reduces P.ATK and M.ATK of 2 enemies.,0,26,15,,43,multiple enemies,18,0,3,0
 2519,3,0,Destroy Weapon (II),Chance to reduce P.ATK and M.ATK of 1 enemy in the vanguard when giving support.,0,0,15,,518,own,0,0,0,1
 2530,1,0,Water God's Authority (III),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,0,19,15,,7,Single Enemy,1,18,1,0
 2535,4,0,Water God's Authority (III),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,0,19,15,,7,Single Enemy,1,18,1,0
@@ -1251,6 +1265,8 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3124,4,0,We Are Invaders,Deals 50% M.DMG to 5 enemies\nand halves their P.ATK and M.ATK.,0,0,15,,7,All Enemies,0,0,0,0
 3125,4,0,We Are Invaders,"Deals 50% M.DMG to 5 enemies\nand halves the enemies' P.DEF, and M.DEF.",0,0,15,,7,All Enemies,0,0,0,0
 3126,4,0,,味方5体の物理攻撃力、魔法攻撃力、物理防御力、魔法防御力を0.3倍アップする。,0,0,15,,41,All Allies/Self,0,0,0,0
+3159,1,0,Gale of Defense (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,0,19,15,,7,Single Enemy,1,15,1,0
+3160,4,0,Gale of Defense (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,0,19,15,,7,Single Enemy,1,15,1,0
 3180,4,0,,Deals 100% P.DMG to 1 enemy\nand halves its P.DEF.,0,0,15,,7,Single Enemy,0,0,0,0
 3181,4,0,Even... Humans...,Deals 120% P.DMG to 5 enemies\nand halves its M.DEF.,0,0,15,,7,All Enemies,0,0,0,0
 3182,4,0,,Deals 100% P.DMG to 2 enemies\nand halves its P.DEF.,0,0,15,,7,multiple enemies,0,0,0,0
@@ -1308,6 +1324,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3317,1,0,Sorcerer's Waltz (IV),Massively increases 1 ally's M.ATK.,0,18,15,,41,Single Ally/Self,6,0,1,0
 3318,1,0,Barrier Master's Serenade (IV),Massively increases M.DEF of 1 ally.,0,18,15,,41,Single Ally/Self,7,0,1,0
 3322,1,0,Hero's Rhapsody (III),Greatly increases 1 ally's P.ATK and M.ATK.,0,18,15,,41,Single Ally/Self,8,0,1,0
+3328,1,0,Sage's Gospel (III),Greatly increases M.ATK and M.DEF of 1 to 2 allies.,0,22,15,,42,Multiple Allies/Self,12,0,2,0
 3329,1,0,Holy Knight's Gospel (III),Greatly increases P.DEF and M.DEF of 1 to 2 allies.,0,22,15,,42,Multiple Allies/Self,13,0,2,0
 3330,1,0,Hero's Harmony (III),Greatly increases P.ATK and M.ATK of 1 to 2 allies.,0,23,15,,42,Multiple Allies/Self,8,0,2,0
 3332,1,0,Angel's Breath (III),Greatly restores HP\nand 20 SP to 1 to 2 allies.,0,23,15,,272,Multiple Allies/Self,3,31,2,0
@@ -1355,6 +1372,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3412,4,0,Sorcerer's Waltz (IV),Massively increases 1 ally's M.ATK.,0,18,15,,41,Single Ally/Self,6,0,1,0
 3413,4,0,Barrier Master's Serenade (IV),Massively increases M.DEF of 1 ally.,0,18,15,,41,Single Ally/Self,7,0,1,0
 3417,4,0,Hero's Rhapsody (III),Greatly increases 1 ally's P.ATK and M.ATK.,0,18,15,,41,Single Ally/Self,8,0,1,0
+3419,4,0,Sage's Gospel (III),Greatly increases M.ATK and M.DEF of 1 to 2 allies.,0,22,15,,42,Multiple Allies/Self,12,0,2,0
 3420,4,0,Holy Knight's Gospel (III),Greatly increases P.DEF and M.DEF of 1 to 2 allies.,0,22,15,,42,Multiple Allies/Self,13,0,2,0
 3421,4,0,Hero's Harmony (III),Greatly increases P.ATK and M.ATK of 1 to 2 allies.,0,23,15,,42,Multiple Allies/Self,8,0,2,0
 3423,4,0,Angel's Breath (III),Greatly restores HP\nand 20 SP to 1 to 2 allies.,0,23,15,,272,Multiple Allies/Self,3,31,2,0
@@ -1407,3 +1425,27 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3688,4,0,Lightning Twin Songs (III),"Deals great M.DMG to 1 to 2 enemies,\nadding 5 hits to your combo during a combo chance.",0,23,15,,10,multiple enemies,2,24,2,0
 3771,1,0,Mist of Sorcery (III),"Deals great M.DMG to 1 or 2 enemies.\nIncreases effectiveness when the summon skill ""For Whom The Bell Splashes"" is activated.",0,24,15,,555,multiple enemies,2,28,2,0
 3772,4,0,Mist of Sorcery (III),"Deals great M.DMG to 1 or 2 enemies.\nIncreases effectiveness when the summon skill ""For Whom The Bell Splashes"" is activated.",0,24,15,,555,multiple enemies,2,28,2,0
+6069,4,0,Heat Sensor,Increases P.ATK and P.DEF of 5 allies by 30%.,0,0,15,,41,All Allies/Self,0,0,0,0
+6070,4,0,,Deals 100% P.DMG to 1 enemy\nand halves its P.DEF.,0,0,15,,7,Single Enemy,0,0,0,0
+6071,4,0,Poisonous Breath,Deals 100% P.DMG to 5 enemies and halves its P.DEF.,0,0,15,,7,All Enemies,0,0,0,0
+6072,4,0,Keheheh...,Increases P.ATK of 5 allies by 30%.,0,0,15,,41,All Allies/Self,0,0,0,0
+6073,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+6074,4,0,Rush,Deals 70% P.DMG to 3 enemies.,0,0,15,,1,multiple enemies,0,0,0,0
+6075,4,0,Leave this place!,Halves P.ATK of 5 enemies.,0,0,15,,43,All Enemies,0,0,0,0
+6076,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+6077,4,0,Get your hands off me!,Increases P.DEF of 5 allies by 20%.,0,0,15,,41,All Allies/Self,0,0,0,0
+6078,4,0,GRWOOOOORR!!!,Increases 5 allies' M.ATK by 30%.,0,0,15,,41,All Allies,0,0,0,0
+6079,4,0,,Deals 100% M.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+6080,4,0,Tch...!,味方5体の魔法攻撃力を0.2倍アップする。,0,0,15,,41,All Allies,0,0,0,0
+6081,4,0,Flare Circle,Deals 200% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
+6082,4,0,,Deals 100% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
+6083,4,0,Fwiiiiiissssssh...,"Halves 5 enemies' P.ATK, M.ATK, P.DEF, and M.DEF.",0,0,15,,43,All Enemies,0,0,0,0
+6084,4,0,Poisonous Breath,Deals 150% P.DMG to 5 enemies and halves their P.DEF.,0,0,15,,7,All Enemies,0,0,0,0
+6085,4,0,GRAAAAAARRROR!!!,"Increases P.ATK, P.DEF, M.ATK, and M.DEF of 5 allies by 50%.",0,0,15,,41,All Allies/Self,0,0,0,0
+6086,4,0,Agh...!,味方5体の魔法攻撃力を0.1倍アップする。,0,0,15,,41,All Allies,0,0,0,0
+6087,4,0,Clone,Deals 100% M.DMG to 1 enemy and calls in reinforcements.,0,0,15,,568,Single Enemy,0,0,0,0
+6088,4,0,,Deals 100% M.DMG to 3 enemies.,0,0,15,,1,multiple enemies,0,0,0,0
+6089,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+6090,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+6091,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+6092,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0

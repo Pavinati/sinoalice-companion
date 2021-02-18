@@ -2993,8 +2993,8 @@ const skillMultiplierTable = {
     "recovery": null,
     "p_atk": null,
     "m_atk": null,
-    "p_def": 0,
-    "m_def": 0
+    "p_def": 1.3,
+    "m_def": 1.3
   },
   "2017": {
     "id": 2017,
@@ -3794,6 +3794,20 @@ const skillMultiplierTable = {
     "p_def": null,
     "m_def": null
   },
+  "2485": {
+    "id": 2485,
+    "name": "Incantation of Corrosion (II)",
+    "jp_name": "腐蝕ノ呪術(Ⅱ)",
+    "description": "Reduces P.ATK and M.ATK of 2 enemies.",
+    "sp_cost": 26,
+    "range_icon": 3,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": 0.6,
+    "m_atk": 0.6,
+    "p_def": null,
+    "m_def": null
+  },
   "2530": {
     "id": 2530,
     "name": "Water God's Authority (III)",
@@ -4198,6 +4212,20 @@ const skillMultiplierTable = {
     "p_atk": 0.3,
     "m_atk": 0.3,
     "p_def": null,
+    "m_def": null
+  },
+  "3159": {
+    "id": 3159,
+    "name": "Gale of Defense (III)",
+    "jp_name": "防下の風撃(Ⅲ)",
+    "description": "Deals great P.DMG to 1 enemy.\\nSlightly reduces enemy's P.DEF.",
+    "sp_cost": 19,
+    "range_icon": 1,
+    "damage_mult": 2.5,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": 0.5,
     "m_def": null
   },
   "3218": {
@@ -4759,6 +4787,20 @@ const skillMultiplierTable = {
     "m_atk": 0.96,
     "p_def": null,
     "m_def": null
+  },
+  "3328": {
+    "id": 3328,
+    "name": "Sage's Gospel (III)",
+    "jp_name": "賢者の福音歌(Ⅲ)",
+    "description": "Greatly increases M.ATK and M.DEF of 1 to 2 allies.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": 0.84,
+    "p_def": null,
+    "m_def": 1.36
   },
   "3329": {
     "id": 3329,
