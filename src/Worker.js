@@ -157,7 +157,7 @@ const dive = (buffer, i, k, n, callback) => {
 
 const generateCombinations = (deck, pinLength, playerStats, options, scoreFormula) => {
   const maxWeaponsNumber = options.maximize19 ? 19 : 20;
-  const sourceLength = deck.length;
+  const sourceLength = deck.length - pinLength;
   const comboLength = maxWeaponsNumber - pinLength;
 
   if (comboLength > sourceLength) {

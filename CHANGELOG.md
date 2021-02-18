@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Moved the class type and level selection in the optimization page.
 ### Fixed
 - csv import when the file contains strings with commas.
+- Optimizer progress tracking.
 
 ## [0.1.0-beta.2] - 2021-01-08
 ### Added
