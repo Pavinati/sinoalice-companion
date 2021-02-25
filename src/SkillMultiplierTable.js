@@ -2993,8 +2993,8 @@ const skillMultiplierTable = {
     "recovery": null,
     "p_atk": null,
     "m_atk": null,
-    "p_def": 0,
-    "m_def": 0
+    "p_def": 1.3,
+    "m_def": 1.3
   },
   "2017": {
     "id": 2017,
@@ -3037,6 +3037,20 @@ const skillMultiplierTable = {
     "m_atk": 0.9,
     "p_def": null,
     "m_def": null
+  },
+  "2022": {
+    "id": 2022,
+    "name": "Evil Blaze of Protection (III)",
+    "jp_name": "防上の魔灼(Ⅲ)",
+    "description": "Deals great M.DMG to 1 to 2 enemies.\\nSlightly increases own M.DEF.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": 2.1,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": 0.5
   },
   "2023": {
     "id": 2023,
@@ -3252,7 +3266,7 @@ const skillMultiplierTable = {
     "id": 2151,
     "name": "Warrior's Elegy (IV)",
     "jp_name": "戦士の哀歌(Ⅳ)",
-    "description": "Massively increases P.ATK of 1 ally.\\n150% effect when at a disadvantage.",
+    "description": "Massively increases 1 ally's P.ATK.\\n150% effect when at a disadvantage.",
     "sp_cost": 22,
     "range_icon": 1,
     "damage_mult": null,
@@ -3260,6 +3274,20 @@ const skillMultiplierTable = {
     "p_atk": 1,
     "m_atk": null,
     "p_def": null,
+    "m_def": null
+  },
+  "2167": {
+    "id": 2167,
+    "name": "Lightning of Defense (III)",
+    "jp_name": "防下の雷撃(Ⅲ)",
+    "description": "Deals great P.DMG to 1 to 2 enemies.\\nSlightly reduces enemy's P.DEF.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": 2.1,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": 0.5,
     "m_def": null
   },
   "2172": {
@@ -3372,7 +3400,7 @@ const skillMultiplierTable = {
     "p_atk": null,
     "m_atk": null,
     "p_def": null,
-    "m_def": null
+    "m_def": 0
   },
   "2205": {
     "id": 2205,
@@ -3710,6 +3738,20 @@ const skillMultiplierTable = {
     "p_def": null,
     "m_def": null
   },
+  "2412": {
+    "id": 2412,
+    "name": "Breath of Assault (III)",
+    "jp_name": "攻上の息吹(Ⅲ)",
+    "description": "Greatly restores HP to 1 to 2 allies and\\nslightly increases ally's P.ATK. ",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": null,
+    "recovery": 2.34,
+    "p_atk": 0.3,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": null
+  },
   "2417": {
     "id": 2417,
     "name": "Evil Ice of Defense (III)",
@@ -3724,6 +3766,48 @@ const skillMultiplierTable = {
     "p_def": null,
     "m_def": 0.5
   },
+  "2433": {
+    "id": 2433,
+    "name": "Glacial Defense (III)",
+    "jp_name": "防下の氷撃(Ⅲ)",
+    "description": "Deals great P.DMG to 1 enemy.\\nSlightly reduces enemy's P.DEF.",
+    "sp_cost": 19,
+    "range_icon": 1,
+    "damage_mult": 2.5,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": 0.5,
+    "m_def": null
+  },
+  "2438": {
+    "id": 2438,
+    "name": "Evil Thunder of Leeching (III)",
+    "jp_name": "吸命の魔轟(Ⅲ)",
+    "description": "Deals great M.DMG to 1 to 2 enemies.\\nSlightly restores own HP.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": 2.1,
+    "recovery": 1.2,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": null
+  },
+  "2485": {
+    "id": 2485,
+    "name": "Incantation of Corrosion (II)",
+    "jp_name": "腐蝕ノ呪術(Ⅱ)",
+    "description": "Reduces P.ATK and M.ATK of 2 enemies.",
+    "sp_cost": 26,
+    "range_icon": 3,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": 0.6,
+    "m_atk": 0.6,
+    "p_def": null,
+    "m_def": null
+  },
   "2530": {
     "id": 2530,
     "name": "Water God's Authority (III)",
@@ -3737,6 +3821,34 @@ const skillMultiplierTable = {
     "m_atk": 0.3,
     "p_def": null,
     "m_def": null
+  },
+  "2564": {
+    "id": 2564,
+    "name": "Third Form (Fiery Crimson)",
+    "jp_name": "参ノ型(紅焔)",
+    "description": "Deals great M.DMG to 1 enemy.\\nSlightly increases own M.ATK and M.DEF.",
+    "sp_cost": 19,
+    "range_icon": 1,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": null
+  },
+  "2565": {
+    "id": 2565,
+    "name": "Holy Knight's Gospel (II)",
+    "jp_name": "聖騎士の福音歌(Ⅱ)",
+    "description": "Increases 2 allies' P.DEF and M.DEF.",
+    "sp_cost": 26,
+    "range_icon": 3,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": 1.28,
+    "m_def": 1.28
   },
   "2583": {
     "id": 2583,
@@ -3864,6 +3976,62 @@ const skillMultiplierTable = {
     "p_def": 1.36,
     "m_def": null
   },
+  "2676": {
+    "id": 2676,
+    "name": "Crimson Lotus of Hatred (III)",
+    "jp_name": "憎悪の紅蓮(参)",
+    "description": "Deals great M.DMG to 1 enemy.\\nThe effect increases by 150% when at a disadvantage.",
+    "sp_cost": 19,
+    "range_icon": 1,
+    "damage_mult": 2.5,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": null
+  },
+  "2684": {
+    "id": 2684,
+    "name": "Incantation of Rust (III)",
+    "jp_name": "刀錆ノ呪術(Ⅲ)",
+    "description": "Greatly reduces P.ATK of 1 to 2 enemies.",
+    "sp_cost": 21,
+    "range_icon": 2,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": 0.9,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": null
+  },
+  "2753": {
+    "id": 2753,
+    "name": "Magical Gust of Protection (IV)",
+    "jp_name": "防上の魔風(Ⅳ)",
+    "description": "Deals massive M.DMG to 1 enemy.\\nSlightly increases own M.DEF.",
+    "sp_cost": 20,
+    "range_icon": 1,
+    "damage_mult": 2.7,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": 0.5
+  },
+  "2755": {
+    "id": 2755,
+    "name": "Curse of Submission (IV)",
+    "jp_name": "落城ノ呪詛(Ⅳ)",
+    "description": "Massively reduces P.DEF and M.DEF of 1 enemy.",
+    "sp_cost": 20,
+    "range_icon": 1,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": 1.8,
+    "m_def": 1.8
+  },
   "2823": {
     "id": 2823,
     "name": "Wind God's Authority (III)",
@@ -3892,6 +4060,20 @@ const skillMultiplierTable = {
     "p_def": null,
     "m_def": null
   },
+  "2918": {
+    "id": 2918,
+    "name": "Evil Roar of Protection (III)",
+    "jp_name": "防上の魔轟(Ⅲ)",
+    "description": "Deals great M.DMG to 1 to 2 enemies.\\nSlightly increases own M.DEF.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": 2.1,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": 0.5
+  },
   "2991": {
     "id": 2991,
     "name": "Incantation of Submission (III)",
@@ -3917,6 +4099,48 @@ const skillMultiplierTable = {
     "recovery": null,
     "p_atk": null,
     "m_atk": 0.3,
+    "p_def": null,
+    "m_def": null
+  },
+  "3045": {
+    "id": 3045,
+    "name": "Fifth Form (Wicked Ice)",
+    "jp_name": "伍ノ型(禍氷)",
+    "description": "\"Deals massive P.DMG to 1 enemy\\nand slightly increases own P.ATK and P.DEF",
+    "sp_cost": null,
+    "range_icon": 20,
+    "damage_mult": 1,
+    "recovery": 2.7,
+    "p_atk": null,
+    "m_atk": 0.3,
+    "p_def": null,
+    "m_def": 0.5
+  },
+  "3046": {
+    "id": 3046,
+    "name": "Gospel of War (Verse 5)",
+    "jp_name": "武ノ福音(伍節)",
+    "description": "Massively restores HP to 1 to 3 allies.\\nSlightly increases ally's P.ATK and P.DEF. ",
+    "sp_cost": 21,
+    "range_icon": 2,
+    "damage_mult": null,
+    "recovery": 3,
+    "p_atk": 0.3,
+    "m_atk": null,
+    "p_def": 0.5,
+    "m_def": null
+  },
+  "3057": {
+    "id": 3057,
+    "name": "Torrent of Destruction (II)",
+    "jp_name": "破壊の滝波(Ⅱ)",
+    "description": "Deals P.DMG to 1 to 2 enemies.",
+    "sp_cost": 19,
+    "range_icon": 2,
+    "damage_mult": 1.7,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
     "p_def": null,
     "m_def": null
   },
@@ -3990,6 +4214,20 @@ const skillMultiplierTable = {
     "p_def": null,
     "m_def": null
   },
+  "3159": {
+    "id": 3159,
+    "name": "Gale of Defense (III)",
+    "jp_name": "防下の風撃(Ⅲ)",
+    "description": "Deals great P.DMG to 1 enemy.\\nSlightly reduces enemy's P.DEF.",
+    "sp_cost": 19,
+    "range_icon": 1,
+    "damage_mult": 2.5,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": 0.5,
+    "m_def": null
+  },
   "3218": {
     "id": 3218,
     "name": "Gale of Exorcism (II)",
@@ -4058,6 +4296,20 @@ const skillMultiplierTable = {
     "p_atk": null,
     "m_atk": null,
     "p_def": 0.5,
+    "m_def": null
+  },
+  "3255": {
+    "id": 3255,
+    "name": "Blazing Onslaught (III)",
+    "jp_name": "攻下の炎撃(Ⅲ)",
+    "description": "Deals great P.DMG to 1 enemy.\\nSlightly reduces enemy's P.ATK.",
+    "sp_cost": 19,
+    "range_icon": 1,
+    "damage_mult": 2.5,
+    "recovery": null,
+    "p_atk": 0.3,
+    "m_atk": null,
+    "p_def": null,
     "m_def": null
   },
   "3256": {
@@ -4142,6 +4394,20 @@ const skillMultiplierTable = {
     "p_atk": null,
     "m_atk": null,
     "p_def": 0.5,
+    "m_def": null
+  },
+  "3267": {
+    "id": 3267,
+    "name": "Hailstorm of Onslaught (III)",
+    "jp_name": "攻下の雹撃(Ⅲ)",
+    "description": "Deals great P.DMG to 1 to 2 enemies.\\nSlightly reduces enemy's P.ATK.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": 2.1,
+    "recovery": null,
+    "p_atk": 0.3,
+    "m_atk": null,
+    "p_def": null,
     "m_def": null
   },
   "3268": {
@@ -4522,6 +4788,20 @@ const skillMultiplierTable = {
     "p_def": null,
     "m_def": null
   },
+  "3328": {
+    "id": 3328,
+    "name": "Sage's Gospel (III)",
+    "jp_name": "賢者の福音歌(Ⅲ)",
+    "description": "Greatly increases M.ATK and M.DEF of 1 to 2 allies.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": 0.84,
+    "p_def": null,
+    "m_def": 1.36
+  },
   "3329": {
     "id": 3329,
     "name": "Holy Knight's Gospel (III)",
@@ -4643,6 +4923,20 @@ const skillMultiplierTable = {
     "range_icon": 2,
     "damage_mult": 2.3,
     "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": null
+  },
+  "3344": {
+    "id": 3344,
+    "name": "Evil Blaze of Leeching (III)",
+    "jp_name": "吸命の魔灼(Ⅲ)",
+    "description": "Deals great M.DMG to 1 to 2 enemies.\\nSlightly restores own HP.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": 2.1,
+    "recovery": 1.2,
     "p_atk": null,
     "m_atk": null,
     "p_def": null,

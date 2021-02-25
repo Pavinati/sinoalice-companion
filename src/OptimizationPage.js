@@ -29,10 +29,14 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogActions from '@material-ui/core/DialogActions';
+import FormControl from '@material-ui/core/FormControl';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Grid from '@material-ui/core/Grid';
+import InputLabel from '@material-ui/core/InputLabel';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import MenuItem from '@material-ui/core/MenuItem';
 import Popover from '@material-ui/core/Popover';
+import Select from '@material-ui/core/Select';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -53,6 +57,12 @@ import skillMultiplierTable2 from './SkillMultiplierTable2.js';
 import weaponsTable from './WeaponsTable.js';
 import { combinations } from './MathUtils.js';
 import {
+  ClassType,
+  ClassLevel,
+  StringConverter,
+  rarities,
+  vgWeapons,
+  elements,
   aoeMultiplier,
   skillLevelMultiplier,
   supportSkillDamageMultiplier,
@@ -63,10 +73,26 @@ import {
 
 const HIGH_COMBINATION_NUMBER = 200_000_000;
 
+const supportedClasses = [
+  ClassType.BREAKER,
+  ClassType.CRUSHER,
+  ClassType.GUNNER,
+  ClassType.PALADIN,
+];
+
+const classLevels = [
+  ClassLevel.STANDARD,
+  ClassLevel.HALF_NIGHTMARE_10,
+  ClassLevel.HALF_NIGHTMARE_12,
+];
+
 const useStyles = makeStyles((theme) => ({
   popover: {
     pointerEvents: 'none',
   },
+  formControl: {
+    minWidth: '100px',
+  }
 }));
 
 const LinearProgressWithLabel = (props) => {
@@ -180,9 +206,42 @@ const OptimizedWeaponsTable = ({ weapons }) => {
   );
 };
 
+const comboCorrection = (combo) => {
+  if (combo < 0) {
+    return 0;
+
+  } else if (combo <= 200) {
+    return 1 + combo * 0.0007;
+
+  } else if (combo <= 500) {
+    return 1 + combo * 0.0005;
+
+  } else if (combo <= 1000) {
+    return 1 + combo * 0.00035;
+
+  } else {
+    return 1.465;
+  }
+}
+
+const buffCorrection = (buff) => {
+  if (buff < -20) {
+    return 0.3;
+
+  } else if (buff < -10) {
+    return 0.7 + buff * 0.02;
+
+  } else if (buff < 20) {
+    return 1 + buff * 0.05;
+
+  } else {
+    return 2
+  }
+}
+
 const buildDeckInfo = (options, deck, playerStats) => {
   const { maximizeForSingleTarget, maxSkillLevels } = options;
-  const classBonus = classBonuses(playerStats.classType, playerStats.classLevel);
+  const classBonus = classBonuses(options.classType, options.classLevel);
 
   return deck.map((w) => {
     const wInfo = weaponsTable[w.id];
@@ -204,6 +263,7 @@ const buildDeckInfo = (options, deck, playerStats) => {
       cost: wInfo.deck_cost,
       sp_cost: mainSkill.sp_cost,
       element: wInfo.attribute,
+      type: wInfo.card_detail_type,
       damage_type: weaponDamageType(wInfo.card_detail_type),
     };
   });
@@ -231,8 +291,41 @@ const TogglableSection = ({ title, defaultOpen = false, children }) => {
 
 const OptionsForm = ({ weapons, options, onOptionsChange }) => (
   <Box>
-    <TogglableSection title="Minimum number of elemental weapons">
+    <TogglableSection title="Your class" defaultOpen>
       <Grid container spacing={1}>
+        <Grid item xs={'auto'}>
+          <InputLabel id="class-select-label">Class</InputLabel>
+          <Select
+            labelId="class-select-label"
+            id="class-select"
+            value={options.classType}
+            onChange={(e) => onOptionsChange({...options, classType: e.target.value})}
+          >
+            {supportedClasses.map((c) => (
+              <MenuItem value={c} key={c}>{StringConverter.classType(c)}</MenuItem>
+            ))}
+          </Select>
+        </Grid>
+        <Grid item xs={'auto'}>
+          <InputLabel id="class-level-select-label">Class level</InputLabel>
+          <Select
+            labelId="class-level-select-label"
+            id="class-level-select"
+            value={options.classLevel}
+            onChange={(e) => onOptionsChange({...options, classLevel: e.target.value})}
+          >
+            {classLevels.map((cl) => (
+              <MenuItem value={cl} key={cl}>{StringConverter.classLevel(cl)}</MenuItem>
+            ))}
+          </Select>
+        </Grid>
+      </Grid>
+    </TogglableSection>
+    <TogglableSection title="Minimum weapon number">
+      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <h5>Elements</h5>
+        </Grid>
         <Grid item xs={12}>
           <TextField
             label="Fire"
@@ -257,10 +350,9 @@ const OptionsForm = ({ weapons, options, onOptionsChange }) => (
             onChange={(e) => onOptionsChange({...options, minWind: e.target.value})}
           />
         </Grid>
-      </Grid>
-    </TogglableSection>
-    <TogglableSection title="Minimum number of weapons per type">
-      <Grid container spacing={1}>
+        <Grid item xs={12}>
+          <h5>Weapon type</h5>
+        </Grid>
         <Grid item xs={12}>
           <TextField
             label="Swords"
@@ -307,28 +399,11 @@ const OptionsForm = ({ weapons, options, onOptionsChange }) => (
         </Grid>
       </Grid>
     </TogglableSection>
-    <TogglableSection title="Dummy target">
+    <TogglableSection title="Buffs and combos and enemy def">
       <Grid container spacing={1}>
         <Grid item xs={12}>
-          <TextField
-            label="Enemy P.Def"
-            type="number"
-            value={options.targetPDef}
-            onChange={(e) => onOptionsChange({...options, targetPDef: e.target.value})}
-          />
+          <h5>Your expected buffs</h5>
         </Grid>
-        <Grid item xs={12}>
-          <TextField
-            label="Enemy M.Def"
-            type="number"
-            value={options.targetMDef}
-            onChange={(e) => onOptionsChange({...options, targetMDef: e.target.value})}
-          />
-        </Grid>
-      </Grid>
-    </TogglableSection>
-    <TogglableSection title="Battle buffs">
-      <Grid container spacing={1}>
         <Grid item xs={12}>
           <TextField
             label="Your P.Atk stack"
@@ -343,6 +418,25 @@ const OptionsForm = ({ weapons, options, onOptionsChange }) => (
             type="number"
             value={options.expectedMStack}
             onChange={(e) => onOptionsChange({...options, expectedMStack: e.target.value})}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <h5>Enemy stats and buffs</h5>
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Enemy P.Def"
+            type="number"
+            value={options.targetPDef}
+            onChange={(e) => onOptionsChange({...options, targetPDef: e.target.value})}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Enemy M.Def"
+            type="number"
+            value={options.targetMDef}
+            onChange={(e) => onOptionsChange({...options, targetMDef: e.target.value})}
           />
         </Grid>
         <Grid item xs={12}>
@@ -361,9 +455,19 @@ const OptionsForm = ({ weapons, options, onOptionsChange }) => (
             onChange={(e) => onOptionsChange({...options, targetMDefStack: e.target.value})}
           />
         </Grid>
+        <Grid item xs={12}>
+          <h5>Combos</h5>
+          <TextField
+            label="Combo count"
+            type="number"
+            value={options.targetCombo}
+            onChange={(e) => onOptionsChange({...options, targetCombo: e.target.value})}
+          />
+          <h6>Change this only if you want to optimize for early game, super lategame of if you know what you are doing</h6>
+        </Grid>
       </Grid>
     </TogglableSection>
-    <TogglableSection title="Pin or filter weapons">
+    <TogglableSection title="Pin or filter weapons" defaultOpen>
       <PinAndFilter
         weapons={weapons}
         options={options}
@@ -462,9 +566,98 @@ const PinnedGrid = ({ weapons, onWeaponClick }) => {
       ))}
     </Grid>
   );
-}
+};
+
+const emptyFilters = {
+  name: '',
+  rarity: 0,
+  weaponType: 0,
+  element: 0,
+};
+
+const PinSearchBar = ({ filters, onFiltersChange }) => {
+  const classes = useStyles();
+  return (
+    <Box display="flex">
+      <Box pb={2}>
+        <TextField
+          label="Name"
+          placeholder="Search by name"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          value={filters.name}
+          onChange={(e) => onFiltersChange({...filters, name: e.target.value})}
+        />
+      </Box>
+      <Box pb={2}>
+        <FormControl className={classes.formControl}>
+          <InputLabel shrink id="weapon-rarity-select-label">
+            Rarity
+          </InputLabel>
+          <Select
+            labelId="weapon-rarity-select-label"
+            id="weapon-rarity-select"
+            value={filters.rarity}
+            onChange={(e) => onFiltersChange({...filters, rarity: e.target.value})}
+          >
+            <MenuItem value={0}>Any</MenuItem>
+            {rarities.map((rar) => (
+              <MenuItem value={rar} key={rar}>{StringConverter.rarity(rar)}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+      <Box pb={2}>
+        <FormControl className={classes.formControl}>
+          <InputLabel shrink id="weapon-type-select-label">
+            Weapon type
+          </InputLabel>
+          <Select
+            labelId="weapon-type-select-label"
+            id="weapon-type-select"
+            value={filters.weaponType}
+            onChange={(e) => onFiltersChange({...filters, weaponType: e.target.value})}
+          >
+            <MenuItem value={0}>Any</MenuItem>
+            {vgWeapons.map((wType) => (
+              <MenuItem value={wType} key={wType}>{StringConverter.weaponType(wType)}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+      <Box pb={2}>
+        <FormControl className={classes.formControl}>
+          <InputLabel shrink id="element-select-label">
+            Element
+          </InputLabel>
+          <Select
+            labelId="element-select-label"
+            id="element-select"
+            value={filters.element}
+            onChange={(e) => onFiltersChange({...filters, element: e.target.value})}
+          >
+            <MenuItem value={0}>Any</MenuItem>
+            {elements.map((ele) => (
+              <MenuItem value={ele} key={ele}>{StringConverter.element(ele)}</MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </Box>
+      <Box p={1}>
+        <Button
+          variant="contained"
+          onClick={() => onFiltersChange(emptyFilters)}
+        >
+          Clear search filters
+        </Button>
+      </Box>
+    </Box>
+  );
+};
 
 const PinAndFilter = ({ weapons, options, onOptionsChange }) => {
+  const [filters, setFilters] = useState(emptyFilters);
   const { excludedWeapons, pinnedWeapons } = options;
   const pinned = new Set(pinnedWeapons); // shallow-copy
   const excluded = new Set(excludedWeapons); // shallow-copy
@@ -472,6 +665,33 @@ const PinAndFilter = ({ weapons, options, onOptionsChange }) => {
   const aviableWeaps = weapons.filter((w) => !pinned.has(w.id) && !excluded.has(w.id));
   const pinnedWeaps = weapons.filter((w) => pinned.has(w.id));
   const excludedWeaps = weapons.filter((w) => excluded.has(w.id));
+
+  const showWeapon = (weapon) => {
+    const { name, weaponType, element, rarity } = filters;
+    const w = weaponsTable[weapon.id];
+
+    if (weaponType && weaponType !== w.card_detail_type) {
+      return false;
+    }
+
+    if (element && element !== w.attribute) {
+      return false;
+    }
+
+    if (rarity && rarity !== w.rarity) {
+      return false;
+    }
+
+    if (name.length > 2) {
+      const s1 = name.toLowerCase();
+      const s2 = w.name.toLowerCase();
+      if (!s2.includes(s1)) {
+        return false;
+      }
+    }
+
+    return true;
+  };
 
   const handleAvaliableWeapClick = (e, weapon) => {
     if (aviableWeaps.length <= 2) {
@@ -500,8 +720,12 @@ const PinAndFilter = ({ weapons, options, onOptionsChange }) => {
   return (
     <Box>
       <h5>Available weapons</h5>
+      <h6>Click to pin, shift+click to exclude</h6>
+      <PinSearchBar filters={filters} onFiltersChange={setFilters} />
       <Grid container spacing={2}>
-        {aviableWeaps.map((weapon) => (
+        {aviableWeaps
+            .filter(showWeapon)
+            .map((weapon) => (
           <Grid item xs="auto" key={weapon.id}>
             <WeaponImageWithPopover
               weapon={weapon}
@@ -559,6 +783,8 @@ const OptimizationPage = ({ playerStats, weapons }) => {
   const [optimizationResult, setOptimizationResult] = useState(null);
   const [showHighComboAlert, setShowHighComboAlert] = useState(false);
   const [options, setOptions] = useState({
+    classType: ClassType.BREAKER,
+    classLevel: ClassLevel.STANDARD,
     singleTarget: false,
     damagePerSP: false,
     maxSkillLevels: false,
@@ -566,10 +792,11 @@ const OptimizationPage = ({ playerStats, weapons }) => {
     defWeight: 0,
     targetPDef: 40000,
     targetMDef: 40000,
-    expectedPStack: 0,
-    expectedMStack: 0,
-    targetPDefStack: 0,
-    targetMDefStack: 0,
+    expectedPStack: 10,
+    expectedMStack: 10,
+    targetPDefStack: 10,
+    targetMDefStack: 10,
+    targetCombo: 200,
     minFire: 0,
     minWater: 0,
     minWind: 0,
@@ -626,13 +853,21 @@ const OptimizationPage = ({ playerStats, weapons }) => {
     const pinnedWeapons = weapons.filter((w) => options.pinnedWeapons.has(w.id));
     const deck = pinnedWeapons.concat(aviableWeapons);
 
+    const buildOptions = {
+      ...options,
+      pAtkCorrection: comboCorrection(options.targetCombo) * buffCorrection(options.expectedPStack),
+      mAtkCorrection: comboCorrection(options.targetCombo) * buffCorrection(options.expectedMStack),
+      effectiveEnemyPDef: options.targetPDef * buffCorrection(options.targetPDefStack) * 2 / 3,
+      effectiveEnemyMDef: options.targetMDef * buffCorrection(options.targetMDefStack) * 2 / 3,
+    };
+
     setProgress(0);
     optimizer.postMessage({
       command: 'start',
       deck: buildDeckInfo(options, deck, playerStats),
       pinLength: pinnedWeapons.length,
       playerStats,
-      options,
+      options: buildOptions,
     });
   };
 

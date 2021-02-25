@@ -17,26 +17,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 import Grid from '@material-ui/core/Grid';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
-
-import { ClassType, ClassLevel, StringConverter } from './DataConversion.js';
-
-const supportedClasses = [
-  ClassType.BREAKER,
-  ClassType.CRUSHER,
-  ClassType.GUNNER,
-  ClassType.PALADIN,
-];
-
-const classLevels = [
-  ClassLevel.STANDARD,
-  ClassLevel.HALF_NIGHTMARE_10,
-  ClassLevel.HALF_NIGHTMARE_12,
-];
 
 const YourStats = ({ playerStats, onPlayerStatsChange }) => {
   return (
@@ -50,33 +32,7 @@ const YourStats = ({ playerStats, onPlayerStatsChange }) => {
         <Grid item xs={12}>
           <Typography variant="h4" component="legend">Your stats</Typography>
         </Grid>
-        <Grid item xs={'auto'}>
-          <InputLabel id="class-select-label">Class</InputLabel>
-          <Select
-            labelId="class-select-label"
-            id="class-select"
-            value={playerStats.classType}
-            onChange={(e) => onPlayerStatsChange({...playerStats, classType: e.target.value})}
-          >
-            {supportedClasses.map((c) => (
-              <MenuItem value={c} key={c}>{StringConverter.classType(c)}</MenuItem>
-            ))}
-          </Select>
-        </Grid>
-        <Grid item xs={'auto'}>
-          <InputLabel id="class-level-select-label">Class level</InputLabel>
-          <Select
-            labelId="class-level-select-label"
-            id="class-level-select"
-            value={playerStats.classLevel}
-            onChange={(e) => onPlayerStatsChange({...playerStats, classLevel: e.target.value})}
-          >
-            {classLevels.map((cl) => (
-              <MenuItem value={cl} key={cl}>{StringConverter.classLevel(cl)}</MenuItem>
-            ))}
-          </Select>
-        </Grid>
-        <Grid item xs>
+        <Grid item xs={12}>
           <TextField
             id="max_cost"
             label="Max cost"
@@ -84,9 +40,7 @@ const YourStats = ({ playerStats, onPlayerStatsChange }) => {
             onChange={(e) => onPlayerStatsChange({...playerStats, maxCost: parseInt(e.target.value) || 0})}
           />
         </Grid>
-      </Grid>
-      <Grid container spacing={3}>
-        <Grid item xs>
+        <Grid item xs={12}>
           <TextField
             id="weaponless_p_atk"
             label="Weaponless P.Atk"
@@ -94,7 +48,7 @@ const YourStats = ({ playerStats, onPlayerStatsChange }) => {
             onChange={(e) => onPlayerStatsChange({...playerStats, weaponlessPAtk: parseInt(e.target.value) || 0})}
           />
         </Grid>
-        <Grid item xs>
+        <Grid item xs={12}>
           <TextField
             id="weaponless_m_atk"
             label="Weaponless M.Atk"
@@ -102,7 +56,7 @@ const YourStats = ({ playerStats, onPlayerStatsChange }) => {
             onChange={(e) => onPlayerStatsChange({...playerStats, weaponlessMAtk: parseInt(e.target.value) || 0})}
           />
         </Grid>
-        <Grid item xs>
+        <Grid item xs={12}>
           <TextField
             id="weaponless_p_def"
             label="Weaponless P.Def"
@@ -110,7 +64,7 @@ const YourStats = ({ playerStats, onPlayerStatsChange }) => {
             onChange={(e) => onPlayerStatsChange({...playerStats, weaponlessPDef: parseInt(e.target.value) || 0})}
           />
         </Grid>
-        <Grid item xs>
+        <Grid item xs={12}>
           <TextField
             id="weaponless_m_def"
             label="Weaponless M.Def"

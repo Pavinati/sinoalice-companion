@@ -134,6 +134,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 573,0,0,Ghost Hunter's Soul,Increases the effectiveness of skills against ghosts.,0,0,0,,0,own,0,0,0,0
 574,0,0,Dragonslayer's Soul,Increases the effectiveness of skills against dragons.,0,0,0,,0,own,0,0,0,0
 575,0,0,Demon Hunter's Soul,Increases the effectiveness of skills against orc types.,0,0,0,,0,own,0,0,0,0
+577,0,0,Soul Hunting Spirit,This skill is more effective on Wisp type enemies.,0,0,0,,0,own,0,0,0,0
 580,0,0,Machine Lifeform and Emil's Hunting Spirit,This skill is more effective on machine lifeform and Emil type enemies.,0,0,0,,0,own,0,0,0,0
 594,1,0,Inferno of Leeching (I),Deals slight P.DMG to 1 to 2 enemies.\nSlightly restores own HP.,0,20,15,,4,Multiple Enemies/Self,1,3,2,0
 595,1,0,Icicle of Leeching (III),Deals great P.DMG to 1 enemy.\nSlightly restores own HP.,0,19,15,,3,Single Enemy/Self,1,3,1,0
@@ -954,8 +955,10 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2019,4,0,Torch of Destruction (I),Deals slight P.DMG to 1 enemy.,0,14,15,,1,Single Enemy,1,0,1,0
 2020,4,0,Healing Light (I),Slightly restores HP to 1 ally.,0,14,15,,35,Single Ally/Self,3,0,1,0
 2021,1,0,Sorcerer's Rondo (III),Greatly increases M.ATK of 1 to 2 allies.,0,21,15,,42,Multiple Allies/Self,6,0,2,0
+2022,1,0,Evil Blaze of Protection (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.DEF.,0,22,15,,6,multiple enemies,2,7,2,0
 2023,1,0,Incantation of Demolition (II),Reduces P.DEF of 2 enemies.,0,25,15,,43,multiple enemies,15,0,3,0
 2025,4,0,Sorcerer's Rondo (III),Greatly increases M.ATK of 1 to 2 allies.,0,21,15,,42,Multiple Allies/Self,6,0,2,0
+2026,4,0,Evil Blaze of Protection (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.DEF.,0,22,15,,6,multiple enemies,2,7,2,0
 2027,4,0,Incantation of Demolition (II),Reduces P.DEF of 2 enemies.,0,25,15,,43,multiple enemies,15,0,3,0
 2031,1,0,Warrior's Rondo (III),Greatly increases P.ATK of 1 to 2 allies.,0,21,15,,42,Multiple Allies/Self,4,0,2,0
 2033,1,0,Incantation of Disenchantment (II),Reduces M.DEF of 2 enemies.,0,25,15,,43,multiple enemies,17,0,3,0
@@ -981,8 +984,15 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2073,4,0,Don't Eat Me!,"Halves 5 enemies' P.ATK, M.ATK, P.DEF, and M.DEF.",0,0,15,,43,All Enemies,0,0,0,0
 2074,4,0,I'm Still Alive!,"Increases P.ATK, M.ATK, P.DEF, and M.DEF of 5 allies by 10%.",0,0,15,,41,All Allies/Self,0,0,0,0
 2075,0,0,Human Hunter's Soul,Increases skill effectiveness for humans.,0,0,0,,0,own,0,0,0,0
+2076,4,0,,Increases P.ATK and M.ATK of 5 allies by 20%.,0,0,15,,41,All Allies/Self,0,0,0,0
+2077,4,0,,Increases P.DEF and M.DEF of 5 allies by 20%.,0,0,15,,41,All Allies/Self,0,0,0,0
+2078,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+2079,4,0,,Deals 50% P.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
+2080,4,0,I'm Dead...Again,"Halves 5 enemies' P.ATK, M.ATK, P.DEF, and M.DEF.",0,0,15,,43,All Enemies,0,0,0,0
+2081,4,0,,"Increases HP recovery of 1 ally by 10,000%.",0,0,15,,35,Single Ally/Self,0,0,0,0
 2085,1,0,Warrior's Waltz (I),Slightly increases P.ATK of 1 ally.,0,12,15,,41,Single Ally/Self,4,0,1,0
 2089,4,0,Warrior's Waltz (I),Slightly increases P.ATK of 1 ally.,0,12,15,,41,Single Ally/Self,4,0,1,0
+2090,4,0,You Can Still Take More!?,Deals 200% P.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 2091,1,0,Icicle of Assault (IV),Deals massive P.DMG to 1 enemy.\nSlightly increases own P.ATK.,0,20,15,,5,Single Enemy/Self,1,4,1,0
 2092,1,0,Breath of Protection (IV),Massively restores HP to 1 ally.\nSlightly increases ally's P.DEF.,0,20,15,,37,Single Ally/Self,3,5,1,0
 2093,4,0,Icicle of Assault (IV),Deals massive P.DMG to 1 enemy.\nSlightly increases own P.ATK.,0,20,15,,5,Single Enemy/Self,1,4,1,0
@@ -1000,8 +1010,10 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2145,4,0,Massacrist's Banishment (Fire),Deals great P.DMG to 1 to 2 enemies.\nDeals 150% DMG when the enemy is of the Human type.,0,22,15,,125,multiple enemies,1,33,2,0
 2147,4,0,Icicle of Assault (III),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK.,0,19,15,,5,Single Enemy/Self,1,4,1,0
 2149,1,0,Evil Gust of Assault (III),Deals great M.DMG to 1 enemy.\nSlightly increases own M.ATK.,0,19,15,,5,Single Enemy,2,6,1,0
-2151,1,0,Warrior's Elegy (IV),Massively increases P.ATK of 1 ally.\n150% effect when at a disadvantage.,0,22,15,,45,Single Ally/Self,4,28,1,0
+2151,1,0,Warrior's Elegy (IV),Massively increases 1 ally's P.ATK.\n150% effect when at a disadvantage.,0,22,15,,45,Single Ally/Self,4,28,1,0
 2155,4,0,Evil Gust of Assault (III),Deals great M.DMG to 1 enemy.\nSlightly increases own M.ATK.,0,19,15,,5,Single Enemy,2,6,1,0
+2163,4,0,Lightning of Defense (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.DEF.,0,22,15,,8,multiple enemies,1,15,2,0
+2167,1,0,Lightning of Defense (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.DEF.,0,22,15,,8,multiple enemies,1,15,2,0
 2172,1,0,Gale of Destruction (III),Deals great P.DMG to 1 enemy.,0,16,15,,1,Single Enemy,1,0,1,0
 2173,1,0,Inferno of Leeching (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly restores own HP.,0,22,15,,4,Multiple Enemies/Self,1,3,2,0
 2174,1,0,Evil Ember of Assault (II),Deals M.DMG to 1 enemy.\nSlightly increases own M.ATK.,0,19,15,,5,Single Enemy/Self,2,6,1,0
@@ -1042,6 +1054,13 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2229,4,0,Rampart of Heat (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF and M.DEF.,0,22,15,,6,Multiple Enemies/Self,1,13,2,0
 2230,4,0,Happy New Year,Halves P.DEF and M.DEF of 1 enemy.,0,0,15,,43,Single Enemy,0,0,0,0
 2231,4,0,Happy New Year to You Too,Deals 180% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
+2241,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+2242,4,0,,"Deals 150% P.DMG to 1 enemy\nand halves the enemy's P.ATK, M.ATK, P.DEF and M.DEF.",0,0,15,,7,Single Enemy,0,0,0,0
+2243,4,0,1%,Deals 10% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+2244,4,0,60%,Deals 70% P.DMG to 3 enemies.,0,0,15,,1,multiple enemies,0,0,0,0
+2245,4,0,80%,Deals 100% P.DMG to 4 enemies.,0,0,15,,1,multiple enemies,0,0,0,0
+2246,4,0,100%,Deals 150% P.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
+2247,4,0,120%,"Deals 1,000% P.DMG to 5 enemies\nand halves the enemy's P.ATK, M.ATK, P.DEF and M.DEF.",0,0,15,,7,All Enemies,0,0,0,0
 2249,4,0,,Deals 100% M.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 2250,4,0,,Deals 150% M.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 2251,4,0,,Increases P.DEF of 1 ally by 50%.,0,0,15,,41,Single Ally/Self,0,0,0,0
@@ -1062,6 +1081,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2276,4,0,Happy New Year to You Too,Deals 240% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 2280,1,0,Sorcerer's Rondo (II),Increases M.ATK of 2 allies.,0,25,15,,41,Multiple Allies/Self,6,0,3,0
 2286,4,0,Sorcerer's Rondo (II),Increases M.ATK of 2 allies.,0,25,15,,41,Multiple Allies/Self,6,0,3,0
+2291,4,0,Mental Unification,"Increases P.ATK, M.ATK, P.DEF, and M.DEF of 1 ally by 100%.",0,0,15,,41,Single Ally/Self,0,0,0,0
 2293,4,0,She's Cute,Halves 1 enemy's P.DEF.,0,0,15,,43,Single Enemy,0,0,0,0
 2294,4,0,He's Handsome,Halves M.DEF of 1 enemy.,0,0,15,,43,Single Enemy,0,0,0,0
 2295,4,0,The Best in the World,Increases P.DEF and M.DEF of 5 allies by 20%.,0,0,15,,41,All Allies/Self,0,0,0,0
@@ -1070,7 +1090,25 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2298,4,0,,Deals 150% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 2299,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 2300,4,0,,Deals 150% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+2301,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+2302,4,0,,Halves P.ATK and M.ATK of 5 enemies.,0,0,15,,43,All Enemies,0,0,0,0
+2303,4,0,,Halves 5 enemies' P.DEF.,0,0,15,,43,All Enemies,0,0,0,0
+2304,4,0,,"Increases P.ATK, M.ATK, P.DEF, and M.DEF of 1 ally by 10%.",0,0,15,,41,Single Ally/Self,0,0,0,0
+2305,4,0,To a World Without Light,Deals 80% P.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 2310,3,0,Barrier Deployment (II),Chance to increase M.DEF of 1 ally in the vanguard when using commands.,0,0,15,,122,own,0,0,0,1
+2328,3,0,Recovery Support (III),Chance to greatly increase the amount of HP recovered when restoring HP.,0,0,15,,82,own,0,0,0,1
+2343,4,0,,Deals 100% M.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+2344,4,0,,Halves P.ATK and M.ATK of 1 enemy.,0,0,15,,43,Single Enemy,0,0,0,0
+2345,4,0,,"Halves 1 enemy's P.ATK, M.ATK, P.DEF, and M.DEF.",0,0,15,,43,Single Enemy,0,0,0,0
+2346,4,0,,Increases HP recovery of 1 ally by 30%.,0,0,15,,35,Single Ally/Self,0,0,0,0
+2347,4,0,,Increases HP recovery of 5 allies by 10%.,0,0,15,,35,All Allies/Self,0,0,0,0
+2348,4,0,,Removes ▽ enemies' buffs.,0,0,15,,126,All Enemies,0,0,0,0
+2349,4,0,,Deals 100% M.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+2350,4,0,,Deals 100% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
+2351,4,0,Geist,Deals 150% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
+2352,4,0,Adamas,"Increases HP recovery of 1 ally by 70%.\nIncreases ally's P.ATK, M.ATK, P.DEF, and M.DEF by 5%. ",0,0,15,,37,Single Ally/Self,0,0,0,0
+2353,4,0,Moss Ball,Removes ▽ enemies' buffs.,0,0,15,,126,All Enemies,0,0,0,0
+2354,4,0,,Halves P.DEF and M.DEF of 5 enemies.,0,0,15,,43,All Enemies,0,0,0,0
 2355,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 2356,4,0,,Halves P.ATK and M.ATK of 1 enemy.,0,0,15,,43,Single Enemy,0,0,0,0
 2357,4,0,,Halves P.DEF and M.DEF of 1 enemy.,0,0,15,,43,Single Enemy,0,0,0,0
@@ -1099,15 +1137,37 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2396,4,0,Inferno Onslaught (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK.,0,22,15,,8,multiple enemies,1,14,2,0
 2399,4,0,Warrior's Rondo (II),Increases P.ATK of 2 allies.,0,25,15,,41,Multiple Allies/Self,4,0,3,0
 2400,4,0,Incantation of Debilitation (II),Reduces M.ATK of 2 enemies.,0,25,15,,43,multiple enemies,16,0,3,0
+2412,1,0,Breath of Assault (III),Greatly restores HP to 1 to 2 allies and\nslightly increases ally's P.ATK. ,0,22,15,,38,Multiple Allies/Self,3,4,2,0
+2416,4,0,Breath of Assault (III),Greatly restores HP to 1 to 2 allies and\nslightly increases ally's P.ATK. ,0,22,15,,38,Multiple Allies/Self,3,4,2,0
 2417,1,0,Evil Ice of Defense (III),Deals great M.DMG to 1 enemy.\nSlightly reduces enemy's M.DEF.,0,19,15,,7,Single Enemy,2,17,1,0
+2421,3,0,Mental Focus (III),Chance to greatly increase own M.ATK when attacking.,0,0,15,,78,own,0,0,0,1
 2422,4,0,Evil Ice of Defense (III),Deals great M.DMG to 1 enemy.\nSlightly reduces enemy's M.DEF.,0,19,15,,7,Single Enemy,2,17,1,0
+2433,1,0,Glacial Defense (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,0,19,15,,7,Single Enemy,1,15,1,0
+2438,1,0,Evil Thunder of Leeching (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,0,22,15,,4,Multiple Enemies/Self,2,3,2,0
 2440,3,0,Recover M.ATK (II),Chance to increase M.ATK of 1 ally in the vanguard when restoring HP.,0,0,15,,502,own,0,0,0,1
+2441,4,0,Glacial Defense (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,0,19,15,,7,Single Enemy,1,15,1,0
+2446,4,0,Evil Thunder of Leeching (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,0,22,15,,4,Multiple Enemies/Self,2,3,2,0
+2463,4,0,,Deals 100% P.DMG to 1 enemy\nand halves its P.DEF.,0,0,15,,7,Single Enemy,0,0,0,0
+2464,4,0,,Deals 100% P.DMG to 2 enemies\nand halves its P.DEF.,0,0,15,,7,multiple enemies,0,0,0,0
+2465,4,0,,Deals 120% P.DMG to 1 enemy\nand halves its P.DEF.,0,0,15,,7,Single Enemy,0,0,0,0
+2466,4,0,,Deals 120% P.DMG to 2 enemies\nand halves its P.DEF.,0,0,15,,7,multiple enemies,0,0,0,0
+2467,4,0,,Deals 140% P.DMG to 1 enemy\nand halves its P.DEF.,0,0,15,,7,Single Enemy,0,0,0,0
+2468,4,0,,Deals 140% P.DMG to 2 enemies\nand halves its P.DEF.,0,0,15,,7,multiple enemies,0,0,0,0
+2469,4,0,,Deals 160% P.DMG to 1 enemy\nand halves its P.DEF.,0,0,15,,7,Single Enemy,0,0,0,0
+2470,4,0,,Deals 160% P.DMG to 2 enemies\nand halves its P.DEF.,0,0,15,,7,multiple enemies,0,0,0,0
+2471,4,0,,Halves 5 enemies' P.DEF.,0,0,15,,43,All Enemies,0,0,0,0
+2485,1,0,Incantation of Corrosion (II),Reduces P.ATK and M.ATK of 2 enemies.,0,26,15,,43,multiple enemies,18,0,3,0
+2490,4,0,Incantation of Corrosion (II),Reduces P.ATK and M.ATK of 2 enemies.,0,26,15,,43,multiple enemies,18,0,3,0
 2519,3,0,Destroy Weapon (II),Chance to reduce P.ATK and M.ATK of 1 enemy in the vanguard when giving support.,0,0,15,,518,own,0,0,0,1
 2530,1,0,Water God's Authority (III),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,0,19,15,,7,Single Enemy,1,18,1,0
 2535,4,0,Water God's Authority (III),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,0,19,15,,7,Single Enemy,1,18,1,0
 2559,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 2560,4,0,,Deals 100% P.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 2561,4,0,,Deals 150% P.DMG to 1 enemy.\nIncreases own P.DEF and M.DEF by 10%.,0,0,15,,5,Single Enemy/Self,0,0,0,0
+2564,1,0,Third Form (Fiery Crimson),Deals great M.DMG to 1 enemy.\nSlightly increases own M.ATK and M.DEF.,0,19,15,,5,Single Enemy/Self,2,12,1,0
+2565,1,0,Holy Knight's Gospel (II),Increases 2 allies' P.DEF and M.DEF.,0,26,15,,41,Multiple Allies/Self,13,0,3,0
+2570,4,0,Third Form (Fiery Crimson),Deals great M.DMG to 1 enemy.\nSlightly increases own M.ATK and M.DEF.,0,19,15,,5,Single Enemy/Self,2,12,1,0
+2571,4,0,Holy Knight's Gospel (II),Increases 2 allies' P.DEF and M.DEF.,0,26,15,,41,Multiple Allies/Self,13,0,3,0
 2575,4,0,シジミ,Deals 100% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 2576,4,0,シジミ,Deals 150% M.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 2577,4,0,シオフキ,Deals 100% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
@@ -1126,6 +1186,13 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2620,4,0,Evil Thunder of Onslaught (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,0,22,15,,8,multiple enemies,2,16,2,0
 2621,4,0,Barrier Master's Nocturne (III),Greatly increases M.DEF of 1 to 2 allies.,0,21,15,,42,Multiple Allies/Self,7,0,2,0
 2622,4,0,Incantation of Shackles (III),Greatly reduces P.ATK and P.DEF of 1 to 2 enemies.,0,22,15,,44,multiple enemies,19,0,2,0
+2676,1,0,Crimson Lotus of Hatred (III),Deals great M.DMG to 1 enemy.\nThe effect increases by 150% when at a disadvantage.,0,19,15,,19,Single Enemy,2,28,1,0
+2684,1,0,Incantation of Rust (III),Greatly reduces P.ATK of 1 to 2 enemies.,0,21,15,,44,multiple enemies,14,0,2,0
+2685,4,0,Incantation of Rust (III),Greatly reduces P.ATK of 1 to 2 enemies.,0,21,15,,44,multiple enemies,14,0,2,0
+2753,1,0,Magical Gust of Protection (IV),Deals massive M.DMG to 1 enemy.\nSlightly increases own M.DEF.,0,20,15,,5,Single Enemy/Self,2,7,1,0
+2755,1,0,Curse of Submission (IV),Massively reduces P.DEF and M.DEF of 1 enemy.,0,20,15,,43,Single Enemy,23,0,1,0
+2757,4,0,Magical Gust of Protection (IV),Deals massive M.DMG to 1 enemy.\nSlightly increases own M.DEF.,0,20,15,,5,Single Enemy/Self,2,7,1,0
+2759,4,0,Curse of Submission (IV),Massively reduces P.DEF and M.DEF of 1 enemy.,0,20,15,,43,Single Enemy,23,0,1,0
 2818,4,0,Torrent of Destruction (III),Deals great P.DMG to 1 to 2 enemies.,0,21,15,,2,multiple enemies,1,0,2,0
 2820,4,0,Inferno of Exorcism (III),Deals great M.DMG to 1 to 2 enemies.,0,21,15,,2,multiple enemies,2,0,2,0
 2823,1,0,Wind God's Authority (III),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,0,19,15,,7,Single Enemy,1,18,1,0
@@ -1136,7 +1203,9 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2873,4,0,,Deals 100% P.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 2874,4,0,,Increases P.DEF and M.DEF of 1 ally by 20%.,0,0,15,,41,Single Ally/Self,0,0,0,0
 2915,1,0,Gale of Assault (III),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK.,0,19,15,,5,Single Enemy/Self,1,4,1,0
+2918,1,0,Evil Roar of Protection (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.DEF.,0,22,15,,6,Multiple Enemies/Self,2,7,2,0
 2921,4,0,Gale of Assault (III),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK.,0,19,15,,5,Single Enemy/Self,1,4,1,0
+2924,4,0,Evil Roar of Protection (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.DEF.,0,22,15,,6,Multiple Enemies/Self,2,7,2,0
 2945,4,0,,Increases P.ATK and M.ATK of 1 ally by 10%.,0,0,15,,41,Single Ally/Self,0,0,0,0
 2946,4,0,,Deals 100% P.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 2954,4,0,My First Laser,Deals 150% P.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
@@ -1152,6 +1221,12 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3008,4,0,,Halves 5 enemies' M.DEF.,0,0,15,,43,All Enemies,0,0,0,0
 3028,1,0,Evil Thunder of Assault (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,0,22,15,,6,Multiple Enemies/Self,2,6,2,0
 3033,4,0,Evil Thunder of Assault (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,0,22,15,,6,Multiple Enemies/Self,2,6,2,0
+3045,1,0,Fifth Form (Wicked Ice),"Deals massive P.DMG to 1 enemy\nand slightly increases own P.ATK and P.DEF, adding 5 hits to your combo during a combo chance.",0,20,15,,532,Single Enemy/Self,1,24,1,0
+3046,1,0,Gospel of War (Verse 5),Massively restores HP to 1 to 3 allies.\nSlightly increases ally's P.ATK and P.DEF. ,0,21,15,,38,Multiple Allies/Self,3,9,2,0
+3047,4,0,Fifth Form (Wicked Ice),"Deals massive P.DMG to 1 enemy\nand slightly increases own P.ATK and P.DEF, adding 5 hits to your combo during a combo chance.",0,20,15,,532,Single Enemy/Self,1,24,1,0
+3048,4,0,Gospel of War (Verse 5),Massively restores HP to 1 to 3 allies.\nSlightly increases ally's P.ATK and P.DEF. ,0,21,15,,38,Multiple Allies/Self,3,9,2,0
+3057,1,0,Torrent of Destruction (II),Deals P.DMG to 1 to 2 enemies.,0,19,15,,2,multiple enemies,1,0,2,0
+3058,4,0,Torrent of Destruction (II),Deals P.DMG to 1 to 2 enemies.,0,19,15,,2,multiple enemies,1,0,2,0
 3081,0,0,Invader Hunter's Soul,This skill is more effective on invader type enemies.,0,0,0,,0,own,0,0,0,0
 3090,1,0,Evil Hail of Assault (I),Deals slight M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,0,20,15,,6,Multiple Enemies/Self,2,6,2,0
 3091,1,0,Evil Gust of Leeching (III),Deals great M.DMG to 1 enemy.\nSlightly restores own HP.,0,19,15,,3,Single Enemy/Self,2,3,1,0
@@ -1190,6 +1265,8 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3124,4,0,We Are Invaders,Deals 50% M.DMG to 5 enemies\nand halves their P.ATK and M.ATK.,0,0,15,,7,All Enemies,0,0,0,0
 3125,4,0,We Are Invaders,"Deals 50% M.DMG to 5 enemies\nand halves the enemies' P.DEF, and M.DEF.",0,0,15,,7,All Enemies,0,0,0,0
 3126,4,0,,味方5体の物理攻撃力、魔法攻撃力、物理防御力、魔法防御力を0.3倍アップする。,0,0,15,,41,All Allies/Self,0,0,0,0
+3159,1,0,Gale of Defense (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,0,19,15,,7,Single Enemy,1,15,1,0
+3160,4,0,Gale of Defense (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,0,19,15,,7,Single Enemy,1,15,1,0
 3180,4,0,,Deals 100% P.DMG to 1 enemy\nand halves its P.DEF.,0,0,15,,7,Single Enemy,0,0,0,0
 3181,4,0,Even... Humans...,Deals 120% P.DMG to 5 enemies\nand halves its M.DEF.,0,0,15,,7,All Enemies,0,0,0,0
 3182,4,0,,Deals 100% P.DMG to 2 enemies\nand halves its P.DEF.,0,0,15,,7,multiple enemies,0,0,0,0
@@ -1212,12 +1289,14 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3251,1,0,Flames of Leeching (III),Deals great P.DMG to 1 enemy.\nSlightly restores own HP.,0,19,15,,3,Single Enemy/Self,1,3,1,0
 3253,1,0,Flames of Assault (III),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK.,0,19,15,,5,Single Enemy/Self,1,4,1,0
 3254,1,0,Flames of Defense (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,0,19,15,,7,Single Enemy,1,15,1,0
+3255,1,0,Blazing Onslaught (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.ATK.,0,19,15,,7,Single Enemy,1,14,1,0
 3256,1,0,Barricade of Heat (III),Deals great P.DMG to 1 enemy.\nSlightly increases own P.DEF and M.DEF.,0,19,15,,5,Single Enemy/Self,1,13,1,0
 3257,1,0,Type 3 (Catastrophic Flame),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK and P.DEF.,0,19,15,,5,Single Enemy/Self,1,9,1,0
 3261,1,0,Torrent of Destruction (III),Deals great P.DMG to 1 to 2 enemies.,0,21,15,,2,multiple enemies,1,0,2,0
 3264,1,0,Hailstorm of Protection (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF.,0,22,15,,6,Multiple Enemies/Self,1,5,2,0
 3265,1,0,Hailstorm of Assault (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.ATK.,0,22,15,,6,Multiple Enemies/Self,1,4,2,0
 3266,1,0,Hailstorm of Defense (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.DEF.,0,22,15,,8,multiple enemies,1,15,2,0
+3267,1,0,Hailstorm of Onslaught (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK.,0,22,15,,8,multiple enemies,1,14,2,0
 3268,1,0,Rampart of Black Ice (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF and M.DEF.,0,22,15,,6,Multiple Enemies/Self,1,13,2,0
 3271,1,0,Water God's Prestige (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK and M.ATK.,0,22,15,,8,multiple enemies,1,18,2,0
 3274,1,0,Gale of Exorcism (IV),Deals massive M.DMG to 1 enemy.,0,18,15,,1,Single Enemy,2,0,1,0
@@ -1245,6 +1324,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3317,1,0,Sorcerer's Waltz (IV),Massively increases 1 ally's M.ATK.,0,18,15,,41,Single Ally/Self,6,0,1,0
 3318,1,0,Barrier Master's Serenade (IV),Massively increases M.DEF of 1 ally.,0,18,15,,41,Single Ally/Self,7,0,1,0
 3322,1,0,Hero's Rhapsody (III),Greatly increases 1 ally's P.ATK and M.ATK.,0,18,15,,41,Single Ally/Self,8,0,1,0
+3328,1,0,Sage's Gospel (III),Greatly increases M.ATK and M.DEF of 1 to 2 allies.,0,22,15,,42,Multiple Allies/Self,12,0,2,0
 3329,1,0,Holy Knight's Gospel (III),Greatly increases P.DEF and M.DEF of 1 to 2 allies.,0,22,15,,42,Multiple Allies/Self,13,0,2,0
 3330,1,0,Hero's Harmony (III),Greatly increases P.ATK and M.ATK of 1 to 2 allies.,0,23,15,,42,Multiple Allies/Self,8,0,2,0
 3332,1,0,Angel's Breath (III),Greatly restores HP\nand 20 SP to 1 to 2 allies.,0,23,15,,272,Multiple Allies/Self,3,31,2,0
@@ -1254,16 +1334,19 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3339,1,0,Staff of Assault (III),Greatly restores HP to 1 to 2 allies.\nSlightly increases ally's M.ATK.,0,22,15,,38,Multiple Allies/Self,3,6,2,0
 3340,1,0,Staff of Protection (III),Greatly restores HP to 1 to 2 allies.\nSlightly increases ally's M.DEF.,0,22,15,,38,Multiple Allies/Self,3,7,2,0
 3342,1,0,Inferno of Exorcism (III),Deals great M.DMG to 1 to 2 enemies.,0,21,15,,2,multiple enemies,2,0,2,0
+3344,1,0,Evil Blaze of Leeching (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,0,22,15,,4,Multiple Enemies/Self,2,3,2,0
 3347,1,0,Evil Blaze of Defense (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.DEF.,0,22,15,,8,multiple enemies,2,17,2,0
 3348,1,0,Evil Blaze Onslaught (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,0,22,15,,8,multiple enemies,2,16,2,0
 3356,4,0,Flames of Leeching (III),Deals great P.DMG to 1 enemy.\nSlightly restores own HP.,0,19,15,,3,Single Enemy/Self,1,3,1,0
 3358,4,0,Flames of Assault (III),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK.,0,19,15,,5,Single Enemy/Self,1,4,1,0
 3359,4,0,Flames of Defense (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,0,19,15,,7,Single Enemy,1,15,1,0
+3360,4,0,Blazing Onslaught (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.ATK.,0,19,15,,7,Single Enemy,1,14,1,0
 3361,4,0,Barricade of Heat (III),Deals great P.DMG to 1 enemy.\nSlightly increases own P.DEF and M.DEF.,0,19,15,,5,Single Enemy/Self,1,13,1,0
 3362,4,0,Type 3 (Catastrophic Flame),Deals great P.DMG to 1 enemy.\nSlightly increases own P.ATK and P.DEF.,0,19,15,,5,Single Enemy/Self,1,9,1,0
 3368,4,0,Hailstorm of Protection (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF.,0,22,15,,6,Multiple Enemies/Self,1,5,2,0
 3369,4,0,Hailstorm of Assault (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.ATK.,0,22,15,,6,Multiple Enemies/Self,1,4,2,0
 3370,4,0,Hailstorm of Defense (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.DEF.,0,22,15,,8,multiple enemies,1,15,2,0
+3371,4,0,Hailstorm of Onslaught (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK.,0,22,15,,8,multiple enemies,1,14,2,0
 3372,4,0,Rampart of Black Ice (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF and M.DEF.,0,22,15,,6,Multiple Enemies/Self,1,13,2,0
 3375,4,0,Water God's Prestige (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK and M.ATK.,0,22,15,,8,multiple enemies,1,18,2,0
 3377,4,0,Wind Technique of the Twin Songs (III),"Deals great M.DMG to 1 enemy,\nadding 5 hits to your combo during a combo chance.",0,20,15,,509,Single Enemy,2,24,1,0
@@ -1289,6 +1372,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3412,4,0,Sorcerer's Waltz (IV),Massively increases 1 ally's M.ATK.,0,18,15,,41,Single Ally/Self,6,0,1,0
 3413,4,0,Barrier Master's Serenade (IV),Massively increases M.DEF of 1 ally.,0,18,15,,41,Single Ally/Self,7,0,1,0
 3417,4,0,Hero's Rhapsody (III),Greatly increases 1 ally's P.ATK and M.ATK.,0,18,15,,41,Single Ally/Self,8,0,1,0
+3419,4,0,Sage's Gospel (III),Greatly increases M.ATK and M.DEF of 1 to 2 allies.,0,22,15,,42,Multiple Allies/Self,12,0,2,0
 3420,4,0,Holy Knight's Gospel (III),Greatly increases P.DEF and M.DEF of 1 to 2 allies.,0,22,15,,42,Multiple Allies/Self,13,0,2,0
 3421,4,0,Hero's Harmony (III),Greatly increases P.ATK and M.ATK of 1 to 2 allies.,0,23,15,,42,Multiple Allies/Self,8,0,2,0
 3423,4,0,Angel's Breath (III),Greatly restores HP\nand 20 SP to 1 to 2 allies.,0,23,15,,272,Multiple Allies/Self,3,31,2,0
@@ -1297,6 +1381,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3428,4,0,Breath of Protection (II),Restores HP to 2 allies.\nSlightly increases ally's P.DEF. ,0,26,15,,37,Multiple Allies/Self,3,5,3,0
 3430,4,0,Staff of Assault (III),Greatly restores HP to 1 to 2 allies.\nSlightly increases ally's M.ATK.,0,22,15,,38,Multiple Allies/Self,3,6,2,0
 3431,4,0,Staff of Protection (III),Greatly restores HP to 1 to 2 allies.\nSlightly increases ally's M.DEF.,0,22,15,,38,Multiple Allies/Self,3,7,2,0
+3435,4,0,Evil Blaze of Leeching (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,0,22,15,,4,Multiple Enemies/Self,2,3,2,0
 3438,4,0,Evil Blaze of Defense (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.DEF.,0,22,15,,8,multiple enemies,2,17,2,0
 3439,4,0,Evil Blaze Onslaught (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,0,22,15,,8,multiple enemies,2,16,2,0
 3452,4,0,,Increases 1 ally's P.ATK by 50%.,0,0,15,,41,Single Ally/Self,0,0,0,0
@@ -1306,7 +1391,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3456,4,0,,Increases 1 ally's M.ATK by 50%.,0,0,15,,41,Single Ally,0,0,0,0
 3457,4,0,,Increases 1 ally's M.ATK by 50%.,0,0,15,,41,Single Ally,0,0,0,0
 3458,4,0,,Increases 1 ally's P.ATK by 50%.,0,0,15,,41,Single Ally/Self,0,0,0,0
-3459,4,0,,Increases P.ATK of 1 ally by 120%.,0,0,15,,41,Single Ally/Self,0,0,0,0
+3459,4,0,,Increases 1 ally's P.ATK by 120%.,0,0,15,,41,Single Ally/Self,0,0,0,0
 3476,4,0,,Deals 130% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 3531,1,0,Crimson Lotus of Vengeance (III),Deals great M.DMG to 1 to 2 enemies.\nThe effect goes up by 150% when at a disadvantage.,0,22,15,,20,multiple enemies,2,28,2,0
 3598,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
@@ -1321,7 +1406,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3607,4,0,Snacks Snacks Snacks...,"Increases P.ATK, M.ATK, P.DEF, and M.DEF of 5 allies by 10%.",0,0,15,,41,All Allies/Self,0,0,0,0
 3669,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 3670,4,0,,Deals 150% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
-3671,4,0,,Increases P.ATK of 1 ally by 30%.,0,0,15,,41,Single Ally/Self,0,0,0,0
+3671,4,0,,Increases 1 ally's P.ATK by 30%.,0,0,15,,41,Single Ally/Self,0,0,0,0
 3672,4,0,,Deals 100% M.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 3673,4,0,,Deals 100% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 3674,4,0,,"Halves 5 enemies' P.ATK, M.ATK, P.DEF, and M.DEF.",0,0,15,,43,All Enemies,0,0,0,0
@@ -1340,3 +1425,27 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3688,4,0,Lightning Twin Songs (III),"Deals great M.DMG to 1 to 2 enemies,\nadding 5 hits to your combo during a combo chance.",0,23,15,,10,multiple enemies,2,24,2,0
 3771,1,0,Mist of Sorcery (III),"Deals great M.DMG to 1 or 2 enemies.\nIncreases effectiveness when the summon skill ""For Whom The Bell Splashes"" is activated.",0,24,15,,555,multiple enemies,2,28,2,0
 3772,4,0,Mist of Sorcery (III),"Deals great M.DMG to 1 or 2 enemies.\nIncreases effectiveness when the summon skill ""For Whom The Bell Splashes"" is activated.",0,24,15,,555,multiple enemies,2,28,2,0
+6069,4,0,Heat Sensor,Increases P.ATK and P.DEF of 5 allies by 30%.,0,0,15,,41,All Allies/Self,0,0,0,0
+6070,4,0,,Deals 100% P.DMG to 1 enemy\nand halves its P.DEF.,0,0,15,,7,Single Enemy,0,0,0,0
+6071,4,0,Poisonous Breath,Deals 100% P.DMG to 5 enemies and halves its P.DEF.,0,0,15,,7,All Enemies,0,0,0,0
+6072,4,0,Keheheh...,Increases P.ATK of 5 allies by 30%.,0,0,15,,41,All Allies/Self,0,0,0,0
+6073,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+6074,4,0,Rush,Deals 70% P.DMG to 3 enemies.,0,0,15,,1,multiple enemies,0,0,0,0
+6075,4,0,Leave this place!,Halves P.ATK of 5 enemies.,0,0,15,,43,All Enemies,0,0,0,0
+6076,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+6077,4,0,Get your hands off me!,Increases P.DEF of 5 allies by 20%.,0,0,15,,41,All Allies/Self,0,0,0,0
+6078,4,0,GRWOOOOORR!!!,Increases 5 allies' M.ATK by 30%.,0,0,15,,41,All Allies,0,0,0,0
+6079,4,0,,Deals 100% M.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+6080,4,0,Tch...!,味方5体の魔法攻撃力を0.2倍アップする。,0,0,15,,41,All Allies,0,0,0,0
+6081,4,0,Flare Circle,Deals 200% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
+6082,4,0,,Deals 100% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
+6083,4,0,Fwiiiiiissssssh...,"Halves 5 enemies' P.ATK, M.ATK, P.DEF, and M.DEF.",0,0,15,,43,All Enemies,0,0,0,0
+6084,4,0,Poisonous Breath,Deals 150% P.DMG to 5 enemies and halves their P.DEF.,0,0,15,,7,All Enemies,0,0,0,0
+6085,4,0,GRAAAAAARRROR!!!,"Increases P.ATK, P.DEF, M.ATK, and M.DEF of 5 allies by 50%.",0,0,15,,41,All Allies/Self,0,0,0,0
+6086,4,0,Agh...!,味方5体の魔法攻撃力を0.1倍アップする。,0,0,15,,41,All Allies,0,0,0,0
+6087,4,0,Clone,Deals 100% M.DMG to 1 enemy and calls in reinforcements.,0,0,15,,568,Single Enemy,0,0,0,0
+6088,4,0,,Deals 100% M.DMG to 3 enemies.,0,0,15,,1,multiple enemies,0,0,0,0
+6089,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+6090,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+6091,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+6092,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
