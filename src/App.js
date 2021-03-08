@@ -160,7 +160,7 @@ const App = () => {
             </IconButton>
             <Typography variant="h5">Pavij&apos;s SINoALICE companion</Typography>
             <Box ml={1}>
-              <Typography variant="caption">v0.1 (BETA)</Typography>
+              <Typography variant="caption">v0.1</Typography>
             </Box>
           </Toolbar>
         </AppBar>
