@@ -16,7 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import { useState, useEffect, useMemo } from 'react';
+import { useCallback, useState, useEffect, useMemo, useRef } from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -778,7 +778,7 @@ const ResultBox = ({combo, score}) => {
 };
 
 const OptimizationPage = ({ playerStats, weapons }) => {
-  const [optimizer, setOptimizzer] = useState(null);
+  const worker = useRef(null);
   const [progress, setProgress] = useState(null);
   const [optimizationResult, setOptimizationResult] = useState(null);
   const [showHighComboAlert, setShowHighComboAlert] = useState(false);
@@ -821,12 +821,29 @@ const OptimizationPage = ({ playerStats, weapons }) => {
     return numberOfCombinations.toLocaleString();
   }, [numberOfCombinations]);
 
-  useEffect(() => {
-    const worker = new OptimizationWorker();
-    worker.onerror = function(e) {
-      console.log(e.message);
+  const closeHighComboAlert = () => {
+    setShowHighComboAlert(false);
+  };
+
+  const cleanupWorker = useCallback(() => {
+    if (worker.current) {
+      console.log("terminating worker");
+      worker.current.terminate();
+      worker.current = null;
+      setProgress(null);
     }
-    worker.onmessage = function(e) {
+  }, [worker]);
+
+  const optimize = () => {
+    cleanupWorker();
+
+    console.log("creating new web worker");
+    const optimizer = new OptimizationWorker();
+    worker.current = optimizer;
+    optimizer.onerror = function(e) {
+      console.log(e.message);
+    };
+    optimizer.onmessage = function(e) {
       const message = e.data;
       switch (message.type) {
         case 'progress':
@@ -835,20 +852,14 @@ const OptimizationPage = ({ playerStats, weapons }) => {
 
         case 'result':
           setOptimizationResult(message);
+          cleanupWorker();
           break;
 
         default:
           console.log(message);
       }
-    }
-    setOptimizzer(worker);
-  }, []);
+    };
 
-  const closeHighComboAlert = () => {
-    setShowHighComboAlert(false);
-  };
-
-  const optimize = () => {
     const aviableWeapons = weapons.filter((w) => !options.pinnedWeapons.has(w.id) && !options.excludedWeapons.has(w.id));
     const pinnedWeapons = weapons.filter((w) => options.pinnedWeapons.has(w.id));
     const deck = pinnedWeapons.concat(aviableWeapons);
@@ -870,6 +881,10 @@ const OptimizationPage = ({ playerStats, weapons }) => {
       options: buildOptions,
     });
   };
+
+  useEffect(() => {
+    return cleanupWorker;
+  }, [cleanupWorker]);
 
   return (
     <Box>
@@ -895,7 +910,13 @@ const OptimizationPage = ({ playerStats, weapons }) => {
         </Button>
       ) : (
         <Box>
-          <label htmlFor="worker-job-progress">Analizing</label>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={cleanupWorker}
+          >
+            Abort
+          </Button>
           <LinearProgressWithLabel value={progress * 100} />
         </Box>
       )}

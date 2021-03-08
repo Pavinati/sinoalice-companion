@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Weapon levels in YourDeck page.
 - Weapon type and element minimum requirements.
 - Combo count and buff corrections.
+- Stop and restart optimization without reloading the page.
 ### Changed
 - Moved the class type and level selection in the optimization page.
 ### Fixed
