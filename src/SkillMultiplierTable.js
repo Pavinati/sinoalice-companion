@@ -3612,6 +3612,20 @@ const skillMultiplierTable = {
     "p_def": null,
     "m_def": null
   },
+  "2315": {
+    "id": 2315,
+    "name": "Torrent of Exorcism (III)",
+    "jp_name": "魔滅の滝波(Ⅲ)",
+    "description": "Deals great M.DMG to 1 to 2 enemies.",
+    "sp_cost": 21,
+    "range_icon": 2,
+    "damage_mult": 2.3,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": null,
+    "m_def": null
+  },
   "2364": {
     "id": 2364,
     "name": "Evil Roar of Protection (III)",
@@ -3735,6 +3749,34 @@ const skillMultiplierTable = {
     "recovery": null,
     "p_atk": null,
     "m_atk": 0.66,
+    "p_def": null,
+    "m_def": null
+  },
+  "2409": {
+    "id": 2409,
+    "name": "Sorcerer's Elegy (IV)",
+    "jp_name": "魔術師の哀歌(Ⅳ)",
+    "description": "Massively increases M.ATK of 1 ally.\\nThe effect increases by 150% when at a disadvantage.",
+    "sp_cost": 22,
+    "range_icon": 1,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": 1,
+    "p_def": null,
+    "m_def": null
+  },
+  "2410": {
+    "id": 2410,
+    "name": "Stone Hail Pursuit (III)",
+    "jp_name": "礫雹の追撃(Ⅲ)",
+    "description": "\"Deals great P.DMG to 1 enemy",
+    "sp_cost": null,
+    "range_icon": 20,
+    "damage_mult": 1,
+    "recovery": 2.5,
+    "p_atk": null,
+    "m_atk": null,
     "p_def": null,
     "m_def": null
   },
@@ -3916,6 +3958,20 @@ const skillMultiplierTable = {
     "damage_mult": 1.6,
     "recovery": null,
     "p_atk": null,
+    "m_atk": 0.3,
+    "p_def": null,
+    "m_def": null
+  },
+  "2599": {
+    "id": 2599,
+    "name": "Wind God's Force (III)",
+    "jp_name": "風神の威光(参)",
+    "description": "Deals great P.DMG to 1 to 2 enemies.\\nSlightly reduces enemy's P.ATK and M.ATK.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": 2.1,
+    "recovery": null,
+    "p_atk": 0.3,
     "m_atk": 0.3,
     "p_def": null,
     "m_def": null
@@ -4591,6 +4647,20 @@ const skillMultiplierTable = {
     "m_atk": null,
     "p_def": null,
     "m_def": 0.5
+  },
+  "3292": {
+    "id": 3292,
+    "name": "Evil Hail Onslaught (III)",
+    "jp_name": "攻下の魔雹(Ⅲ)",
+    "description": "Deals great M.DMG to 1 to 2 enemies.\\nSlightly reduces enemy's M.ATK.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": 2.1,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": 0.3,
+    "p_def": null,
+    "m_def": null
   },
   "3293": {
     "id": 3293,

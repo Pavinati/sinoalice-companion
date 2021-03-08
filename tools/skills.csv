@@ -257,6 +257,7 @@
 2255,Hero's Harmony (III),勇者の夢想曲(Ⅲ),Greatly increases P.ATK and M.ATK of 1 to 2 allies.,21,2,,,0.90,0.90,,
 2260,Knight's Nocturne (II),騎士の夜想曲(Ⅱ),Increases P.DEF of 1 to 2 allies.,19,2,,,,,0.00,
 2280,Sorcerer's Rondo (II),魔術師の輪舞曲(Ⅱ),Increases M.ATK of 2 allies.,25,3,,,,0.66,,
+2315,Torrent of Exorcism (III),魔滅の滝波(Ⅲ),Deals great M.DMG to 1 to 2 enemies.,21,2,2.30,,,,,
 2364,Evil Roar of Protection (III),防上の魔轟(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.DEF.,22,2,2.10,,,,,0.50
 2369,Gale of Assault (II),攻上の風撃(Ⅱ),Deals P.DMG to 1 enemy.\nSlightly increases own P.ATK.,17,1,1.80,,0.30,,,
 2376,Evil Ember of Assault (III),攻上の魔炎(Ⅲ),Deals great M.DMG to 1 enemy.\nSlightly increases own M.ATK.,19,1,2.50,,,0.30,,
@@ -266,6 +267,8 @@
 2390,Inferno Onslaught (III),攻下の灼撃(Ⅲ),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK.,22,2,2.10,,0.30,,,
 2393,Warrior's Rondo (II),戦士の輪舞曲(Ⅱ),Increases P.ATK of 2 allies.,25,3,,,0.66,,,
 2394,Incantation of Debilitation (II),衰弱ノ呪術(Ⅱ),Reduces M.ATK of 2 enemies.,25,3,,,,0.66,,
+2409,Sorcerer's Elegy (IV),魔術師の哀歌(Ⅳ),Massively increases M.ATK of 1 ally.\nThe effect increases by 150% when at a disadvantage.,22,1,,,,1.00,,
+2410,Stone Hail Pursuit (III),礫雹の追撃(Ⅲ),"Deals great P.DMG to 1 enemy,\nadding 5 hits to your combo during a combo chance.",20,1,2.50,,,,,
 2412,Breath of Assault (III),攻上の息吹(Ⅲ),Greatly restores HP to 1 to 2 allies and\nslightly increases ally's P.ATK. ,22,2,,2.34,0.30,,,
 2417,Evil Ice of Defense (III),防下の魔氷(Ⅲ),Deals great M.DMG to 1 enemy.\nSlightly reduces enemy's M.DEF.,19,1,2.50,,,,,0.50
 2433,Glacial Defense (III),防下の氷撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,19,1,2.50,,,,0.50,
@@ -279,6 +282,7 @@
 2585,Sorcerer's Rondo (III),魔術師の輪舞曲(Ⅲ),Greatly increases M.ATK of 1 to 2 allies.,21,2,,,,0.90,,
 2586,Staff of Assault (II),攻上の祈祷(Ⅱ),Restores HP to 2 allies.\nSlightly increases ally's M.ATK. ,26,3,,2.04,,0.30,,
 2595,Evil Roar of Assault (II),攻上の魔轟(Ⅱ),Deals M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,20,2,1.60,,,0.30,,
+2599,Wind God's Force (III),風神の威光(参),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK and M.ATK.,22,2,2.10,,0.30,0.30,,
 2615,Roaring Sandstorm Barrier (III),砂塵の轟壁(Ⅲ),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF and M.DEF.,22,2,2.10,,,,0.50,0.50
 2616,Evil Thunder of Onslaught (III),攻下の魔轟(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,22,2,2.10,,,0.30,,
 2617,Barrier Master's Nocturne (III),結界師の夜想曲(Ⅲ),Greatly increases M.DEF of 1 to 2 allies.,21,2,,,,,,1.50
@@ -327,6 +331,7 @@
 3289,Evil Hail of Protection (III),防上の魔雹(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.DEF.,22,2,2.10,,,,,0.50
 3290,Evil Hail of Assault (III),攻上の魔雹(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,22,2,2.10,,,0.30,,
 3291,Evil Hail of Defense (III),防下の魔雹(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.DEF.,22,2,2.10,,,,,0.50
+3292,Evil Hail Onslaught (III),攻下の魔雹(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,22,2,2.10,,,0.30,,
 3293,Thin Ice Containment (III),薄氷の結界(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF and M.DEF.,22,2,2.10,,,,0.50,0.50
 3300,Curse of Demolition (IV),壊壁ノ呪詛(Ⅳ),Massively reduces 1 enemy's P.DEF.,18,1,,,,,1.80,
 3301,Curse of Debilitation (IV),衰弱ノ呪詛(Ⅳ),Massively reduces 1 enemy's M.ATK.,18,1,,,,1.05,,

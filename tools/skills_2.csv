@@ -135,6 +135,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 574,0,0,Dragonslayer's Soul,Increases the effectiveness of skills against dragons.,0,0,0,,0,own,0,0,0,0
 575,0,0,Demon Hunter's Soul,Increases the effectiveness of skills against orc types.,0,0,0,,0,own,0,0,0,0
 577,0,0,Soul Hunting Spirit,This skill is more effective on Wisp type enemies.,0,0,0,,0,own,0,0,0,0
+579,0,0,Demon Hunting Spirit,This skill is more effective on fiend type enemies.,0,0,0,,0,own,0,0,0,0
 580,0,0,Machine Lifeform and Emil's Hunting Spirit,This skill is more effective on machine lifeform and Emil type enemies.,0,0,0,,0,own,0,0,0,0
 594,1,0,Inferno of Leeching (I),Deals slight P.DMG to 1 to 2 enemies.\nSlightly restores own HP.,0,20,15,,4,Multiple Enemies/Self,1,3,2,0
 595,1,0,Icicle of Leeching (III),Deals great P.DMG to 1 enemy.\nSlightly restores own HP.,0,19,15,,3,Single Enemy/Self,1,3,1,0
@@ -1096,6 +1097,8 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2304,4,0,,"Increases P.ATK, M.ATK, P.DEF, and M.DEF of 1 ally by 10%.",0,0,15,,41,Single Ally/Self,0,0,0,0
 2305,4,0,To a World Without Light,Deals 80% P.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 2310,3,0,Barrier Deployment (II),Chance to increase M.DEF of 1 ally in the vanguard when using commands.,0,0,15,,122,own,0,0,0,1
+2315,1,0,Torrent of Exorcism (III),Deals great M.DMG to 1 to 2 enemies.,0,21,15,,2,multiple enemies,2,0,2,0
+2316,4,0,Torrent of Exorcism (III),Deals great M.DMG to 1 to 2 enemies.,0,21,15,,2,multiple enemies,2,0,2,0
 2328,3,0,Recovery Support (III),Chance to greatly increase the amount of HP recovered when restoring HP.,0,0,15,,82,own,0,0,0,1
 2343,4,0,,Deals 100% M.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 2344,4,0,,Halves P.ATK and M.ATK of 1 enemy.,0,0,15,,43,Single Enemy,0,0,0,0
@@ -1117,6 +1120,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2360,4,0,"I, Am You...",Deals 200% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
 2364,1,0,Evil Roar of Protection (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.DEF.,0,22,15,,6,multiple enemies,2,7,2,0
 2366,3,0,Blade Deployment (II),Chance to increase P.ATK of 1 ally in the vanguard when using commands.,0,0,15,,123,own,0,0,0,1
+2367,3,0,Deploy Square Formation (I),Chance to slightly increase M.ATK of 1 ally in the vanguard when using commands.,0,0,15,,123,own,0,0,0,1
 2368,3,0,Deploy Square Formation (II),Chance to increase M.ATK of 1 ally in the vanguard when using commands.,0,0,15,,123,own,0,0,0,1
 2369,1,0,Gale of Assault (II),Deals P.DMG to 1 enemy.\nSlightly increases own P.ATK.,0,17,15,,5,Single Enemy/Self,1,4,1,0
 2373,4,0,Evil Roar of Protection (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.DEF.,0,22,15,,6,multiple enemies,2,7,2,0
@@ -1137,11 +1141,20 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2396,4,0,Inferno Onslaught (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK.,0,22,15,,8,multiple enemies,1,14,2,0
 2399,4,0,Warrior's Rondo (II),Increases P.ATK of 2 allies.,0,25,15,,41,Multiple Allies/Self,4,0,3,0
 2400,4,0,Incantation of Debilitation (II),Reduces M.ATK of 2 enemies.,0,25,15,,43,multiple enemies,16,0,3,0
+2409,1,0,Sorcerer's Elegy (IV),Massively increases M.ATK of 1 ally.\nThe effect increases by 150% when at a disadvantage.,0,22,15,,45,Single Ally/Self,6,28,1,0
+2410,1,0,Stone Hail Pursuit (III),"Deals great P.DMG to 1 enemy,\nadding 5 hits to your combo during a combo chance.",0,20,15,,509,Single Enemy,1,24,1,0
 2412,1,0,Breath of Assault (III),Greatly restores HP to 1 to 2 allies and\nslightly increases ally's P.ATK. ,0,22,15,,38,Multiple Allies/Self,3,4,2,0
+2414,4,0,Stone Hail Pursuit (III),"Deals great P.DMG to 1 enemy,\nadding 5 hits to your combo during a combo chance.",0,20,15,,509,Single Enemy,1,24,1,0
 2416,4,0,Breath of Assault (III),Greatly restores HP to 1 to 2 allies and\nslightly increases ally's P.ATK. ,0,22,15,,38,Multiple Allies/Self,3,4,2,0
 2417,1,0,Evil Ice of Defense (III),Deals great M.DMG to 1 enemy.\nSlightly reduces enemy's M.DEF.,0,19,15,,7,Single Enemy,2,17,1,0
 2421,3,0,Mental Focus (III),Chance to greatly increase own M.ATK when attacking.,0,0,15,,78,own,0,0,0,1
 2422,4,0,Evil Ice of Defense (III),Deals great M.DMG to 1 enemy.\nSlightly reduces enemy's M.DEF.,0,19,15,,7,Single Enemy,2,17,1,0
+2426,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
+2427,4,0,,"Increases P.ATK, P.DEF, M.ATK, and M.DEF of 5 allies by 8%.",0,0,15,,41,All Allies/Self,0,0,0,0
+2428,4,0,Bye Bye,Deals 150% P.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
+2429,4,0,,Deals 120% P.DMG to 3 enemies.,0,0,15,,1,multiple enemies,0,0,0,0
+2430,4,0,,"Increases P.ATK, P.DEF, M.ATK, and M.DEF of 1 ally by 8%.",0,0,15,,41,Single Ally/Self,0,0,0,0
+2431,4,0,Looking Back At You,"Increases P.ATK, P.DEF, M.ATK, and M.DEF of 5 allies by 18%.",0,0,15,,41,All Allies/Self,0,0,0,0
 2433,1,0,Glacial Defense (III),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,0,19,15,,7,Single Enemy,1,15,1,0
 2438,1,0,Evil Thunder of Leeching (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,0,22,15,,4,Multiple Enemies/Self,2,3,2,0
 2440,3,0,Recover M.ATK (II),Chance to increase M.ATK of 1 ally in the vanguard when restoring HP.,0,0,15,,502,own,0,0,0,1
@@ -1178,6 +1191,8 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2586,1,0,Staff of Assault (II),Restores HP to 2 allies.\nSlightly increases ally's M.ATK. ,0,26,15,,37,Multiple Allies/Self,3,6,3,0
 2595,1,0,Evil Roar of Assault (II),Deals M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,0,20,15,,6,Multiple Enemies/Self,2,6,2,0
 2596,4,0,Evil Roar of Assault (II),Deals M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,0,20,15,,6,Multiple Enemies/Self,2,6,2,0
+2599,1,0,Wind God's Force (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK and M.ATK.,0,22,15,,8,multiple enemies,1,18,2,0
+2603,4,0,Wind God's Force (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK and M.ATK.,0,22,15,,8,multiple enemies,1,18,2,0
 2615,1,0,Roaring Sandstorm Barrier (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF and M.DEF.,0,22,15,,6,Multiple Enemies/Self,1,13,2,0
 2616,1,0,Evil Thunder of Onslaught (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,0,22,15,,8,multiple enemies,2,16,2,0
 2617,1,0,Barrier Master's Nocturne (III),Greatly increases M.DEF of 1 to 2 allies.,0,21,15,,42,Multiple Allies/Self,7,0,2,0
@@ -1186,6 +1201,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2620,4,0,Evil Thunder of Onslaught (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,0,22,15,,8,multiple enemies,2,16,2,0
 2621,4,0,Barrier Master's Nocturne (III),Greatly increases M.DEF of 1 to 2 allies.,0,21,15,,42,Multiple Allies/Self,7,0,2,0
 2622,4,0,Incantation of Shackles (III),Greatly reduces P.ATK and P.DEF of 1 to 2 enemies.,0,22,15,,44,multiple enemies,19,0,2,0
+2659,4,0,Spider Surge (Water),Deals great M.DMG to 1 to 2 enemies.\nCauses 150% more damage to spider type enemies.,0,22,15,,125,multiple enemies,2,33,2,0
 2676,1,0,Crimson Lotus of Hatred (III),Deals great M.DMG to 1 enemy.\nThe effect increases by 150% when at a disadvantage.,0,19,15,,19,Single Enemy,2,28,1,0
 2684,1,0,Incantation of Rust (III),Greatly reduces P.ATK of 1 to 2 enemies.,0,21,15,,44,multiple enemies,14,0,2,0
 2685,4,0,Incantation of Rust (III),Greatly reduces P.ATK of 1 to 2 enemies.,0,21,15,,44,multiple enemies,14,0,2,0
@@ -1310,6 +1326,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3289,1,0,Evil Hail of Protection (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.DEF.,0,22,15,,6,Multiple Enemies/Self,2,7,2,0
 3290,1,0,Evil Hail of Assault (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,0,22,15,,6,Multiple Enemies/Self,2,6,2,0
 3291,1,0,Evil Hail of Defense (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.DEF.,0,22,15,,8,multiple enemies,2,17,2,0
+3292,1,0,Evil Hail Onslaught (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,0,22,15,,8,multiple enemies,2,16,2,0
 3293,1,0,Thin Ice Containment (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF and M.DEF.,0,22,15,,6,Multiple Enemies/Self,2,13,2,0
 3300,1,0,Curse of Demolition (IV),Massively reduces 1 enemy's P.DEF.,0,18,15,,43,Single Enemy,15,0,1,0
 3301,1,0,Curse of Debilitation (IV),Massively reduces 1 enemy's M.ATK.,0,18,15,,43,Single Enemy,16,0,1,0
@@ -1358,6 +1375,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3390,4,0,Evil Hail of Protection (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.DEF.,0,22,15,,6,Multiple Enemies/Self,2,7,2,0
 3391,4,0,Evil Hail of Assault (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own M.ATK.,0,22,15,,6,Multiple Enemies/Self,2,6,2,0
 3392,4,0,Evil Hail of Defense (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.DEF.,0,22,15,,8,multiple enemies,2,17,2,0
+3393,4,0,Evil Hail Onslaught (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,0,22,15,,8,multiple enemies,2,16,2,0
 3394,4,0,Thin Ice Containment (III),Deals great M.DMG to 1 to 2 enemies.\nSlightly increases own P.DEF and M.DEF.,0,22,15,,6,Multiple Enemies/Self,2,13,2,0
 3399,4,0,Curse of Demolition (IV),Massively reduces 1 enemy's P.DEF.,0,18,15,,43,Single Enemy,15,0,1,0
 3400,4,0,Curse of Debilitation (IV),Massively reduces 1 enemy's M.ATK.,0,18,15,,43,Single Enemy,16,0,1,0
