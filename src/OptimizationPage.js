@@ -387,18 +387,6 @@ const OptionsForm = ({ weapons, options, onOptionsChange }) => (
         </Grid>
       </Grid>
     </TogglableSection>
-    <TogglableSection title="Defence weighting">
-      <Grid container spacing={1}>
-        <Grid item xs={12}>
-          <TextField
-            label="Def score multiplier"
-            type="number"
-            value={options.defWeight}
-            onChange={(e) => onOptionsChange({...options, defWeight: e.target.value})}
-          />
-        </Grid>
-      </Grid>
-    </TogglableSection>
     <TogglableSection title="Buffs and combos and enemy def">
       <Grid container spacing={1}>
         <Grid item xs={12}>
