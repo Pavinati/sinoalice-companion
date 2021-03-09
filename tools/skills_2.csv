@@ -1134,6 +1134,7 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2385,1,0,Gospel of War (Verse 4),Massively restores HP to 1 ally.\nSlightly increases ally's P.ATK and P.DEF. ,0,22,15,,37,Single Ally/Self,3,9,1,0
 2386,4,0,Fourth Form (Wicked Ice),Deals massive P.DMG to 1 enemy.\nSlightly increases own P.ATK and P.DEF.,0,22,15,,5,Single Enemy/Self,1,9,1,0
 2387,4,0,Gospel of War (Verse 4),Massively restores HP to 1 ally.\nSlightly increases ally's P.ATK and P.DEF. ,0,22,15,,37,Single Ally/Self,3,9,1,0
+2388,3,0,Weapon Repair (I),Chance to slightly increase P.ATK and M.ATK of 1 ally in the vanguard when giving support.,0,0,15,,505,own,0,0,0,1
 2389,3,0,Weapon Repair (II),Chance to increase P.ATK and M.ATK of 1 ally in the vanguard when giving support.,0,0,15,,505,own,0,0,0,1
 2390,1,0,Inferno Onslaught (III),Deals great P.DMG to 1 to 2 enemies.\nSlightly reduces enemy's P.ATK.,0,22,15,,8,multiple enemies,1,14,2,0
 2393,1,0,Warrior's Rondo (II),Increases P.ATK of 2 allies.,0,25,15,,41,Multiple Allies/Self,4,0,3,0
@@ -1169,6 +1170,8 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2469,4,0,,Deals 160% P.DMG to 1 enemy\nand halves its P.DEF.,0,0,15,,7,Single Enemy,0,0,0,0
 2470,4,0,,Deals 160% P.DMG to 2 enemies\nand halves its P.DEF.,0,0,15,,7,multiple enemies,0,0,0,0
 2471,4,0,,Halves 5 enemies' P.DEF.,0,0,15,,43,All Enemies,0,0,0,0
+2476,4,0,Hero's Harmony (II),Increases P.ATK and M.ATK of 2 allies.,0,26,15,,41,Multiple Allies/Self,8,0,3,0
+2480,1,0,Hero's Harmony (II),Increases P.ATK and M.ATK of 2 allies.,0,26,15,,41,Multiple Allies/Self,8,0,3,0
 2485,1,0,Incantation of Corrosion (II),Reduces P.ATK and M.ATK of 2 enemies.,0,26,15,,43,multiple enemies,18,0,3,0
 2490,4,0,Incantation of Corrosion (II),Reduces P.ATK and M.ATK of 2 enemies.,0,26,15,,43,multiple enemies,18,0,3,0
 2519,3,0,Destroy Weapon (II),Chance to reduce P.ATK and M.ATK of 1 enemy in the vanguard when giving support.,0,0,15,,518,own,0,0,0,1
@@ -1202,6 +1205,8 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 2621,4,0,Barrier Master's Nocturne (III),Greatly increases M.DEF of 1 to 2 allies.,0,21,15,,42,Multiple Allies/Self,7,0,2,0
 2622,4,0,Incantation of Shackles (III),Greatly reduces P.ATK and P.DEF of 1 to 2 enemies.,0,22,15,,44,multiple enemies,19,0,2,0
 2659,4,0,Spider Surge (Water),Deals great M.DMG to 1 to 2 enemies.\nCauses 150% more damage to spider type enemies.,0,22,15,,125,multiple enemies,2,33,2,0
+2669,1,0,Staff of Assault (II),Restores HP to 2 allies.\nSlightly increases ally's M.ATK. ,0,27,15,,37,Multiple Allies/Self,3,6,3,0
+2675,4,0,Staff of Assault (II),Restores HP to 2 allies.\nSlightly increases ally's M.ATK. ,0,27,15,,37,Multiple Allies/Self,3,6,3,0
 2676,1,0,Crimson Lotus of Hatred (III),Deals great M.DMG to 1 enemy.\nThe effect increases by 150% when at a disadvantage.,0,19,15,,19,Single Enemy,2,28,1,0
 2684,1,0,Incantation of Rust (III),Greatly reduces P.ATK of 1 to 2 enemies.,0,21,15,,44,multiple enemies,14,0,2,0
 2685,4,0,Incantation of Rust (III),Greatly reduces P.ATK of 1 to 2 enemies.,0,21,15,,44,multiple enemies,14,0,2,0
@@ -1411,6 +1416,10 @@ skillMstId,category,setEffectSeriesId,name,description,attackEffect,sp,maxLevel,
 3458,4,0,,Increases 1 ally's P.ATK by 50%.,0,0,15,,41,Single Ally/Self,0,0,0,0
 3459,4,0,,Increases 1 ally's P.ATK by 120%.,0,0,15,,41,Single Ally/Self,0,0,0,0
 3476,4,0,,Deals 130% M.DMG to 5 enemies.,0,0,15,,1,All Enemies,0,0,0,0
+3493,1,0,Third Style (Emerald Lightning),Deals massive M.DMG to 1 enemy and\nslightly increases one's own M.ATK and M.DEF,0,20,15,,5,Single Enemy/Self,2,12,1,0
+3494,1,0,Shrieks of Demise (Verse 3),Massively reduces 1 to 2 enemies' P.DEF and M.DEF.,0,20,15,,44,multiple enemies,23,0,2,0
+3495,4,0,Third Style (Emerald Lightning),Deals massive M.DMG to 1 enemy and\nslightly increases one's own M.ATK and M.DEF,0,20,15,,5,Single Enemy/Self,2,12,1,0
+3496,4,0,Shrieks of Demise (Verse 3),Massively reduces 1 to 2 enemies' P.DEF and M.DEF.,0,20,15,,44,multiple enemies,23,0,2,0
 3531,1,0,Crimson Lotus of Vengeance (III),Deals great M.DMG to 1 to 2 enemies.\nThe effect goes up by 150% when at a disadvantage.,0,22,15,,20,multiple enemies,2,28,2,0
 3598,4,0,,Deals 100% P.DMG to 1 enemy.,0,0,15,,1,Single Enemy,0,0,0,0
 3599,4,0,,Deals 120% P.DMG to 2 to 3 enemies.,0,0,15,,2,multiple enemies,0,0,0,0

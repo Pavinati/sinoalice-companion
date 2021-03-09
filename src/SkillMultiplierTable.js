@@ -3836,6 +3836,20 @@ const skillMultiplierTable = {
     "p_def": null,
     "m_def": null
   },
+  "2480": {
+    "id": 2480,
+    "name": "Hero's Harmony (II)",
+    "jp_name": "勇者の夢想曲(Ⅱ)",
+    "description": "Increases P.ATK and M.ATK of 2 allies.",
+    "sp_cost": 26,
+    "range_icon": 3,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": 0.6,
+    "m_atk": 0.6,
+    "p_def": null,
+    "m_def": null
+  },
   "2485": {
     "id": 2485,
     "name": "Incantation of Corrosion (II)",
@@ -4030,6 +4044,20 @@ const skillMultiplierTable = {
     "p_atk": 0.84,
     "m_atk": null,
     "p_def": 1.36,
+    "m_def": null
+  },
+  "2669": {
+    "id": 2669,
+    "name": "Staff of Assault (II)",
+    "jp_name": "攻上の祈祷(Ⅱ)",
+    "description": "Restores HP to 2 allies.\\nSlightly increases ally's M.ATK. ",
+    "sp_cost": 27,
+    "range_icon": 3,
+    "damage_mult": null,
+    "recovery": 2.15,
+    "p_atk": null,
+    "m_atk": 0.3,
+    "p_def": null,
     "m_def": null
   },
   "2676": {
@@ -5039,6 +5067,34 @@ const skillMultiplierTable = {
     "m_atk": 0.3,
     "p_def": null,
     "m_def": null
+  },
+  "3493": {
+    "id": 3493,
+    "name": "Third Style (Emerald Lightning)",
+    "jp_name": "参式(翠雷)",
+    "description": "Deals massive M.DMG to 1 enemy and\\nslightly increases one's own M.ATK and M.DEF",
+    "sp_cost": 20,
+    "range_icon": 1,
+    "damage_mult": 2.7,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": 0.3,
+    "p_def": null,
+    "m_def": 0.5
+  },
+  "3494": {
+    "id": 3494,
+    "name": "Shrieks of Demise (Verse 3)",
+    "jp_name": "終焉ノ鬼哭(参節)",
+    "description": "Massively reduces 1 to 2 enemies' P.DEF and M.DEF.",
+    "sp_cost": 20,
+    "range_icon": 2,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": null,
+    "m_atk": null,
+    "p_def": 1.8,
+    "m_def": 1.8
   },
   "3531": {
     "id": 3531,

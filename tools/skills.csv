@@ -273,6 +273,7 @@
 2417,Evil Ice of Defense (III),防下の魔氷(Ⅲ),Deals great M.DMG to 1 enemy.\nSlightly reduces enemy's M.DEF.,19,1,2.50,,,,,0.50
 2433,Glacial Defense (III),防下の氷撃(Ⅲ),Deals great P.DMG to 1 enemy.\nSlightly reduces enemy's P.DEF.,19,1,2.50,,,,0.50,
 2438,Evil Thunder of Leeching (III),吸命の魔轟(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,22,2,2.10,1.20,,,,
+2480,Hero's Harmony (II),勇者の夢想曲(Ⅱ),Increases P.ATK and M.ATK of 2 allies.,26,3,,,0.60,0.60,,
 2485,Incantation of Corrosion (II),腐蝕ノ呪術(Ⅱ),Reduces P.ATK and M.ATK of 2 enemies.,26,3,,,0.60,0.60,,
 2530,Water God's Authority (III),水神の威令(参),Deals great P.DMG to 1 enemy\nand slightly reduces its P.ATK and M.ATK.,19,1,2.50,,0.30,0.30,,
 2564,Third Form (Fiery Crimson),参ノ型(紅焔),Deals great M.DMG to 1 enemy.\nSlightly increases own M.ATK and M.DEF.,19,1,,,,,,
@@ -287,6 +288,7 @@
 2616,Evil Thunder of Onslaught (III),攻下の魔轟(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,22,2,2.10,,,0.30,,
 2617,Barrier Master's Nocturne (III),結界師の夜想曲(Ⅲ),Greatly increases M.DEF of 1 to 2 allies.,21,2,,,,,,1.50
 2618,Incantation of Shackles (III),枷鎖ノ呪術(Ⅲ),Greatly reduces P.ATK and P.DEF of 1 to 2 enemies.,22,2,,,0.84,,1.36,
+2669,Staff of Assault (II),攻上の祈祷(Ⅱ),Restores HP to 2 allies.\nSlightly increases ally's M.ATK. ,27,3,,2.15,,0.30,,
 2676,Crimson Lotus of Hatred (III),憎悪の紅蓮(参),Deals great M.DMG to 1 enemy.\nThe effect increases by 150% when at a disadvantage.,19,1,2.50,,,,,
 2684,Incantation of Rust (III),刀錆ノ呪術(Ⅲ),Greatly reduces P.ATK of 1 to 2 enemies.,21,2,,,0.90,,,
 2753,Magical Gust of Protection (IV),防上の魔風(Ⅳ),Deals massive M.DMG to 1 enemy.\nSlightly increases own M.DEF.,20,1,2.70,,,,,0.50
@@ -359,6 +361,8 @@
 3344,Evil Blaze of Leeching (III),吸命の魔灼(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly restores own HP.,22,2,2.10,1.20,,,,
 3347,Evil Blaze of Defense (III),防下の魔灼(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.DEF.,22,2,2.10,,,,,0.50
 3348,Evil Blaze Onslaught (III),攻下の魔灼(Ⅲ),Deals great M.DMG to 1 to 2 enemies.\nSlightly reduces enemy's M.ATK.,22,2,2.10,,,0.30,,
+3493,Third Style (Emerald Lightning),参式(翠雷),Deals massive M.DMG to 1 enemy and\nslightly increases one's own M.ATK and M.DEF,20,1,2.70,,,0.30,,0.50
+3494,Shrieks of Demise (Verse 3),終焉ノ鬼哭(参節),Massively reduces 1 to 2 enemies' P.DEF and M.DEF.,20,2,,,,,1.80,1.80
 3531,Crimson Lotus of Vengeance (III),復讐の紅蓮(参),Deals great M.DMG to 1 to 2 enemies.\nThe effect goes up by 150% when at a disadvantage.,22,2,2.10,,,,,
 3687,Lightning Twin Songs (III),双詠雷術(Ⅲ),"Deals great M.DMG to 1 to 2 enemies,\nadding 5 hits to your combo during a combo chance.",23,2,2.10,,,,,
 3771,Mist of Sorcery (III),氷霧の纏魔(Ⅲ),"Deals great M.DMG to 1 or 2 enemies.\nIncreases effectiveness when the summon skill ""For Whom The Bell Splashes"" is activated.",24,2,2.10,,,,,
