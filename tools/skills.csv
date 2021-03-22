@@ -365,4 +365,7 @@
 3494,Shrieks of Demise (Verse 3),終焉ノ鬼哭(参節),Massively reduces 1 to 2 enemies' P.DEF and M.DEF.,20,2,,,,,1.80,1.80
 3531,Crimson Lotus of Vengeance (III),復讐の紅蓮(参),Deals great M.DMG to 1 to 2 enemies.\nThe effect goes up by 150% when at a disadvantage.,22,2,2.10,,,,,
 3687,Lightning Twin Songs (III),双詠雷術(Ⅲ),"Deals great M.DMG to 1 to 2 enemies,\nadding 5 hits to your combo during a combo chance.",23,2,2.10,,,,,
-3771,Mist of Sorcery (III),氷霧の纏魔(Ⅲ),"Deals great M.DMG to 1 or 2 enemies.\nIncreases effectiveness when the summon skill ""For Whom The Bell Splashes"" is activated.",24,2,2.10,,,,,
+3693,Blaze of Sorcery (III),炎熱の纏魔(Ⅲ),"Deals great M.DMG to 1 enemy.\nIncreases effectiveness when ally activates the summon skill ""Combustive Blessing"".",21,1,2.50,,,,,
+3719,Angel’s Death Rattle (Ⅲ),天使ノ断末魔(Ⅲ),Greatly restores HP to 1 to 2 allies.\nRestores own 8 SP if used before the last 5 minutes of the Colosseum.,22,2,,2.34,,,,
+3741,Sage’s Gospel (Ⅱ),賢者の福音歌(Ⅱ),Increases M.ATK and M.DEF of 2 ally.,26,3,,,,0.60,,1.06
+3771,Mist of Sorcery (III),氷霧の纏魔(Ⅲ),"Deals great M.DMG to 1 or 2 enemies.\nIncreases effectiveness when ally activates the summon skill ""For Whom The Bell Splashes"".",24,2,2.10,,,,,
