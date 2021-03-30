@@ -4886,6 +4886,20 @@ const skillMultiplierTable = {
     "p_def": null,
     "m_def": null
   },
+  "3327": {
+    "id": 3327,
+    "name": "Champion's Harmony (III)",
+    "jp_name": "英傑の夢想曲(Ⅲ)",
+    "description": "Greatly increases the P.ATK and P.DEF of 1 to 2 allies.",
+    "sp_cost": 22,
+    "range_icon": 2,
+    "damage_mult": null,
+    "recovery": null,
+    "p_atk": 0.84,
+    "m_atk": null,
+    "p_def": 1.36,
+    "m_def": null
+  },
   "3328": {
     "id": 3328,
     "name": "Sage's Gospel (III)",
